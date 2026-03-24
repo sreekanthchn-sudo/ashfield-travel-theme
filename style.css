@@ -1,0 +1,50 @@
+/*
+ Theme Name:   Ashfield Travel
+ Theme URI:    https://ashfieldtravel.co.uk
+ Description:  GeneratePress child theme for Ashfield Travel — curated holidays for British-Indian families. Premium design with Navy, Terracotta, Gold & Cream palette.
+ Author:       Ashfield Travel Ltd
+ Author URI:   https://ashfieldtravel.co.uk
+ Template:     generatepress
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  ashfield-travel
+ Tags:         travel, generatepress-child, custom-colors, custom-fonts
+*/
+
+/* ═══════════════════════════════════════════════════════════════
+   ASHFIELD TRAVEL — CSS CUSTOM PROPERTIES (Brand Tokens)
+   Applied globally, used by custom.css and GP Customiser overrides
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Primary palette */
+  --at-navy:             #1B2D4F;
+  --at-navy-light:       #2A4170;
+  --at-terracotta:       #C4572A;
+  --at-terracotta-dark:  #A84520;
+  --at-terracotta-light: #D4734E;
+  --at-gold:             #C9A84C;
+  --at-gold-light:       #E8D9A0;
+  --at-cream:            #FAF7F2;
+  --at-cream-dark:       #F0EBE1;
+
+  /* Accents */
+  --at-green:            #2E7D52;
+  --at-green-light:      #E8F3ED;
+
+  /* Text */
+  --at-text-dark:        #1A1A1A;
+  --at-text-body:        #4A4A4A;
+  --at-text-light:       #7A7A7A;
+
+  /* Utility */
+  --at-border:           #E8E3DA;
+  --at-white:            #FFFFFF;
+  --at-shadow-sm:        0 1px 3px rgba(0,0,0,0.06);
+  --at-shadow-md:        0 4px 16px rgba(0,0,0,0.08);
+  --at-shadow-lg:        0 8px 32px rgba(0,0,0,0.12);
+
+  /* Typography */
+  --at-font-heading:     'Cormorant Garamond', Georgia, serif;
+  --at-font-body:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}

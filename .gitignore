@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node / build tools (if added later)
+node_modules/
+npm-debug.log*
+
+# SASS cache
+.sass-cache/
+*.css.map
+
+# WordPress uploads — never commit these
+uploads/
+
+# Sensitive config
+*.env
+wp-config.php

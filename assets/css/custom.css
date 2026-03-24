@@ -1,0 +1,1408 @@
+/* ═══════════════════════════════════════════════════════════════
+   ASHFIELD TRAVEL — Custom Styles for GeneratePress Child Theme
+   Adapted from homepage-mockup.html
+   Version 1.0.0
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────
+   RESET / BASE OVERRIDES
+   ───────────────────────────────── */
+body.ashfield-travel {
+  font-family: var(--at-font-body);
+  color: var(--at-text-body);
+  line-height: 1.7;
+  background: var(--at-white);
+}
+
+body.ashfield-travel a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+body.ashfield-travel img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* GP container override */
+body.ashfield-travel .site-content .inside-article,
+body.ashfield-travel .grid-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* ─────────────────────────────────
+   TYPOGRAPHY — GP Heading Overrides
+   ───────────────────────────────── */
+body.ashfield-travel h1,
+body.ashfield-travel h2,
+body.ashfield-travel h3,
+body.ashfield-travel h4 {
+  font-family: var(--at-font-heading);
+  color: var(--at-navy);
+  line-height: 1.15;
+}
+
+body.ashfield-travel h1 { font-size: 62px; font-weight: 700; }
+body.ashfield-travel h2 { font-size: 42px; font-weight: 700; }
+body.ashfield-travel h3 { font-size: 28px; font-weight: 700; }
+body.ashfield-travel h4 { font-size: 22px; font-weight: 700; }
+
+/* ─────────────────────────────────
+   1. TOP BAR
+   ───────────────────────────────── */
+.at-top-bar {
+  background: var(--at-navy);
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  padding: 8px 0;
+  letter-spacing: 0.2px;
+}
+
+.at-top-bar .grid-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.at-top-bar-left {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.at-top-bar-left span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.at-top-bar-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.at-top-bar a {
+  color: var(--at-gold);
+  font-weight: 500;
+}
+
+.at-top-bar a:hover {
+  color: var(--at-gold-light);
+}
+
+.at-top-bar .separator {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* ─────────────────────────────────
+   2. HEADER / NAVIGATION
+   ───────────────────────────────── */
+body.ashfield-travel .site-header {
+  background: var(--at-white);
+  border-bottom: 1px solid var(--at-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+body.ashfield-travel .site-header .inside-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* Logo */
+.at-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.at-logo-mark {
+  width: 52px;
+  height: 52px;
+  background: var(--at-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.at-logo-mark .a-letter {
+  font-family: var(--at-font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--at-white);
+  font-style: italic;
+}
+
+.at-logo-mark .star {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  color: var(--at-terracotta);
+  font-size: 12px;
+}
+
+.at-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.at-logo-text .brand {
+  font-family: var(--at-font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--at-navy);
+  letter-spacing: 0.5px;
+}
+
+.at-logo-text .sub {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--at-terracotta);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Navigation items */
+body.ashfield-travel .main-navigation .main-nav ul li a {
+  font-family: var(--at-font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--at-text-dark);
+  padding: 28px 18px;
+  transition: color 0.2s;
+}
+
+body.ashfield-travel .main-navigation .main-nav ul li a:hover {
+  color: var(--at-terracotta);
+}
+
+/* Sub-menu (mega menu style) */
+body.ashfield-travel .main-navigation .main-nav ul ul {
+  background: var(--at-white);
+  border-radius: 0 0 8px 8px;
+  box-shadow: var(--at-shadow-lg);
+  padding: 32px 36px;
+  border-top: 3px solid var(--at-terracotta);
+}
+
+body.ashfield-travel .main-navigation .main-nav ul ul li a {
+  font-size: 14px;
+  color: var(--at-text-body);
+  padding: 6px 0;
+}
+
+body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
+  color: var(--at-terracotta);
+  padding-left: 4px;
+}
+
+/* Header right — phone + CTA */
+.at-header-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.at-header-phone .number {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--at-navy);
+  letter-spacing: 0.5px;
+}
+
+.at-header-phone .hours {
+  font-size: 11px;
+  color: var(--at-text-light);
+}
+
+/* ─────────────────────────────────
+   BUTTONS — Shared styles
+   ───────────────────────────────── */
+.at-btn-primary {
+  background: var(--at-terracotta);
+  color: var(--at-white);
+  border: none;
+  border-radius: 50px;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--at-font-body);
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.at-btn-primary:hover {
+  background: var(--at-terracotta-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--at-shadow-md);
+  color: var(--at-white);
+}
+
+.at-btn-secondary {
+  background: transparent;
+  color: var(--at-white);
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--at-font-body);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.at-btn-secondary:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: var(--at-white);
+  color: var(--at-white);
+}
+
+.at-btn-hero {
+  padding: 16px 36px;
+  font-size: 15px;
+}
+
+.at-btn-hero:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(196,87,42,0.4);
+}
+
+/* ─────────────────────────────────
+   3. HERO SECTION
+   ───────────────────────────────── */
+.at-hero {
+  position: relative;
+  height: 92vh;
+  min-height: 600px;
+  max-height: 800px;
+  overflow: hidden;
+}
+
+.at-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.at-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(27,45,79,0.3) 0%,
+    rgba(27,45,79,0.15) 40%,
+    rgba(27,45,79,0.5) 80%,
+    rgba(27,45,79,0.75) 100%
+  );
+}
+
+.at-hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 80px;
+  max-width: 800px;
+}
+
+.at-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--at-terracotta);
+  color: var(--at-white);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.at-hero-tagline {
+  font-family: var(--at-font-heading);
+  font-size: 62px;
+  font-weight: 700;
+  color: var(--at-white);
+  line-height: 1.08;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.at-hero-sub {
+  font-size: 19px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 300;
+  margin-bottom: 36px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.at-hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─────────────────────────────────
+   4. TRUST BAR
+   ───────────────────────────────── */
+.at-trust-bar {
+  background: var(--at-white);
+  border-bottom: 1px solid var(--at-border);
+  padding: 20px 0;
+}
+
+.at-trust-bar .grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.at-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--at-text-dark);
+}
+
+.at-trust-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.at-trust-icon.gold  { background: #FDF6E3; color: var(--at-gold); }
+.at-trust-icon.green { background: var(--at-green-light); color: var(--at-green); }
+.at-trust-icon.navy  { background: #EDF0F7; color: var(--at-navy); }
+
+.at-trust-stars {
+  color: var(--at-gold);
+  letter-spacing: 2px;
+}
+
+/* ─────────────────────────────────
+   5. FILTER / CATEGORY NAV
+   ───────────────────────────────── */
+.at-filter-bar {
+  background: var(--at-cream);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--at-border);
+}
+
+.at-filter-bar .grid-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.at-filter-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--at-text-dark);
+  margin-right: 8px;
+}
+
+.at-filter-pill {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1.5px solid var(--at-border);
+  background: var(--at-white);
+  color: var(--at-text-body);
+}
+
+.at-filter-pill:hover {
+  border-color: var(--at-terracotta);
+  color: var(--at-terracotta);
+}
+
+.at-filter-pill.active {
+  background: var(--at-terracotta);
+  color: var(--at-white);
+  border-color: var(--at-terracotta);
+}
+
+/* ─────────────────────────────────
+   SECTION COMMON
+   ───────────────────────────────── */
+.at-section {
+  padding: 80px 0;
+}
+
+.at-section.cream-bg {
+  background: var(--at-cream);
+}
+
+.at-section.navy-bg {
+  background: var(--at-navy);
+  color: var(--at-white);
+}
+
+.at-section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.at-section-title {
+  font-family: var(--at-font-heading);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--at-navy);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.navy-bg .at-section-title {
+  color: var(--at-white);
+}
+
+.at-section-subtitle {
+  font-size: 17px;
+  color: var(--at-text-light);
+  max-width: 620px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.navy-bg .at-section-subtitle {
+  color: rgba(255,255,255,0.65);
+}
+
+.at-section-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--at-terracotta);
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+/* ─────────────────────────────────
+   6. DESTINATION GRID
+   ───────────────────────────────── */
+.at-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.at-dest-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s;
+  aspect-ratio: 4/3;
+}
+
+.at-dest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--at-shadow-lg);
+}
+
+.at-dest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.at-dest-card:hover img {
+  transform: scale(1.05);
+}
+
+.at-dest-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+}
+
+.at-dest-card-name {
+  font-family: var(--at-font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--at-white);
+  margin-bottom: 4px;
+}
+
+.at-dest-card-tours {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
+}
+
+.at-dest-card .coming-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--at-gold);
+  color: var(--at-white);
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────
+   7. FEATURED TOUR CARDS
+   ───────────────────────────────── */
+.at-tour-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.at-tour-card {
+  background: var(--at-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--at-shadow-sm);
+  border: 1px solid var(--at-border);
+  transition: all 0.3s;
+}
+
+.at-tour-card:hover {
+  box-shadow: var(--at-shadow-lg);
+  transform: translateY(-4px);
+}
+
+.at-tour-card-img {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.at-tour-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.at-tour-card:hover .at-tour-card-img img {
+  transform: scale(1.06);
+}
+
+.at-tour-card-badges {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.at-tour-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: rgba(255,255,255,0.95);
+  color: var(--at-terracotta);
+  box-shadow: var(--at-shadow-sm);
+}
+
+.at-tour-card-body {
+  padding: 20px;
+}
+
+.at-tour-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.at-tour-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--at-text-light);
+  font-weight: 500;
+}
+
+.at-tour-favourite {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--at-gold);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.at-tour-card-title {
+  font-family: var(--at-font-heading);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--at-navy);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.at-tour-highlights {
+  list-style: none;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+.at-tour-highlights li {
+  font-size: 13px;
+  color: var(--at-text-body);
+  padding: 3px 0 3px 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.at-tour-highlights li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--at-terracotta);
+  font-weight: 700;
+}
+
+.at-tour-save-banner {
+  background: var(--at-green);
+  color: var(--at-white);
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.at-tour-info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--at-border);
+  margin-bottom: 16px;
+}
+
+.at-tour-info-item {
+  text-align: center;
+}
+
+.at-tour-info-item .icon {
+  font-size: 18px;
+  color: var(--at-terracotta);
+  margin-bottom: 2px;
+}
+
+.at-tour-info-item .label {
+  font-size: 10px;
+  color: var(--at-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.at-tour-info-item .value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--at-text-dark);
+}
+
+.at-tour-price-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.at-tour-price-label {
+  font-size: 11px;
+  color: var(--at-text-light);
+  text-transform: uppercase;
+}
+
+.at-tour-price {
+  font-family: var(--at-font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--at-terracotta);
+}
+
+.at-tour-price-per {
+  font-size: 11px;
+  color: var(--at-text-light);
+}
+
+.at-btn-find-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--at-terracotta);
+  color: var(--at-white);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--at-font-body);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.at-btn-find-more:hover {
+  background: var(--at-terracotta-dark);
+  color: var(--at-white);
+}
+
+.at-btn-find-more .arrow-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.at-btn-find-more:hover .arrow-circle {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ─────────────────────────────────
+   8. TOUR TYPES SECTION
+   ───────────────────────────────── */
+.at-types-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.at-type-tile {
+  text-align: center;
+  padding: 36px 20px;
+  background: var(--at-white);
+  border-radius: 12px;
+  border: 1px solid var(--at-border);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.at-type-tile:hover {
+  border-color: var(--at-terracotta);
+  box-shadow: var(--at-shadow-md);
+  transform: translateY(-4px);
+}
+
+.at-type-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  background: var(--at-cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--at-terracotta);
+  transition: all 0.3s;
+}
+
+.at-type-tile:hover .at-type-icon {
+  background: var(--at-terracotta);
+  color: var(--at-white);
+}
+
+.at-type-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--at-navy);
+  margin-bottom: 4px;
+}
+
+.at-type-count {
+  font-size: 12px;
+  color: var(--at-text-light);
+}
+
+/* ─────────────────────────────────
+   9. WHY ASHFIELD — USPs
+   ───────────────────────────────── */
+.at-usp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.at-usp-card {
+  text-align: center;
+  padding: 40px 32px;
+}
+
+.at-usp-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+}
+
+.at-usp-title {
+  font-family: var(--at-font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--at-white);
+}
+
+.at-usp-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ─────────────────────────────────
+   10. TESTIMONIALS
+   ───────────────────────────────── */
+.at-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.at-testimonial-card {
+  background: var(--at-white);
+  border-radius: 12px;
+  padding: 36px;
+  border: 1px solid var(--at-border);
+  position: relative;
+}
+
+.at-testimonial-stars {
+  color: var(--at-gold);
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+.at-testimonial-text {
+  font-size: 15px;
+  color: var(--at-text-body);
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.at-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.at-testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--at-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--at-terracotta);
+  font-size: 16px;
+}
+
+.at-testimonial-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--at-text-dark);
+}
+
+.at-testimonial-trip {
+  font-size: 12px;
+  color: var(--at-text-light);
+}
+
+.at-testimonial-quote-mark {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  font-family: var(--at-font-heading);
+  font-size: 64px;
+  color: var(--at-cream-dark);
+  line-height: 1;
+}
+
+/* ─────────────────────────────────
+   11. BLOG / INSPIRATION GRID
+   ───────────────────────────────── */
+.at-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.at-blog-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--at-white);
+  border: 1px solid var(--at-border);
+  transition: all 0.3s;
+}
+
+.at-blog-card:hover {
+  box-shadow: var(--at-shadow-md);
+  transform: translateY(-4px);
+}
+
+.at-blog-card-img {
+  height: 220px;
+  overflow: hidden;
+}
+
+.at-blog-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.at-blog-card:hover .at-blog-card-img img {
+  transform: scale(1.05);
+}
+
+.at-blog-card-body {
+  padding: 24px;
+}
+
+.at-blog-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--at-terracotta);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.at-blog-title {
+  font-family: var(--at-font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--at-navy);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.at-blog-excerpt {
+  font-size: 14px;
+  color: var(--at-text-light);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.at-blog-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--at-terracotta);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.3s;
+  text-decoration: none;
+}
+
+.at-blog-card:hover .at-blog-link {
+  gap: 10px;
+}
+
+/* ─────────────────────────────────
+   12. NEWSLETTER / BROCHURE CTA
+   ───────────────────────────────── */
+.at-newsletter {
+  background: linear-gradient(135deg, var(--at-navy) 0%, var(--at-navy-light) 100%);
+  padding: 72px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.at-newsletter::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.06);
+}
+
+.at-newsletter .grid-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.at-newsletter-content {
+  flex: 1;
+}
+
+.at-newsletter-title {
+  font-family: var(--at-font-heading);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--at-white);
+  margin-bottom: 12px;
+}
+
+.at-newsletter-text {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.at-newsletter-form {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  max-width: 500px;
+}
+
+.at-newsletter-input {
+  flex: 1;
+  padding: 16px 24px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.08);
+  color: var(--at-white);
+  font-size: 15px;
+  font-family: var(--at-font-body);
+  transition: border-color 0.3s;
+}
+
+.at-newsletter-input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.at-newsletter-input:focus {
+  outline: none;
+  border-color: var(--at-gold);
+}
+
+.at-btn-brochure {
+  background: var(--at-terracotta);
+  color: var(--at-white);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--at-font-body);
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.at-btn-brochure:hover {
+  background: var(--at-terracotta-dark);
+}
+
+/* ─────────────────────────────────
+   13. FOOTER
+   ───────────────────────────────── */
+body.ashfield-travel .site-footer {
+  background: #111B2E;
+  color: rgba(255,255,255,0.7);
+  padding: 64px 0 0;
+}
+
+.at-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.at-footer-brand .brand-name {
+  font-family: var(--at-font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--at-white);
+  margin-bottom: 12px;
+}
+
+.at-footer-brand .brand-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: rgba(255,255,255,0.5);
+}
+
+.at-footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.at-footer-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  transition: all 0.3s;
+}
+
+.at-footer-social a:hover {
+  border-color: var(--at-terracotta);
+  color: var(--at-terracotta);
+  background: rgba(196,87,42,0.1);
+}
+
+.at-footer-col h4 {
+  font-family: var(--at-font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--at-white);
+  margin-bottom: 20px;
+}
+
+.at-footer-col a {
+  display: block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  padding: 5px 0;
+  transition: all 0.2s;
+}
+
+.at-footer-col a:hover {
+  color: var(--at-terracotta);
+  padding-left: 3px;
+}
+
+.at-footer-bottom {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+.at-footer-badges {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.at-footer-badge {
+  padding: 4px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.5px;
+}
+
+/* ─────────────────────────────────
+   14. STICKY BROCHURE BUTTON
+   ───────────────────────────────── */
+.at-sticky-brochure {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  background: var(--at-terracotta);
+  color: var(--at-white);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--at-font-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(196,87,42,0.4);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.at-sticky-brochure:hover {
+  background: var(--at-terracotta-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(196,87,42,0.5);
+  color: var(--at-white);
+}
+
+/* ─────────────────────────────────
+   15. MOBILE CTA BAR
+   ───────────────────────────────── */
+.at-mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  background: var(--at-white);
+  border-top: 1px solid var(--at-border);
+  padding: 12px 16px;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+}
+
+.at-mobile-cta-inner {
+  display: flex;
+  gap: 10px;
+}
+
+.at-mobile-cta .btn-mobile {
+  flex: 1;
+  padding: 14px;
+  border-radius: 50px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--at-font-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.at-mobile-cta .btn-mobile.call {
+  background: var(--at-navy);
+  color: var(--at-white);
+}
+
+.at-mobile-cta .btn-mobile.enquire {
+  background: var(--at-terracotta);
+  color: var(--at-white);
+}
+
+/* ─────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .at-tour-grid       { grid-template-columns: repeat(2, 1fr); }
+  .at-types-grid      { grid-template-columns: repeat(3, 1fr); }
+  .at-footer-grid     { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .at-top-bar                   { display: none; }
+  body.ashfield-travel .site-header .inside-header { height: 64px; }
+
+  .at-hero                      { height: 70vh; min-height: 500px; }
+  .at-hero-tagline              { font-size: 38px; }
+  .at-hero-sub                  { font-size: 16px; }
+  .at-hero-content              { padding-bottom: 48px; }
+
+  .at-section                   { padding: 56px 0; }
+  .at-section-title             { font-size: 32px; }
+
+  body.ashfield-travel h1       { font-size: 38px; }
+  body.ashfield-travel h2       { font-size: 32px; }
+
+  .at-dest-grid                 { grid-template-columns: 1fr 1fr; }
+  .at-tour-grid                 { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .at-usp-grid                  { grid-template-columns: 1fr; }
+  .at-testimonial-grid          { grid-template-columns: 1fr; }
+  .at-blog-grid                 { grid-template-columns: 1fr; }
+  .at-types-grid                { grid-template-columns: repeat(2, 1fr); }
+
+  .at-newsletter .grid-container { flex-direction: column; gap: 32px; text-align: center; }
+  .at-newsletter-form           { flex-direction: column; max-width: 100%; }
+
+  .at-footer-grid               { grid-template-columns: 1fr; gap: 32px; }
+  .at-trust-bar .grid-container { gap: 20px; justify-content: center; }
+
+  .at-sticky-brochure           { display: none; }
+  .at-mobile-cta                { display: block; }
+
+  .at-filter-bar                { overflow-x: auto; }
+  .at-header-phone              { display: none; }
+
+  body.ashfield-travel .site-content .inside-article,
+  body.ashfield-travel .grid-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .at-dest-grid                 { grid-template-columns: 1fr; }
+  .at-hero-tagline              { font-size: 32px; }
+  .at-hero-buttons              { flex-direction: column; }
+  .at-types-grid                { grid-template-columns: 1fr 1fr; }
+  .at-footer-bottom             { flex-direction: column; gap: 16px; text-align: center; }
+}
