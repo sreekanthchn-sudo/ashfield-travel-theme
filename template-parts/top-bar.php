@@ -1,8 +1,6 @@
 <?php
 /**
  * Template part: Top bar — phone, email, trust badges
- * Include via: get_template_part( 'template-parts/top-bar' )
- * Hook into GP: add_action( 'generate_before_header', ... )
  *
  * @package Ashfield_Travel
  */
@@ -12,7 +10,6 @@
 
     <div class="at-top-bar-left">
       <span>
-        <span aria-hidden="true">&#9742;</span>
         <a href="tel:+447587671758">+44 7587 671758</a>
         &nbsp;|&nbsp;
         <?php esc_html_e( 'Mon–Fri 9am–6pm, Sat 10am–4pm', 'ashfield-travel' ); ?>
@@ -21,7 +18,6 @@
 
     <div class="at-top-bar-right">
       <span>
-        <span aria-hidden="true">&#9993;</span>
         <a href="mailto:info@ashfieldtravel.co.uk">info@ashfieldtravel.co.uk</a>
       </span>
       <span class="separator" aria-hidden="true"></span>
