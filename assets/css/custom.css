@@ -1411,16 +1411,41 @@ body.ashfield-travel .site-footer {
 
 /* ─────────────────────────────────────────────────────────────
    HOMEPAGE FULL-WIDTH CANVAS
-   GP adds .home + .page to body on the front page.
-   Force the content area to be 100% wide so our sections
-   fill the viewport edge-to-edge.
+   Kill GP sidebar layout on front page completely.
+   Target every possible GP wrapper class.
    ─────────────────────────────────────────────────────────────*/
-body.home .site-content,
-body.home .grid-container.grid-parent,
-body.home #primary.content-area,
-body.home .site-main,
-body.home article.page,
-body.home .entry-content {
+
+/* Hide the sidebar widget area on front page */
+body.ashfield-homepage #secondary,
+body.ashfield-homepage .widget-area,
+body.ashfield-homepage aside.sidebar {
+  display: none !important;
+}
+
+/* Force the outer grid to be single column */
+body.ashfield-homepage .site-content.grid-container,
+body.ashfield-homepage .site-content {
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Content area takes full width */
+body.ashfield-homepage #primary.content-area,
+body.ashfield-homepage .content-area {
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove all GP article/entry chrome */
+body.ashfield-homepage .site-main,
+body.ashfield-homepage article.page,
+body.ashfield-homepage .entry-content {
   max-width: 100% !important;
   width: 100% !important;
   padding: 0 !important;
@@ -1428,13 +1453,30 @@ body.home .entry-content {
   float: none !important;
 }
 
+/* Legacy body.home selectors as fallback */
+body.home #secondary,
+body.home .widget-area {
+  display: none !important;
+}
+body.home #primary.content-area,
+body.home .site-content,
+body.home .site-main,
+body.home article.page,
+body.home .entry-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  float: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /* Our sections control their own inner padding */
-body.home .at-hero,
-body.home .at-filter-bar,
-body.home .at-section,
-body.home .at-newsletter,
-body.home .at-sticky-brochure,
-body.home .at-mobile-cta {
+body.ashfield-homepage .at-hero,
+body.ashfield-homepage .at-filter-bar,
+body.ashfield-homepage .at-section,
+body.ashfield-homepage .at-newsletter,
+body.ashfield-homepage .at-sticky-brochure,
+body.ashfield-homepage .at-mobile-cta {
   width: 100%;
   box-sizing: border-box;
 }
