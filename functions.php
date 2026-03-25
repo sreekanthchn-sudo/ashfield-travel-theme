@@ -211,7 +211,7 @@ function ashfield_schema_org() {
 		'@type'       => 'TravelAgency',
 		'name'        => 'Ashfield Travel',
 		'url'         => home_url( '/' ),
-		'telephone'   => '+44-800-123-4567',
+		'telephone'   => '+44-7587-671758',
 		'email'       => 'info@ashfieldtravel.co.uk',
 		'description' => 'Curated holidays to India and Dubai designed for British-Indian families in the UK.',
 		'address'     => array(
@@ -225,4 +225,15 @@ function ashfield_schema_org() {
 		),
 	);
 	echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+}
+
+/* ──────────────────────────────────────────────
+ * 10. CUSTOM FOOTER COPYRIGHT
+ * ────────────────────────────────────────────── */
+add_filter( 'generate_copyright', 'ashfield_custom_footer' );
+function ashfield_custom_footer() {
+	return sprintf(
+		'&copy; %s Ashfield Travel Ltd &middot; ATOL Protected &middot; TTA Member &middot; All rights reserved.',
+		date( 'Y' )
+	);
 }
