@@ -114,7 +114,30 @@ function ashfield_gp_defaults( $defaults ) {
 	/* Container width */
 	$defaults['container_width']      = '1280';
 
+	/* Layout — no sidebar globally so content is full width */
+	$defaults['layout']               = 'no-sidebar';
+
 	return $defaults;
+}
+
+/* ──────────────────────────────────────────────
+ * 3b. FORCE NO SIDEBAR + FULL-WIDTH ON FRONT PAGE
+ * ────────────────────────────────────────────── */
+add_filter( 'generate_sidebar_layout', 'ashfield_no_sidebar_homepage' );
+function ashfield_no_sidebar_homepage( $layout ) {
+	if ( is_front_page() ) {
+		return 'no-sidebar';
+	}
+	return $layout;
+}
+
+/* Remove GP's entry wrappers on front page so our sections are truly full-width */
+add_action( 'template_redirect', 'ashfield_homepage_canvas' );
+function ashfield_homepage_canvas() {
+	if ( ! is_front_page() ) return;
+	// Remove default GP article padding/entry structure filters
+	add_filter( 'generate_show_entry_header', '__return_false' );
+	add_filter( 'generate_show_entry_footer', '__return_false' );
 }
 
 /* ──────────────────────────────────────────────

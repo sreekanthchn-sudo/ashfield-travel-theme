@@ -1409,6 +1409,36 @@ body.ashfield-travel .site-footer {
 }
 
 
+/* ─────────────────────────────────────────────────────────────
+   HOMEPAGE FULL-WIDTH CANVAS
+   GP adds .home + .page to body on the front page.
+   Force the content area to be 100% wide so our sections
+   fill the viewport edge-to-edge.
+   ─────────────────────────────────────────────────────────────*/
+body.home .site-content,
+body.home .grid-container.grid-parent,
+body.home #primary.content-area,
+body.home .site-main,
+body.home article.page,
+body.home .entry-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  float: none !important;
+}
+
+/* Our sections control their own inner padding */
+body.home .at-hero,
+body.home .at-filter-bar,
+body.home .at-section,
+body.home .at-newsletter,
+body.home .at-sticky-brochure,
+body.home .at-mobile-cta {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    TOURS ARCHIVE  (archive-tour.php)
    ═══════════════════════════════════════════════════════════════ */
