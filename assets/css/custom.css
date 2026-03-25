@@ -1422,6 +1422,18 @@ body.ashfield-homepage aside.sidebar {
   display: none !important;
 }
 
+/* Kill GP's flex grid — the root cause of horizontal section layout */
+body.ashfield-homepage .inside-site-content,
+body.ashfield-homepage .inside-site-content.grid-container,
+body.ashfield-homepage .inside-site-content.grid-parent,
+body.ashfield-homepage .grid-container.grid-parent {
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /* Force the outer grid to be single column */
 body.ashfield-homepage .site-content.grid-container,
 body.ashfield-homepage .site-content {
