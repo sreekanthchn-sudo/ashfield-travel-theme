@@ -11,6 +11,11 @@ defined( 'ABSPATH' ) || exit;
 define( 'ASHFIELD_VERSION', '1.0.0' );
 
 /* ──────────────────────────────────────────────
+ * INCLUDES
+ * ────────────────────────────────────────────── */
+require_once get_stylesheet_directory() . '/inc/cpt-tours.php';
+
+/* ──────────────────────────────────────────────
  * 1. ENQUEUE PARENT + CHILD STYLES & GOOGLE FONTS
  * ────────────────────────────────────────────── */
 add_action( 'wp_enqueue_scripts', 'ashfield_enqueue_assets' );
