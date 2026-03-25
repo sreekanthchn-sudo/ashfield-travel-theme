@@ -211,7 +211,7 @@ $hero_img = has_post_thumbnail()
           <div class="at-booking-phone">
             <span aria-hidden="true">&#9742;</span>
             <div>
-              <a href="tel:+448001234567"><strong>0800 123 4567</strong></a>
+              <a href="tel:+447587671758"><strong>+44 7587 671758</strong></a>
               <span><?php esc_html_e( 'Mon–Fri 9am–6pm', 'ashfield-travel' ); ?></span>
             </div>
           </div>

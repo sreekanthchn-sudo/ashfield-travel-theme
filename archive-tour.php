@@ -218,7 +218,7 @@ $tour_types   = get_terms( [ 'taxonomy' => 'tour_type',        'hide_empty' => t
           </div>
           <div class="at-sidebar-trust-item">
             <span aria-hidden="true">&#9742;</span>
-            <a href="tel:+448001234567"><?php esc_html_e( '0800 123 4567', 'ashfield-travel' ); ?></a>
+            <a href="tel:+447587671758"><?php esc_html_e( '+44 7587 671758', 'ashfield-travel' ); ?></a>
           </div>
         </div>
 
@@ -339,7 +339,7 @@ $tour_types   = get_terms( [ 'taxonomy' => 'tour_type',        'hide_empty' => t
             </a>
             <p class="at-no-results-call">
               <?php esc_html_e( 'Or call us:', 'ashfield-travel' ); ?>
-              <a href="tel:+448001234567"><strong>0800 123 4567</strong></a>
+              <a href="tel:+447587671758"><strong>+44 7587 671758</strong></a>
             </p>
           </div>
 

@@ -13,7 +13,7 @@
     <div class="at-top-bar-left">
       <span>
         <span aria-hidden="true">&#9742;</span>
-        <a href="tel:+448001234567">0800 123 4567</a>
+        <a href="tel:+447587671758">+44 7587 671758</a>
         &nbsp;|&nbsp;
         <?php esc_html_e( 'Mon–Fri 9am–6pm, Sat 10am–4pm', 'ashfield-travel' ); ?>
       </span>
