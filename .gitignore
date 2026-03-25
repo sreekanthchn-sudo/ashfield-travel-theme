@@ -21,6 +21,7 @@ npm-debug.log*
 # WordPress uploads — never commit these
 uploads/
 
-# Sensitive config
+# Sensitive config — NEVER commit these
+.env
 *.env
 wp-config.php

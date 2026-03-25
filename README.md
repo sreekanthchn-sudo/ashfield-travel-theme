@@ -62,17 +62,71 @@ Edit files locally → commit → push to `main` → SiteGround auto-deploys via
 
 ## Deployment
 
-### Connect GitHub → SiteGround
+> **Hosting:** SiteGround GrowBig — uses SSH + `git pull` (no Git GUI needed).
 
-1. **SiteGround Site Tools** → *Devs* → **Git**
-2. Click **Create Repository** on the remote path:
-   `/home/[account]/public_html/wp-content/themes/ashfield-travel-theme`
-3. Copy the SSH public key shown and add it to your GitHub repo:
-   *Settings → Deploy keys → Add deploy key* (check "Allow write access" only if needed)
-4. In SiteGround Git, set **Remote URL** to your GitHub SSH URL:
-   `git@github.com:YOUR-USERNAME/ashfield-travel-theme.git`
-5. Set branch to `main`
-6. Enable **Auto-deploy on push** (webhook)
+### First-time setup (run once after buying SiteGround)
+
+**Step 1 — Configure your .env**
+```bash
+cp .env.example .env
+# Open .env and fill in your SiteGround SSH details
+```
+
+Find your SSH details in:
+**SiteGround Site Tools → Devs → SSH Keys Manager**
+
+| .env variable | Where to find it |
+|---|---|
+| `SG_USER` | Site Tools → Info & Settings → Account username |
+| `SG_HOST` | Site Tools → Devs → SSH Keys → Server hostname |
+| `SG_PORT` | Always `18765` on SiteGround |
+| `SG_THEMES_DIR` | `/home/USERNAME/public_html/wp-content/themes` |
+
+**Step 2 — Add your Mac SSH key to SiteGround**
+
+Copy your key:
+```bash
+cat ~/.ssh/ashfield_deploy.pub
+```
+Go to: **Site Tools → Devs → SSH Keys Manager → Add New Key** → paste it.
+
+**Step 3 — Clone the repo onto the server (once)**
+```bash
+chmod +x setup-server.sh
+./setup-server.sh
+```
+
+This SSHs into SiteGround, clones the GitHub repo into the themes folder, and sets permissions.
+
+---
+
+### Every deploy after that — one command
+
+```bash
+./deploy.sh
+```
+
+That's it. It will:
+1. SSH into SiteGround
+2. `git pull origin main` in the theme folder
+3. Fix file permissions
+4. Flush WordPress cache via WP-CLI
+5. Confirm the last commit deployed
+
+### Typical workflow
+
+```bash
+# 1. Edit files locally
+# 2. Commit
+git add -p
+git commit -m "Update hero styles"
+
+# 3. Push to GitHub
+git push origin main
+
+# 4. Deploy to SiteGround
+./deploy.sh
+```
 
 From then on: `git push origin main` → SiteGround pulls and deploys automatically.
 
