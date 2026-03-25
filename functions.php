@@ -10,6 +10,12 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'ASHFIELD_VERSION', '1.0.0' );
 
+/* Disable WordPress emoji — prevents giant emoji images in top bar */
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
 /* ──────────────────────────────────────────────
  * INCLUDES
  * ────────────────────────────────────────────── */
