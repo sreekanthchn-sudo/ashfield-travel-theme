@@ -178,14 +178,65 @@ body.ashfield-travel .site-header .inside-header {
   gap: 20px;
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle .icon-bar {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--at-navy);
+  margin: 5px 0;
+  transition: all 0.3s;
+}
+
 @media (max-width: 1024px) {
-  .at-nav {
-    display: none; /* Hide custom nav on mobile for now - GP menu should take over or we need a mobile specific toggle */
+  .menu-toggle {
+    display: block;
   }
+
+  .at-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  body.mobile-menu-open .at-nav {
+    display: flex;
+  }
+
   body.ashfield-travel .site-header .inside-header {
-    flex-wrap: wrap;
-    justify-content: center !important;
-    gap: 15px;
+    padding: 10px 20px !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .at-logo img {
+    height: 40px !important;
+    width: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-right {
+    display: none !important; /* Hide call/quote in header on very small screens to avoid clumping - they are in the sticky mobile bar anyway */
+  }
+  
+  body.ashfield-travel .site-header .inside-header {
+    justify-content: space-between !important;
   }
 }
 
@@ -664,7 +715,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   font-weight: 400;
 }
 
-.at-dest-card .coming-badge {
+.at-dest-card .at-coming-badge {
   position: absolute;
   top: 16px;
   right: 16px;
