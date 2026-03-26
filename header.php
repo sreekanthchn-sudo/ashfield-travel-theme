@@ -23,7 +23,7 @@
     <a href="<?php echo esc_url( home_url('/') ); ?>" class="at-logo">
       <div class="at-logo-mark">
         <span class="a-letter">A</span>
-        <span class="star">&#10038;</span>
+        <span class="star"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M12 1.7L14.5 9H22L15.9 13.4L18.4 20.7L12 16.3L5.6 20.7L8.1 13.4L2 9H9.5L12 1.7Z"/></svg></span>
       </div>
       <div class="at-logo-text">
         <span class="brand">ASHFIELD</span>
@@ -33,7 +33,7 @@
 
     <nav class="at-nav" role="navigation" aria-label="Main navigation">
       <div class="at-nav-item has-dropdown">
-        <a href="<?php echo esc_url( home_url('/destinations/') ); ?>" aria-haspopup="true">Destinations <span class="arrow" aria-hidden="true">&#9660;</span></a>
+        <a href="<?php echo esc_url( home_url('/destinations/') ); ?>" aria-haspopup="true">Destinations <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
         <div class="mega-menu" role="menu">
           <div class="mega-col">
             <h4>India</h4>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="at-nav-item has-dropdown">
-        <a href="<?php echo esc_url( home_url('/tours/') ); ?>" aria-haspopup="true">Tour Types <span class="arrow" aria-hidden="true">&#9660;</span></a>
+        <a href="<?php echo esc_url( home_url('/tours/') ); ?>" aria-haspopup="true">Tour Types <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
         <div class="mega-menu" style="min-width: 400px;" role="menu">
           <div class="mega-col">
             <h4>How You Travel</h4>
@@ -78,8 +78,8 @@
         <span class="number">+44 7587 671758</span>
         <span class="hours">Mon-Fri 9am-6pm</span>
       </div>
-      <a href="<?php echo esc_url( home_url('/brochures/') ); ?>" class="at-btn-primary">
-        Request a brochure <span class="icon">&#10132;</span>
+      <a href="<?php echo esc_url( home_url('/brochures/') ); ?>" class="at-btn at-btn-primary">
+        Request a brochure <span class="at-btn-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
       </a>
     </div>
   </div>

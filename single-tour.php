@@ -1,14 +1,6 @@
 <?php
 /**
  * Single Tour page  →  /tours/tour-slug/
- *
- * Layout:
- *  - Hero image with price overlay
- *  - Two-column body: itinerary/details left, booking sidebar right
- *  - Highlights, USP badges, gallery placeholder
- *  - Related tours strip
- *
- * @package Ashfield_Travel
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -24,6 +16,9 @@ the_post();
 
 /* ── Meta fields ──────────────────────────────────────────────────────────── */
 $price         = get_post_meta( get_the_ID(), '_at_price',        true );
+$subtitle      = get_post_meta( get_the_ID(), '_at_subtitle',     true );
+$ref           = get_post_meta( get_the_ID(), '_at_ref',          true );
+$season        = get_post_meta( get_the_ID(), '_at_season',       true );
 $dates         = get_post_meta( get_the_ID(), '_at_dates',        true );
 $duration      = get_post_meta( get_the_ID(), '_at_duration',     true );
 $location      = get_post_meta( get_the_ID(), '_at_location',     true );
@@ -44,285 +39,220 @@ $hero_img = has_post_thumbnail()
     : 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1920&q=85';
 ?>
 
-<!-- ════ TOUR HERO ════ -->
-<section class="at-tour-hero" aria-label="<?php the_title_attribute(); ?>">
-  <div class="at-tour-hero-bg"
-       style="background-image:url('<?php echo esc_url( $hero_img ); ?>')"
-       role="img"
-       aria-label="<?php the_title_attribute(); ?>">
+<!-- TOUR OFFER BAR -->
+<div class="at-tour-offer-bar">
+  <div class="grid-container">
+    <span>SPECIAL OFFER: Save £200 per couple on 2026 Kerala departures — Limited time only!</span>
   </div>
+</div>
+
+<!-- ════ TOUR HERO ════ -->
+<section class="at-tour-hero">
+  <div class="at-tour-hero-bg" style="background-image:url('<?php echo esc_url($hero_img); ?>')"></div>
   <div class="at-tour-hero-overlay" aria-hidden="true"></div>
 
   <div class="at-tour-hero-content grid-container">
-
-    <!-- Breadcrumb -->
-    <nav class="at-breadcrumb" aria-label="<?php esc_attr_e( 'Breadcrumb', 'ashfield-travel' ); ?>">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'ashfield-travel' ); ?></a>
-      <span aria-hidden="true"> / </span>
-      <a href="<?php echo esc_url( get_post_type_archive_link( 'tour' ) ); ?>"><?php esc_html_e( 'Tours', 'ashfield-travel' ); ?></a>
-      <?php if ( $dest_terms && ! is_wp_error( $dest_terms ) ) : ?>
-        <span aria-hidden="true"> / </span>
-        <a href="<?php echo esc_url( get_term_link( $dest_terms[0] ) ); ?>"><?php echo esc_html( $dest_terms[0]->name ); ?></a>
-      <?php endif; ?>
-      <span aria-hidden="true"> / </span>
-      <span aria-current="page"><?php the_title(); ?></span>
-    </nav>
-
-    <!-- Title block -->
-    <div class="at-tour-hero-text">
-      <?php if ( $type_terms && ! is_wp_error( $type_terms ) ) : ?>
-        <div class="at-hero-badge">
-          <?php echo esc_html( $type_terms[0]->name ); ?>
-        </div>
-      <?php endif; ?>
-
+    <div class="at-tour-hero-inner">
+      <div class="hero-brand" style="font-weight:300; font-size:14px; letter-spacing:6px; text-transform:uppercase; color:var(--at-gold); margin-bottom:16px;">Ashfield Travel</div>
+      <?php if ($ref) : ?><div class="hero-ref" style="font-size:12px; letter-spacing:2px; color:rgba(255,255,255,0.5); margin-bottom:24px;">Package Ref: <?php echo esc_html($ref); ?></div><?php endif; ?>
+      
       <h1 class="at-tour-hero-title"><?php the_title(); ?></h1>
+      <?php if ($subtitle) : ?><div class="at-tour-hero-subtitle"><?php echo esc_html($subtitle); ?></div><?php endif; ?>
+      
+      <div class="at-tour-hero-location" style="margin-bottom:20px;">
+        <?php if ($duration) : ?><span style="color:var(--at-white); margin-right:15px;"><?php echo esc_html($duration); ?></span><?php endif; ?>
+        <?php if ($location) : ?><span style="color:var(--at-gold); margin-right:5px; font-weight:700;">&#8226;</span> <?php echo esc_html($location); ?><?php endif; ?>
+      </div>
 
-      <?php if ( $location ) : ?>
-        <div class="at-tour-hero-location">&#128205; <?php echo esc_html( $location ); ?></div>
+      <?php if ($season) : ?>
+        <div style="font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:20px;">Season: <?php echo esc_html($season); ?></div>
       <?php endif; ?>
+
+      <div class="at-tour-hero-stats">
+        <?php if ($price) : ?>
+          <div class="at-hero-stat at-hero-stat--price">
+            <span class="label">From</span>
+            <span class="value"><?php echo esc_html($price); ?></span>
+            <span class="label">per person</span>
+          </div>
+        <?php endif; ?>
+        <div class="at-hero-stat">
+          <a href="#enquire" class="at-btn at-btn-primary">
+            Enquire Now <span class="at-btn-icon">&#10132;</span>
+          </a>
+        </div>
+      </div>
     </div>
-
-    <!-- Quick-stats bar -->
-    <div class="at-tour-hero-stats">
-      <?php if ( $duration ) : ?>
-        <div class="at-hero-stat">
-          <span class="icon" aria-hidden="true">&#9201;</span>
-          <span class="label"><?php esc_html_e( 'Duration', 'ashfield-travel' ); ?></span>
-          <span class="value"><?php echo esc_html( $duration ); ?></span>
-        </div>
-      <?php endif; ?>
-      <?php if ( $dates ) : ?>
-        <div class="at-hero-stat">
-          <span class="icon" aria-hidden="true">&#128197;</span>
-          <span class="label"><?php esc_html_e( 'Departures', 'ashfield-travel' ); ?></span>
-          <span class="value"><?php echo esc_html( $dates ); ?></span>
-        </div>
-      <?php endif; ?>
-      <?php if ( $group_size ) : ?>
-        <div class="at-hero-stat">
-          <span class="icon" aria-hidden="true">&#128101;</span>
-          <span class="label"><?php esc_html_e( 'Group size', 'ashfield-travel' ); ?></span>
-          <span class="value"><?php echo esc_html( $group_size ); ?></span>
-        </div>
-      <?php endif; ?>
-      <?php if ( $price ) : ?>
-        <div class="at-hero-stat at-hero-stat--price">
-          <span class="label"><?php esc_html_e( 'From', 'ashfield-travel' ); ?></span>
-          <span class="value at-price-hero"><?php echo esc_html( $price ); ?></span>
-          <span class="per"><?php esc_html_e( 'per person', 'ashfield-travel' ); ?></span>
-        </div>
-      <?php endif; ?>
-    </div>
-
   </div>
 </section>
 
-<?php if ( $save ) : ?>
-  <div class="at-tour-save-strip">
-    <div class="grid-container">
-      <span>&#127881; <?php echo esc_html( $save ); ?></span>
-    </div>
+<!-- STICKY NAV -->
+<nav class="at-tour-nav">
+  <div class="grid-container">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#itinerary">Itinerary</a></li>
+      <li><a href="#accommodation">Hotels</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#includes">Included</a></li>
+      <li><a href="#enquire">Enquire</a></li>
+    </ul>
   </div>
-<?php endif; ?>
+</nav>
 
-<!-- ════ BODY: ITINERARY + SIDEBAR ════ -->
-<div class="at-tour-body">
+<div class="at-tour-body" style="padding: 60px 0;">
   <div class="grid-container">
     <div class="at-tour-layout">
 
       <!-- ── MAIN CONTENT ──────────────────────────────── -->
       <main class="at-tour-main" id="main">
 
-        <!-- Tour description / itinerary (full WP editor content) -->
-        <div class="at-tour-content at-prose">
-          <?php the_content(); ?>
-        </div>
-
-        <!-- What's included -->
-        <div class="at-tour-included">
-          <h2 class="at-section-title--small"><?php esc_html_e( "What's Included", 'ashfield-travel' ); ?></h2>
-          <div class="at-included-grid">
-            <?php
-            $included = [
-                $flight_info   ? [ '&#9992;', $flight_info ]                                                           : [ '&#9992;',  __( 'Return flights from the UK', 'ashfield-travel' ) ],
-                $accommodation ? [ '&#127968;', $accommodation ]                                                        : [ '&#127968;', __( 'Hand-picked hotel accommodation', 'ashfield-travel' ) ],
-                $meals         ? [ '&#127869;', $meals ]                                                                : [ '&#127869;', __( 'Breakfast daily, some evening meals', 'ashfield-travel' ) ],
-                                 [ '&#128652;', __( 'All transfers & transport', 'ashfield-travel' ) ],
-                                 [ '&#128101;', __( 'Expert local guides', 'ashfield-travel' ) ],
-                $atol          ? [ '&#10003;',  __( 'ATOL financial protection', 'ashfield-travel' ) ]                 : null,
-            ];
-            foreach ( array_filter( $included ) as $item ) : ?>
-              <div class="at-included-item">
-                <span class="icon" aria-hidden="true"><?php echo $item[0]; // phpcs:ignore ?></span>
-                <span><?php echo esc_html( $item[1] ); ?></span>
-              </div>
-            <?php endforeach; ?>
+        <section id="overview" style="margin-bottom: 60px;">
+          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">Overview</h2>
+          <div class="at-tour-content at-prose" style="font-size: 18px; line-height: 1.8;">
+            <?php the_content(); ?>
           </div>
-        </div>
+        </section>
 
-        <!-- USP badges row -->
-        <div class="at-tour-usp-strip">
-          <?php
-          $usps = [
-              [ '&#127869;', __( 'Vegetarian & Jain friendly', 'ashfield-travel' ) ],
-              [ '&#128172;', __( 'Translator support available', 'ashfield-travel' ) ],
-              [ '&#128142;', __( 'Handpicked hotels', 'ashfield-travel' ) ],
-              [ '&#128274;', __( 'ATOL & TTA protected', 'ashfield-travel' ) ],
-          ];
-          foreach ( $usps as $usp ) : ?>
-            <div class="at-tour-usp-badge">
-              <span aria-hidden="true"><?php echo $usp[0]; // phpcs:ignore ?></span>
-              <?php echo esc_html( $usp[1] ); ?>
+        <!-- Itinerary (Placeholder for dynamic content or specific blocks) -->
+        <section id="itinerary" style="margin-bottom: 60px;">
+          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">Tour <span>Itinerary</span></h2>
+          <div class="at-itinerary-container">
+            <!-- This will be populated by the user in the editor using the .at-itinerary classes -->
+            <?php 
+              $itinerary_raw = get_post_meta(get_the_ID(), '_at_itinerary_html', true);
+              if ($itinerary_raw) {
+                echo $itinerary_raw;
+              }
+            ?>
+          </div>
+        </section>
+
+        <?php if ($accommodation) : ?>
+        <section id="accommodation" style="margin-bottom: 60px;">
+          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">Your <span>Accommodation</span></h2>
+          <p style="margin-bottom: 24px;">We have hand-picked the finest hotels and resorts for this journey to ensure your comfort and a truly local experience.</p>
+          <?php 
+            $accom_html = get_post_meta(get_the_ID(), '_at_accommodation_html', true);
+            if ($accom_html) {
+              echo $accom_html;
+            } else {
+              echo '<p>' . esc_html($accommodation) . '</p>';
+            }
+          ?>
+        </section>
+        <?php endif; ?>
+
+        <section id="pricing" style="margin-bottom: 60px;">
+          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">Dates & <span>Prices</span></h2>
+          <div class="at-pricing-grid">
+            <div class="at-pricing-card">
+              <h3>Premium Package</h3>
+              <div class="tier-desc">4-Star Hotels & Resorts</div>
+              <div class="price"><?php echo esc_html($price); ?></div>
+              <div class="per">per person</div>
+              <a href="#enquire" class="at-btn at-btn-outline" style="width:100%">
+                Select Premium <span class="at-btn-icon">&#10132;</span>
+              </a>
             </div>
-          <?php endforeach; ?>
-        </div>
+            <div class="at-pricing-card at-pricing-card--popular">
+              <h3>Luxury Package</h3>
+              <div class="tier-desc">5-Star Hotels & Resorts</div>
+              <div class="price"><?php 
+                $price_lux = get_post_meta(get_the_ID(), '_at_price_luxury', true);
+                echo $price_lux ? esc_html($price_lux) : 'Contact Us';
+              ?></div>
+              <div class="per">per person</div>
+              <a href="#enquire" class="at-btn at-btn-primary" style="width:100%">
+                Select Luxury <span class="at-btn-icon">&#10132;</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="includes" style="margin-bottom: 60px;">
+          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">What's <span>Included</span></h2>
+          <div class="at-tour-included">
+            <div class="at-included-grid">
+              <?php
+              $included_items = [
+                  $flight_info   ? [ '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:8px;"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>', $flight_info ] : null,
+                  [ '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:8px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>', 'Hand-picked hotel accommodation' ],
+                  $meals         ? [ '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:8px;"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>', $meals ] : [ '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:8px;"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>', 'Breakfast daily' ],
+                  [ '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:8px;"><rect x="1" y="3" width="22" height="13" rx="2" ry="2"></rect><path d="M7 21l0-5"></path><path d="M17 21l0-5"></path><circle cx="6" cy="21" r="2"></circle><circle cx="18" cy="21" r="2"></circle></svg>', 'All transfers & private transport' ],
+                  [ '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:8px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>', 'Expert local English-speaking guides' ],
+                  $atol          ? [ '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>', 'ATOL & TTA financial protection' ] : null,
+              ];
+              foreach ( array_filter( $included_items ) as $item ) : ?>
+                <div class="at-included-item">
+                  <span class="icon" aria-hidden="true"><?php echo $item[0]; ?></span>
+                  <span><?php echo esc_html( $item[1] ); ?></span>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          
+          <div class="at-info-box" style="margin-top: 40px; background: #fff1f1; border-color: #ffc1c1;">
+            <h4 style="color: #c0392b;">Not Included</h4>
+            <ul style="font-size: 15px; color: #666; padding-left: 20px;">
+              <li>International flights (we can advise on best options)</li>
+              <li>Indian Visa fees</li>
+              <li>Travel Insurance (Mandatory)</li>
+              <li>Tips and items of a personal nature</li>
+            </ul>
+          </div>
+        </section>
 
       </main>
 
       <!-- ── BOOKING SIDEBAR ───────────────────────────── -->
-      <aside class="at-tour-sidebar" aria-label="<?php esc_attr_e( 'Book this tour', 'ashfield-travel' ); ?>">
-
-        <div class="at-booking-card">
-
-          <?php if ( $price ) : ?>
-            <div class="at-booking-price">
-              <span class="label"><?php esc_html_e( 'Prices from', 'ashfield-travel' ); ?></span>
-              <span class="price"><?php echo esc_html( $price ); ?></span>
-              <span class="per"><?php esc_html_e( 'per person', 'ashfield-travel' ); ?></span>
+      <aside class="at-tour-sidebar">
+        <div class="at-sidebar-enquire">
+          <h4>Make an Enquiry</h4>
+          
+          <div class="at-enquire-method">
+            <div class="at-enquire-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </div>
-          <?php endif; ?>
-
-          <?php if ( $save ) : ?>
-            <div class="at-booking-save"><?php echo esc_html( $save ); ?></div>
-          <?php endif; ?>
-
-          <a href="<?php echo esc_url( home_url( '/enquire/?tour=' . get_the_ID() ) ); ?>"
-             class="at-btn-book">
-            <?php esc_html_e( 'Enquire About This Tour', 'ashfield-travel' ); ?>
-            <span aria-hidden="true">&#10132;</span>
-          </a>
-
-          <a href="<?php echo esc_url( home_url( '/brochures/' ) ); ?>"
-             class="at-btn-brochure-outline">
-            <?php esc_html_e( 'Request Free Brochure', 'ashfield-travel' ); ?>
-          </a>
-
-          <div class="at-booking-phone">
-            <span aria-hidden="true">&#9742;</span>
-            <div>
-              <a href="tel:+447587671758"><strong>+44 7587 671758</strong></a>
-              <span><?php esc_html_e( 'Mon–Fri 9am–6pm', 'ashfield-travel' ); ?></span>
+            <div class="at-enquire-details">
+              <div class="at-enquire-label">Call Our Experts</div>
+              <div class="at-enquire-value"><a href="tel:+447587671758">07587 671758</a></div>
             </div>
           </div>
 
-          <!-- Tour quick-facts -->
-          <ul class="at-booking-facts">
-            <?php if ( $duration ) : ?>
-              <li><span>&#9201;</span> <?php echo esc_html( $duration ); ?></li>
-            <?php endif; ?>
-            <?php if ( $dates ) : ?>
-              <li><span>&#128197;</span> <?php echo esc_html( $dates ); ?></li>
-            <?php endif; ?>
-            <?php if ( $group_size ) : ?>
-              <li><span>&#128101;</span> <?php printf( esc_html__( 'Max %s guests', 'ashfield-travel' ), esc_html( $group_size ) ); ?></li>
-            <?php endif; ?>
-            <?php if ( $atol ) : ?>
-              <li><span>&#10003;</span> <?php esc_html_e( 'ATOL Protected', 'ashfield-travel' ); ?></li>
-            <?php endif; ?>
-            <li><span>&#9733;</span> <?php esc_html_e( '4.9/5 customer rating', 'ashfield-travel' ); ?></li>
-          </ul>
+          <div class="at-enquire-method">
+            <div class="at-enquire-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="at-enquire-details">
+              <div class="at-enquire-label">Email Us</div>
+              <div class="at-enquire-value"><a href="mailto:info@ashfieldtravel.co.uk">info@ashfieldtravel.co.uk</a></div>
+            </div>
+          </div>
 
-        </div><!-- .at-booking-card -->
+          <div style="margin-top: 25px;">
+            <a href="#enquire" class="at-btn at-btn-primary" style="width: 100%;">
+              Inquire Now <span class="at-btn-icon">&#10132;</span>
+            </a>
+          </div>
 
-        <!-- Sticky re-appear on mobile scroll -->
-        <div class="at-sidebar-trust at-sidebar-trust--tour">
-          <p><?php esc_html_e( 'Questions? We\'re here to help.', 'ashfield-travel' ); ?></p>
-          <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="at-link-underline">
-            <?php esc_html_e( 'Chat with our experts', 'ashfield-travel' ); ?> &#10132;
-          </a>
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--at-border); text-align: center;">
+             <div style="display:inline-block; padding: 4px 12px; border: 1px solid var(--at-forest-green); color: var(--at-forest-green); border-radius: 4px; font-weight: 700; font-size: 14px; margin-bottom: 5px;">ATOL &bull; TTA PROTECTED</div>
+             <p style="font-size: 11px; color: var(--at-text-light); margin-top: 5px;">100% Financial Protection</p>
+          </div>
         </div>
-
       </aside>
 
-    </div><!-- .at-tour-layout -->
-  </div><!-- .grid-container -->
-</div><!-- .at-tour-body -->
-
-<!-- ════ RELATED TOURS ════ -->
-<?php
-$dest_slugs    = $dest_terms && ! is_wp_error( $dest_terms )
-    ? wp_list_pluck( $dest_terms, 'slug' )
-    : [];
-
-$related_query = new WP_Query( [
-	'post_type'      => 'tour',
-	'posts_per_page' => 4,
-	'post__not_in'   => [ get_the_ID() ],
-	'no_found_rows'  => true,
-	'tax_query'      => $dest_slugs ? [ [
-		'taxonomy' => 'tour_destination',
-		'field'    => 'slug',
-		'terms'    => $dest_slugs,
-	] ] : [],
-] );
-
-if ( $related_query->have_posts() ) : ?>
-  <section class="at-section at-section--cream at-related-tours">
-    <div class="grid-container">
-      <header class="at-section-header">
-        <h2 class="at-section-title"><?php esc_html_e( 'You Might Also Like', 'ashfield-travel' ); ?></h2>
-        <div class="at-section-divider" aria-hidden="true"></div>
-      </header>
-      <div class="at-tour-grid">
-        <?php while ( $related_query->have_posts() ) :
-          $related_query->the_post();
-          $r_price    = get_post_meta( get_the_ID(), '_at_price',    true );
-          $r_duration = get_post_meta( get_the_ID(), '_at_duration', true );
-          $r_location = get_post_meta( get_the_ID(), '_at_location', true );
-          ?>
-          <article class="at-tour-card">
-            <div class="at-tour-card-img">
-              <a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
-                <?php the_post_thumbnail( 'medium_large', [ 'loading' => 'lazy' ] ); ?>
-              </a>
-            </div>
-            <div class="at-tour-card-body">
-              <div class="at-tour-card-meta">
-                <?php if ( $r_location ) : ?>
-                  <span class="at-tour-location">&#128205; <?php echo esc_html( $r_location ); ?></span>
-                <?php endif; ?>
-              </div>
-              <h3 class="at-tour-card-title">
-                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-              </h3>
-              <div class="at-tour-info-row">
-                <?php if ( $r_duration ) : ?>
-                  <div class="at-tour-info-item">
-                    <div class="icon" aria-hidden="true">&#9201;</div>
-                    <div class="label"><?php esc_html_e( 'Duration', 'ashfield-travel' ); ?></div>
-                    <div class="value"><?php echo esc_html( $r_duration ); ?></div>
-                  </div>
-                <?php endif; ?>
-                <?php if ( $r_price ) : ?>
-                  <div class="at-tour-info-item">
-                    <div class="icon" aria-hidden="true">£</div>
-                    <div class="label"><?php esc_html_e( 'From', 'ashfield-travel' ); ?></div>
-                    <div class="value at-price-value"><?php echo esc_html( $r_price ); ?></div>
-                  </div>
-                <?php endif; ?>
-              </div>
-              <a href="<?php the_permalink(); ?>" class="at-btn-find-more">
-                <?php esc_html_e( 'Find out more', 'ashfield-travel' ); ?>
-                <span class="arrow-circle" aria-hidden="true">&#10132;</span>
-              </a>
-            </div>
-          </article>
-        <?php endwhile;
-        wp_reset_postdata(); ?>
-      </div>
     </div>
-  </section>
-<?php endif; ?>
+  </div>
+</div>
+
+<section id="enquire" class="at-section at-section--navy" style="text-align: center; padding: 100px 0;">
+  <div class="grid-container">
+    <h2 class="at-section-title" style="color: var(--at-white); margin-bottom: 20px;">Book Your Kerala Escape</h2>
+    <p style="color: rgba(255,255,255,0.7); font-size: 20px; max-width: 700px; margin: 0 auto 40px;">Contact our expert team to customize this itinerary or secure your dates.</p>
+    <a href="mailto:info@ashfieldtravel.co.uk" class="at-btn-primary" style="padding: 20px 60px; font-size: 18px;">Send Enquiry</a>
+  </div>
+</section>
 
 <?php get_footer(); ?>

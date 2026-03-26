@@ -1,0 +1,7 @@
+{
+  "core": null,
+  "themes": [
+    "https://downloads.wordpress.org/theme/generatepress.zip",
+    "."
+  ]
+}

@@ -233,46 +233,57 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
 /* ─────────────────────────────────
    BUTTONS — Shared styles
    ───────────────────────────────── */
+.at-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 34px;
+  font-family: var(--at-font-body);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 50px; /* Pill Shape */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  gap: 12px;
+  text-decoration: none;
+}
+
 .at-btn-primary {
   background: var(--at-terracotta);
   color: var(--at-white);
-  border: none;
-  border-radius: 6px;
-  padding: 13px 28px;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: var(--at-font-body);
-  cursor: pointer;
-  transition: all 0.3s;
-  letter-spacing: 0.5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(176,65,31,0.2);
 }
 
 .at-btn-primary:hover {
   background: var(--at-terracotta-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--at-shadow-md);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(176,65,31,0.25);
   color: var(--at-white);
+}
+
+/* Button Icon Styling */
+.at-btn-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.at-btn:hover .at-btn-icon {
+  transform: translateX(3px);
 }
 
 .at-btn-secondary {
   background: transparent;
   color: var(--at-white);
   border: 2px solid rgba(255,255,255,0.6);
-  border-radius: 6px;
-  padding: 14px 36px;
-  font-size: 15px;
-  font-weight: 500;
-  font-family: var(--at-font-body);
-  cursor: pointer;
-  transition: all 0.3s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
 }
 
 .at-btn-secondary:hover {
@@ -285,33 +296,11 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: transparent;
   color: var(--at-terracotta);
   border: 2px solid var(--at-terracotta);
-  border-radius: 6px;
-  padding: 13px 28px;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: var(--at-font-body);
-  cursor: pointer;
-  transition: all 0.3s;
-  letter-spacing: 0.5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
 }
 
 .at-btn-outline:hover {
   background: var(--at-terracotta);
   color: var(--at-white);
-}
-
-.at-btn-hero {
-  padding: 16px 36px;
-  font-size: 15px;
-}
-
-.at-btn-hero:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(196,87,42,0.4);
 }
 
 /* ─────────────────────────────────
@@ -2051,3 +2040,222 @@ body.ashfield-homepage .at-sticky-brochure {
 .mega-col a:hover { color: var(--at-terracotta); padding-left: 4px; }
 .mega-col a.coming { color: #bbb; font-style: italic; }
 .mega-col a.coming::after { content: ' — Coming Soon'; font-size: 11px; }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   11. TOUR PAGE COMPONENTS
+   ────────────────────────────────────────────────────────────────────────── */
+
+.at-tour-hero {
+  position: relative; height: 60vh; min-height: 450px;
+  display: flex; align-items: center; justify-content: center; text-align: center; color: var(--at-white);
+  overflow: hidden;
+}
+.at-tour-hero-bg {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+  transition: transform 0.5s ease;
+}
+.at-tour-hero:hover .at-tour-hero-bg { transform: scale(1.05); }
+.at-tour-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(27,58,92,0.4), var(--at-navy));
+}
+.at-tour-hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 24px; }
+.at-tour-hero-title {
+  font-family: var(--at-font-heading); font-size: 56px; line-height: 1.1;
+  margin: 12px 0; color: var(--at-white);
+}
+.at-tour-hero-subtitle {
+  font-family: var(--at-font-heading); font-size: 24px; font-style: italic; color: var(--at-gold); margin-bottom: 12px;
+}
+.at-hero-badge {
+  display: inline-block; padding: 6px 16px; background: var(--at-gold);
+  color: var(--at-white); font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px;
+}
+.at-tour-hero-location { font-size: 18px; color: var(--at-gold); font-weight: 500; }
+
+.at-tour-hero-stats {
+  display: flex; gap: 32px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 24px; justify-content: center;
+}
+.at-hero-stat { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+.at-hero-stat .label { font-size: 12px; text-transform: uppercase; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
+.at-hero-stat .value { font-size: 18px; font-weight: 600; }
+.at-hero-stat--price .value { color: var(--at-gold); font-size: 24px; }
+
+/* Sticky Tour Nav */
+.at-tour-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--at-white); border-bottom: 1px solid var(--at-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.at-tour-nav ul {
+  display: flex; list-style: none; margin: 0; padding: 0;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  justify-content: center;
+}
+.at-tour-nav a {
+  display: block; padding: 20px 24px; color: var(--at-text-dark);
+  text-decoration: none; font-weight: 600; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 1px; border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+.at-tour-nav a:hover, .at-tour-nav a.active {
+  color: var(--at-navy); border-bottom-color: var(--at-gold);
+}
+
+/* Itinerary Timeline */
+.at-itinerary { position: relative; padding-left: 50px; margin: 40px 0; }
+.at-itinerary::before {
+  content: ''; position: absolute; left: 19px; top: 10px; bottom: 10px;
+  width: 2px; background: #e0e0e0;
+}
+.at-day { position: relative; margin-bottom: 48px; }
+.at-day-circle {
+  position: absolute; left: -40px; top: 5px; width: 18px; height: 18px;
+  background: var(--at-gold); border-radius: 50%; box-shadow: 0 0 0 4px var(--at-white);
+  z-index: 2;
+}
+.at-day-label {
+  display: block; font-size: 13px; font-weight: 700; color: var(--at-terracotta);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+}
+.at-day-title { font-size: 24px; font-weight: 700; color: var(--at-navy); margin-bottom: 16px; }
+.at-day-content { font-size: 17px; line-height: 1.7; color: var(--at-text-dark); }
+.at-day-meta {
+  display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap;
+}
+.at-day-badge {
+  background: var(--at-cream); padding: 6px 14px; border-radius: 4px;
+  font-size: 13px; font-weight: 600; color: var(--at-navy);
+}
+
+/* Pricing Cards */
+.at-pricing-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px; margin: 40px 0;
+}
+.at-pricing-card {
+  background: var(--at-white); padding: 40px; border-radius: 12px;
+  text-align: center; border: 1px solid var(--at-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.at-pricing-card:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(27,58,92,0.1); }
+.at-pricing-card--popular { border: 2px solid var(--at-gold); position: relative; background: var(--at-cream); }
+.at-pricing-card--popular::after {
+  content: 'BEST VALUE'; position: absolute; top: -12px; left: 50%;
+  transform: translateX(-50%); background: var(--at-gold); color: var(--at-white);
+  padding: 4px 12px; font-size: 11px; font-weight: 700; border-radius: 20px;
+}
+.at-pricing-card h3 { font-size: 22px; color: var(--at-navy); margin-bottom: 8px; font-family: var(--at-font-heading); }
+.at-pricing-card .tier-desc { font-size: 15px; color: var(--at-text-light); margin-bottom: 24px; }
+.at-pricing-card .price { font-size: 48px; font-weight: 700; color: var(--at-navy); margin-bottom: 4px; }
+.at-pricing-card .price span { font-size: 16px; font-weight: 400; color: var(--at-text-light); }
+.at-pricing-card .per { font-size: 14px; color: var(--at-text-light); margin-bottom: 32px; }
+
+/* Accom Table */
+.at-accom-table {
+  width: 100%; border-collapse: collapse; margin: 24px 0;
+  border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.at-accom-table th {
+  background: var(--at-navy); color: var(--at-white); padding: 14px 20px;
+  text-align: left; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+}
+.at-accom-table td { padding: 16px 20px; border-bottom: 1px solid var(--at-border); color: var(--at-text-dark); }
+.at-accom-table tr:last-child td { border-bottom: none; }
+.at-accom-table tr:nth-child(even) { background: #fcfcfc; }
+
+/* Info Box (Visa etc) */
+.at-info-box {
+  background: #FEF9F0; border-left: 4px solid var(--at-gold);
+  padding: 24px 32px; border-radius: 0 8px 8px 0; margin: 32px 0;
+}
+.at-info-box h4 { font-size: 19px; color: var(--at-navy); margin-bottom: 12px; }
+.at-info-box p { font-size: 15px; line-height: 1.6; margin-bottom: 0; }
+
+@media (max-width: 768px) {
+  .at-tour-hero-title { font-size: 36px; }
+  .at-tour-hero-stats { flex-direction: column; gap: 16px; }
+  .at-itinerary { padding-left: 24px; }
+  .at-tour-nav a { padding: 16px 12px; font-size: 12px; }
+}
+
+/* Tour Top Offer Bar */
+.at-tour-offer-bar,
+.at-tour-body .at-tour-offer-bar {
+  background: var(--at-forest-green) !important;
+  color: var(--at-white) !important;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 100;
+}
+
+/* Tour Hero Adjustments */
+.at-tour-hero .at-tour-price-card {
+  background: rgba(255,255,255,0.98);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+}
+
+/* Enquire Sidebar Module */
+.at-sidebar-enquire {
+  background: var(--at-white);
+  border: 1px solid var(--at-border);
+  border-top: 4px solid var(--at-terracotta);
+  border-radius: 8px;
+  padding: 30px;
+  margin-top: 24px;
+}
+
+.at-sidebar-enquire h4 {
+  margin-bottom: 20px;
+  color: var(--at-navy);
+  font-size: 20px;
+}
+
+.at-enquire-method {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--at-border);
+}
+
+.at-enquire-method:last-of-type { border: none; margin-bottom: 0; padding-bottom: 0; }
+
+.at-enquire-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--at-forest-green-light);
+  color: var(--at-forest-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.at-enquire-label { font-size: 12px; color: var(--at-text-light); text-transform: uppercase; font-weight: 700; margin-bottom: 2px; }
+.at-enquire-value { font-size: 18px; font-weight: 700; color: var(--at-navy); }
+.at-enquire-value a { color: inherit; }
+
+/* Enhanced Timeline Circles */
+.at-day-circle {
+  position: absolute; left: -40px; top: 5px; width: 18px; height: 18px;
+  background: var(--at-white);
+  border: 4px solid var(--at-gold);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.at-day:hover .at-day-circle {
+  background: var(--at-gold);
+}

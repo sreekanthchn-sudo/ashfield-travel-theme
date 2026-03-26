@@ -87,6 +87,9 @@ add_action( 'init', 'ashfield_register_tour_meta' );
 function ashfield_register_tour_meta() {
 	$fields = [
 		'_at_price'          => [ 'desc' => 'Price from (e.g. £1,295)',  'type' => 'string' ],
+		'_at_subtitle'       => [ 'desc' => 'Tour subtitle (e.g. Couples Escape)', 'type' => 'string' ],
+		'_at_ref'            => [ 'desc' => 'Package Reference (e.g. 101)', 'type' => 'string' ],
+		'_at_season'         => [ 'desc' => 'Best Season (e.g. Oct to Mar)', 'type' => 'string' ],
 		'_at_dates'          => [ 'desc' => 'Departure dates range',     'type' => 'string' ],
 		'_at_duration'       => [ 'desc' => 'Duration (e.g. 14 days)',   'type' => 'string' ],
 		'_at_location'       => [ 'desc' => 'Location label (e.g. India)', 'type' => 'string' ],
@@ -99,6 +102,9 @@ function ashfield_register_tour_meta() {
 		'_at_atol'           => [ 'desc' => '1 = ATOL protected',        'type' => 'string' ],
 		'_at_badge_1'        => [ 'desc' => 'First icon badge emoji',    'type' => 'string' ],
 		'_at_badge_2'        => [ 'desc' => 'Second icon badge emoji',   'type' => 'string' ],
+		'_at_itinerary_html' => [ 'desc' => 'Custom Itinerary HTML',      'type' => 'string' ],
+		'_at_accommodation_html' => [ 'desc' => 'Custom Accom HTML',      'type' => 'string' ],
+		'_at_price_luxury'   => [ 'desc' => 'Luxury Tier Price',          'type' => 'string' ],
 	];
 
 	foreach ( $fields as $key => $args ) {

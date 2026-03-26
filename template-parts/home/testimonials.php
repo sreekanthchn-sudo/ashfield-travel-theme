@@ -43,8 +43,10 @@ $testimonials = [
       <?php foreach ( $testimonials as $t ) : ?>
         <blockquote class="at-testimonial-card">
           <div class="at-testimonial-quote-mark" aria-hidden="true">&ldquo;</div>
-          <div class="at-testimonial-stars" aria-label="<?php esc_attr_e( '5 out of 5 stars', 'ashfield-travel' ); ?>">
-            &#9733;&#9733;&#9733;&#9733;&#9733;
+          <div class="at-testimonial-stars" aria-label="<?php esc_attr_e( '5 out of 5 stars', 'ashfield-travel' ); ?>" style="color:var(--at-gold); display:flex; gap:2px; margin-bottom:15px;">
+            <?php for($i=0; $i<5; $i++): ?>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 1.7L14.5 9H22L15.9 13.4L18.4 20.7L12 16.3L5.6 20.7L8.1 13.4L2 9H9.5L12 1.7Z"/></svg>
+            <?php endfor; ?>
           </div>
           <p class="at-testimonial-text"><?php echo esc_html( $t['text'] ); ?></p>
           <footer class="at-testimonial-author">
