@@ -1982,7 +1982,7 @@ body.ashfield-homepage .at-sticky-brochure {
    ───────────────────────────────── */
 .at-nav { display: flex; align-items: center; gap: 0; }
 .at-nav-item {
-  padding: 28px 18px;
+  padding: 28px 12px;
   font-size: 15px;
   font-weight: 500;
   color: var(--at-text-dark);
@@ -1992,6 +1992,7 @@ body.ashfield-homepage .at-sticky-brochure {
   display: flex;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
 }
 .at-nav-item:hover { color: var(--at-terracotta); }
 .at-nav-item .arrow { font-size: 8px; opacity: 0.5; transition: transform 0.2s; }
@@ -2002,8 +2003,10 @@ body.ashfield-homepage .at-sticky-brochure {
 .header-phone .number {
   font-size: 18px; font-weight: 700; color: var(--at-navy);
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
-.header-phone .hours { font-size: 11px; color: var(--at-text-light); }
+.header-phone .hours { font-size: 11px; color: var(--at-text-light); white-space: nowrap; }
+.header-right .at-btn-primary { white-space: nowrap; }
 
 /* Mega Menu */
 .at-nav-item .mega-menu {
