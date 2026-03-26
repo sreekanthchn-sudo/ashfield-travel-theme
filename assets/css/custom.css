@@ -178,6 +178,11 @@ body.ashfield-travel .site-header .inside-header {
   gap: 20px;
 }
 
+.at-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 1024px) {
   .at-menu-toggle {
     display: block;
   }
