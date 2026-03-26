@@ -30,11 +30,11 @@
       </div>
       <div class="at-footer-col">
         <h4>Tour Types</h4>
-        <a href="<?php echo esc_url( home_url('/tours/group-tours/') ); ?>">Group Tours</a>
-        <a href="<?php echo esc_url( home_url('/tours/private-tours/') ); ?>">Private Tours</a>
-        <a href="<?php echo esc_url( home_url('/tours/tailor-made/') ); ?>">Tailor-Made</a>
-        <a href="<?php echo esc_url( home_url('/tours/family-packages/') ); ?>">Family Packages</a>
-        <a href="<?php echo esc_url( home_url('/tours/honeymoon-escapes/') ); ?>">Honeymoons</a>
+        <a href="<?php echo esc_url( home_url('/tour-types/group-tours/') ); ?>">Group Tours</a>
+        <a href="<?php echo esc_url( home_url('/tour-types/private-tours/') ); ?>">Private Tours</a>
+        <a href="<?php echo esc_url( home_url('/tour-types/tailor-made/') ); ?>">Tailor-Made</a>
+        <a href="<?php echo esc_url( home_url('/tour-types/family-packages/') ); ?>">Family Packages</a>
+        <a href="<?php echo esc_url( home_url('/tour-types/honeymoons/') ); ?>">Honeymoons</a>
       </div>
       <div class="at-footer-col">
         <h4>Company</h4>

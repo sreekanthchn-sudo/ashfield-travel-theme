@@ -27,25 +27,25 @@ $hero_bg   = $hero_img ? $hero_img : $fallback;
 
     <div class="at-hero-badge">
       <span aria-hidden="true">&#10038;</span>
-      <?php esc_html_e( 'Curated for British-Indian Families', 'ashfield-travel' ); ?>
+      <?php esc_html_e( 'Trusted by UK Travellers', 'ashfield-travel' ); ?>
     </div>
 
     <h1 class="at-hero-tagline">
-      <?php esc_html_e( 'Journeys That Feel', 'ashfield-travel' ); ?><br>
-      <?php esc_html_e( 'Like Coming Home', 'ashfield-travel' ); ?>
+      <?php esc_html_e( 'Affordable & Custom Travel', 'ashfield-travel' ); ?><br>
+      <?php esc_html_e( 'Packages from the UK', 'ashfield-travel' ); ?>
     </h1>
 
     <p class="at-hero-sub">
-      <?php esc_html_e( 'Expertly crafted holidays to India, Dubai and beyond. Small groups, private tours, and tailor-made itineraries designed around your family.', 'ashfield-travel' ); ?>
+      <?php esc_html_e( 'Expertly crafted holidays to India, Dubai and beyond. Get a personalised travel plan within 24 hours.', 'ashfield-travel' ); ?>
     </p>
 
     <div class="at-hero-buttons">
-      <a href="<?php echo esc_url( home_url( '/tours/' ) ); ?>" class="at-btn-primary at-btn-hero">
-        <?php esc_html_e( 'Explore Our Tours', 'ashfield-travel' ); ?>
-        <span aria-hidden="true">&#10132;</span>
+      <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="at-btn at-btn-primary at-btn-hero">
+        <?php esc_html_e( 'Get Free Quote', 'ashfield-travel' ); ?>
+        <span class="at-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
       </a>
-      <a href="<?php echo esc_url( home_url( '/brochures/' ) ); ?>" class="at-btn-secondary at-btn-hero">
-        <?php esc_html_e( 'Request a Brochure', 'ashfield-travel' ); ?>
+      <a href="tel:+447587671758" class="at-btn at-btn-secondary at-btn-hero">
+        <?php esc_html_e( 'Call Now', 'ashfield-travel' ); ?>
       </a>
     </div>
 

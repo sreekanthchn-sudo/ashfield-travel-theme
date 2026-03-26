@@ -1,64 +1,73 @@
 <?php
 /**
- * Template part: Testimonials — 3-column card grid
- * Static for launch; swap to a Testimonials CPT or plugin later.
+ * Template part: Testimonials section
+ * Minimalist, high-impact social proof.
  *
  * @package Ashfield_Travel
  */
 
 $testimonials = [
 	[
-		'text'    => __( 'Ashfield understood exactly what our family needed. My parents were comfortable with the vegetarian food and translator support, while the kids loved the houseboat experience.', 'ashfield-travel' ),
-		'name'    => __( 'Ravi & Priya Patel', 'ashfield-travel' ),
-		'trip'    => __( 'Kerala Backwaters · Oct 2025', 'ashfield-travel' ),
-		'initials'=> 'RP',
+		'quote'  => __( 'Amazing service, smooth trip planning. Highly recommended for family holidays!', 'ashfield-travel' ),
+		'author' => 'S. Patel, London',
 	],
 	[
-		'text'    => __( 'The Golden Triangle tour was perfectly paced. Sreekanth personally called us before the trip to understand our requirements. That level of care is rare in this industry.', 'ashfield-travel' ),
-		'name'    => __( 'Anita Shah', 'ashfield-travel' ),
-		'trip'    => __( 'Golden Triangle · Dec 2025', 'ashfield-travel' ),
-		'initials'=> 'AS',
-	],
-	[
-		'text'    => __( 'We booked the Kerala-Dubai combo and it was the best holiday we have ever had. Everything was seamless, from the flights to the transfers. Absolutely will book again.', 'ashfield-travel' ),
-		'name'    => __( 'Jay & Nisha Mehta', 'ashfield-travel' ),
-		'trip'    => __( 'Kerala + Dubai · Feb 2026', 'ashfield-travel' ),
-		'initials'=> 'JN',
+		'quote'  => __( 'The best travel experience from the UK to Kerala. Every detail was perfectly handled.', 'ashfield-travel' ),
+		'author' => 'R. Sharma, Birmingham',
 	],
 ];
 ?>
 
-<section class="at-section at-section--cream" id="testimonials">
+<section class="at-section at-testimonials" id="testimonials">
   <div class="grid-container">
-
-    <header class="at-section-header">
-      <h2 class="at-section-title"><?php esc_html_e( 'What Our Travellers Say', 'ashfield-travel' ); ?></h2>
-      <p class="at-section-subtitle">
-        <?php esc_html_e( 'Real stories from families who trusted us with their holiday.', 'ashfield-travel' ); ?>
-      </p>
-      <div class="at-section-divider" aria-hidden="true"></div>
-    </header>
-
-    <div class="at-testimonial-grid">
-      <?php foreach ( $testimonials as $t ) : ?>
-        <blockquote class="at-testimonial-card">
-          <div class="at-testimonial-quote-mark" aria-hidden="true">&ldquo;</div>
-          <div class="at-testimonial-stars" aria-label="<?php esc_attr_e( '5 out of 5 stars', 'ashfield-travel' ); ?>" style="color:var(--at-gold); display:flex; gap:2px; margin-bottom:15px;">
-            <?php for($i=0; $i<5; $i++): ?>
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 1.7L14.5 9H22L15.9 13.4L18.4 20.7L12 16.3L5.6 20.7L8.1 13.4L2 9H9.5L12 1.7Z"/></svg>
-            <?php endfor; ?>
+    <div class="at-testimonials-slider">
+      <?php foreach ( $testimonials as $index => $item ) : ?>
+        <div class="at-testimonial-card <?php echo $index === 0 ? 'active' : ''; ?>">
+          <div class="at-quote-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="var(--at-gold)" opacity="0.2"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 16.8954 21.017 18V21C21.017 22.1046 20.1216 23 19.017 23H16.017C14.9124 23 14.017 22.1046 14.017 21ZM14.017 13V10C14.017 8.89543 14.9124 8 16.017 8H19.017C20.1216 8 21.017 8.89543 21.017 10V13C21.017 14.1046 20.1216 15 19.017 15H16.017C14.9124 15 14.017 14.1046 14.017 13ZM2.017 21L2.017 18C2.017 16.8954 2.91243 16 4.017 16H7.017C8.12157 16 9.017 16.8954 9.017 18V21C9.017 22.1046 8.12157 23 7.017 23H4.017C2.91243 23 2.017 22.1046 2.017 21ZM2.017 13V10C2.017 8.89543 2.91243 8 4.017 8H7.017C8.12157 8 9.017 8.89543 9.017 10V13C9.017 14.1046 8.12157 15 7.017 15H4.017C2.91243 15 2.017 14.1046 2.017 13Z"/></svg>
           </div>
-          <p class="at-testimonial-text"><?php echo esc_html( $t['text'] ); ?></p>
-          <footer class="at-testimonial-author">
-            <div class="at-testimonial-avatar" aria-hidden="true"><?php echo esc_html( $t['initials'] ); ?></div>
-            <div>
-              <cite class="at-testimonial-name"><?php echo esc_html( $t['name'] ); ?></cite>
-              <div class="at-testimonial-trip"><?php echo esc_html( $t['trip'] ); ?></div>
-            </div>
-          </footer>
-        </blockquote>
+          <blockquote class="at-testimonial-quote">
+            <p>"<?php echo esc_html( $item['quote'] ); ?>"</p>
+          </blockquote>
+          <cite class="at-testimonial-author">— <?php echo esc_html( $item['author'] ); ?></cite>
+        </div>
       <?php endforeach; ?>
     </div>
-
   </div>
 </section>
+
+<style>
+.at-testimonials {
+  background: var(--at-cream);
+  text-align: center;
+}
+.at-testimonials-slider {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.at-testimonial-quote {
+  font-family: var(--at-font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--at-navy);
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+.at-testimonial-author {
+  font-family: var(--at-font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--at-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-style: normal;
+}
+.at-quote-icon {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .at-testimonial-quote { font-size: 24px; }
+}
+</style>

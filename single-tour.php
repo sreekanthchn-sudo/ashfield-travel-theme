@@ -33,11 +33,12 @@ $atol          = get_post_meta( get_the_ID(), '_at_atol',         true );
 $dest_terms = get_the_terms( get_the_ID(), 'tour_destination' );
 $type_terms = get_the_terms( get_the_ID(), 'tour_type' );
 
-/* ── Hero image ───────────────────────────────────────────────────────────── */
 $hero_img = has_post_thumbnail()
     ? get_the_post_thumbnail_url( get_the_ID(), 'full' )
     : 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1920&q=85';
 ?>
+
+<div class="at-tour-page">
 
 <!-- TOUR OFFER BAR -->
 <div class="at-tour-offer-bar">
@@ -87,15 +88,17 @@ $hero_img = has_post_thumbnail()
 </section>
 
 <!-- STICKY NAV -->
-<nav class="at-tour-nav">
+<nav class="sticky-nav">
   <div class="grid-container">
     <ul>
       <li><a href="#overview">Overview</a></li>
+      <li><a href="#highlights">Highlights</a></li>
       <li><a href="#itinerary">Itinerary</a></li>
       <li><a href="#accommodation">Hotels</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#includes">Included</a></li>
-      <li><a href="#enquire">Enquire</a></li>
+      <li><a href="#visa">Visa Info</a></li>
+      <li><a href="#faqs">FAQs</a></li>
     </ul>
   </div>
 </nav>
@@ -108,15 +111,28 @@ $hero_img = has_post_thumbnail()
       <main class="at-tour-main" id="main">
 
         <section id="overview" style="margin-bottom: 60px;">
-          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">Overview</h2>
+          <h2 class="section-title">Why <?php the_title(); ?>?</h2>
           <div class="at-tour-content at-prose" style="font-size: 18px; line-height: 1.8;">
             <?php the_content(); ?>
           </div>
         </section>
 
-        <!-- Itinerary (Placeholder for dynamic content or specific blocks) -->
+        <!-- Highlights Section -->
+        <?php 
+          $highlights_html = get_post_meta(get_the_ID(), '_at_highlights_html', true);
+          if ($highlights_html) :
+        ?>
+        <section id="highlights" style="margin-bottom: 60px;">
+          <h2 class="section-title">Tour Highlights</h2>
+          <div class="highlights-grid">
+            <?php echo $highlights_html; ?>
+          </div>
+        </section>
+        <?php endif; ?>
+
+        <!-- Itinerary -->
         <section id="itinerary" style="margin-bottom: 60px;">
-          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">Tour <span>Itinerary</span></h2>
+          <h2 class="section-title">Your Day-by-Day Journey</h2>
           <div class="at-itinerary-container">
             <!-- This will be populated by the user in the editor using the .at-itinerary classes -->
             <?php 
@@ -130,8 +146,8 @@ $hero_img = has_post_thumbnail()
 
         <?php if ($accommodation) : ?>
         <section id="accommodation" style="margin-bottom: 60px;">
-          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">Your <span>Accommodation</span></h2>
-          <p style="margin-bottom: 24px;">We have hand-picked the finest hotels and resorts for this journey to ensure your comfort and a truly local experience.</p>
+          <h2 class="section-title">Your Handpicked Hotels</h2>
+          <p style="text-align: center; margin-bottom: 2rem; color: #6B7280; font-size: 0.95rem;">All hotels listed are carefully selected properties offering comfort, authenticity, and excellent service.</p>
           <?php 
             $accom_html = get_post_meta(get_the_ID(), '_at_accommodation_html', true);
             if ($accom_html) {
@@ -144,7 +160,7 @@ $hero_img = has_post_thumbnail()
         <?php endif; ?>
 
         <section id="pricing" style="margin-bottom: 60px;">
-          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">Dates & <span>Prices</span></h2>
+          <h2 class="section-title">Package Pricing</h2>
           <div class="at-pricing-grid">
             <div class="at-pricing-card">
               <h3>Premium Package</h3>
@@ -171,7 +187,7 @@ $hero_img = has_post_thumbnail()
         </section>
 
         <section id="includes" style="margin-bottom: 60px;">
-          <h2 class="at-section-title--small" style="font-size: 32px; color: var(--at-navy); margin-bottom: 24px;">What's <span>Included</span></h2>
+          <h2 class="section-title">What's Included in Your Journey</h2>
           <div class="at-tour-included">
             <div class="at-included-grid">
               <?php
@@ -192,14 +208,66 @@ $hero_img = has_post_thumbnail()
             </div>
           </div>
           
-          <div class="at-info-box" style="margin-top: 40px; background: #fff1f1; border-color: #ffc1c1;">
-            <h4 style="color: #c0392b;">Not Included</h4>
-            <ul style="font-size: 15px; color: #666; padding-left: 20px;">
-              <li>International flights (we can advise on best options)</li>
+          <div class="not-included">
+            <h3>Not Included in Your Package</h3>
+            <ul>
+              <li>International flights and airfare</li>
               <li>Indian Visa fees</li>
-              <li>Travel Insurance (Mandatory)</li>
-              <li>Tips and items of a personal nature</li>
+              <li>Travel insurance (highly recommended)</li>
+              <li>Personal expenses and tips</li>
             </ul>
+          </div>
+        </section>
+
+        <!-- Visa Info Section -->
+        <?php 
+          $visa_html = get_post_meta(get_the_ID(), '_at_visa_html', true);
+          if ($visa_html) :
+        ?>
+        <section id="visa" style="margin-bottom: 60px; background-color: #F9F6F1; padding: 3rem 2rem;">
+          <h2 class="section-title">Indian Visa Information</h2>
+          <div class="visa-boxes">
+            <?php echo $visa_html; ?>
+          </div>
+        </section>
+        <?php endif; ?>
+
+        <!-- FAQs Section -->
+        <?php 
+          $faqs_html = get_post_meta(get_the_ID(), '_at_faqs_html', true);
+          if ($faqs_html) :
+        ?>
+        <section id="faqs" style="margin-bottom: 60px; background-color: #F9F6F1; padding: 3rem 2rem;">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="faqs-container">
+            <?php echo $faqs_html; ?>
+          </div>
+        </section>
+        <?php endif; ?>
+
+        <!-- Testimonial Section -->
+        <?php 
+          $testimonial_text = get_post_meta(get_the_ID(), '_at_testimonial_text', true);
+          if ($testimonial_text) :
+        ?>
+        <section class="testimonial-section" style="margin-bottom: 60px;">
+          <div class="testimonial">
+            <p class="testimonial-text">"<?php echo esc_html($testimonial_text); ?>"</p>
+            <p class="testimonial-attr">— <?php echo esc_html(get_post_meta(get_the_ID(), '_at_testimonial_author', true) ?: 'Ashfield Travel Guest'); ?></p>
+          </div>
+        </section>
+        <?php endif; ?>
+
+        <!-- TTA Protection Section -->
+        <section style="margin-bottom: 60px;">
+          <div class="tta-section">
+            <h3 class="tta-title">Your Peace of Mind: Travel Trust Association Protection</h3>
+            <p style="color: #6B7280; margin-bottom: 1.5rem;">Ashfield Travel is a proud member of the Travel Trust Association, providing you with absolute peace of mind.</p>
+            <div class="tta-benefits">
+              <div class="tta-benefit"><strong>100% Financial Protection</strong><span>Your money is fully protected.</span></div>
+              <div class="tta-benefit"><strong>Trust Account Supervision</strong><span>Funds held in a dedicated Trust Account.</span></div>
+              <div class="tta-benefit"><strong>Price Promise</strong><span>Transparent pricing with no hidden charges.</span></div>
+            </div>
           </div>
         </section>
 
@@ -256,3 +324,4 @@ $hero_img = has_post_thumbnail()
 </section>
 
 <?php get_footer(); ?>
+</div> <!-- .at-tour-page -->

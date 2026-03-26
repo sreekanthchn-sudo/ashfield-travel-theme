@@ -30,44 +30,25 @@
     </a>
 
     <nav class="at-nav" role="navigation" aria-label="Main navigation">
+      <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/') ); ?>">Home</a></div>
       <div class="at-nav-item has-dropdown">
-        <a href="<?php echo esc_url( home_url('/destinations/') ); ?>" aria-haspopup="true">Destinations <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
-        <div class="mega-menu" role="menu">
-          <div class="mega-col">
-            <h4>India</h4>
-            <a href="<?php echo esc_url( home_url('/destinations/kerala/') ); ?>" role="menuitem">Kerala</a>
-            <a href="<?php echo esc_url( home_url('/destinations/golden-triangle/') ); ?>" role="menuitem">Golden Triangle</a>
-            <a href="<?php echo esc_url( home_url('/destinations/kashmir/') ); ?>" role="menuitem">Kashmir</a>
-            <a href="<?php echo esc_url( home_url('/destinations/rajasthan/') ); ?>" role="menuitem">Rajasthan</a>
-            <a href="<?php echo esc_url( home_url('/destinations/goa/') ); ?>" role="menuitem">Goa</a>
-          </div>
-          <div class="mega-col">
-            <h4>Middle East</h4>
-            <a href="<?php echo esc_url( home_url('/destinations/dubai/') ); ?>" role="menuitem">Dubai</a>
-          </div>
-          <div class="mega-col">
-            <h4>Coming Soon</h4>
-            <a href="#" class="coming" role="menuitem">Turkey</a>
-            <a href="#" class="coming" role="menuitem">Albania</a>
-          </div>
-        </div>
-      </div>
-      <div class="at-nav-item has-dropdown">
-        <a href="<?php echo esc_url( home_url('/tours/') ); ?>" aria-haspopup="true">Tour Types <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+        <a href="<?php echo esc_url( home_url('/tours/') ); ?>" aria-haspopup="true">Packages <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
         <div class="mega-menu" style="min-width: 400px;" role="menu">
           <div class="mega-col">
-            <h4>How You Travel</h4>
-            <a href="<?php echo esc_url( home_url('/tours/group-tours/') ); ?>" role="menuitem">Group Tours</a>
-            <a href="<?php echo esc_url( home_url('/tours/private-tours/') ); ?>" role="menuitem">Private Tours</a>
-            <a href="<?php echo esc_url( home_url('/tours/tailor-made/') ); ?>" role="menuitem">Tailor-Made Holidays</a>
-            <a href="<?php echo esc_url( home_url('/tours/family-packages/') ); ?>" role="menuitem">Family Packages</a>
-            <a href="<?php echo esc_url( home_url('/tours/honeymoon-escapes/') ); ?>" role="menuitem">Honeymoon Escapes</a>
+            <h4>India Holidays</h4>
+            <a href="<?php echo esc_url( home_url('/destinations/kerala/') ); ?>" role="menuitem">Kerala Escape</a>
+            <a href="<?php echo esc_url( home_url('/destinations/golden-triangle/') ); ?>" role="menuitem">Golden Triangle</a>
+            <a href="<?php echo esc_url( home_url('/destinations/rajasthan/') ); ?>" role="menuitem">Royal Rajasthan</a>
+          </div>
+          <div class="mega-col">
+            <h4>Tour Types</h4>
+            <a href="<?php echo esc_url( home_url('/tour-types/group-tours/') ); ?>" role="menuitem">Group Tours</a>
+            <a href="<?php echo esc_url( home_url('/tour-types/private-tours/') ); ?>" role="menuitem">Private Tours</a>
+            <a href="<?php echo esc_url( home_url('/tour-types/family-packages/') ); ?>" role="menuitem">Family Holidays</a>
           </div>
         </div>
       </div>
       <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/about-us/') ); ?>">About Us</a></div>
-      <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/offers/') ); ?>">Offers</a></div>
-      <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/brochures/') ); ?>">Brochures</a></div>
       <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/contact-us/') ); ?>">Contact Us</a></div>
     </nav>
 
@@ -76,8 +57,8 @@
         <span class="number">+44 7587 671758</span>
         <span class="hours">Mon-Fri 9am-6pm</span>
       </div>
-      <a href="<?php echo esc_url( home_url('/brochures/') ); ?>" class="at-btn at-btn-primary">
-        Request a brochure <span class="at-btn-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+      <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>" class="at-btn at-btn-primary">
+        Get Free Quote <span class="at-btn-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
       </a>
     </div>
   </div>

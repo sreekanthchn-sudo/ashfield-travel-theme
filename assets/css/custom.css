@@ -9,9 +9,10 @@
    ───────────────────────────────── */
 body.ashfield-travel {
   font-family: var(--at-font-body);
-  color: var(--at-text-body);
-  line-height: 1.7;
+  color: #262626;
+  line-height: 1.75;
   background: var(--at-white);
+  -webkit-font-smoothing: antialiased;
 }
 
 body.ashfield-travel a {
@@ -33,7 +34,48 @@ body.ashfield-travel .grid-container {
   margin: 0 auto;
   padding-left: 32px;
   padding-right: 32px;
+  scroll-behavior: smooth;
 }
+
+/* Mobile Sticky Contact Bar */
+.at-mobile-contact-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--at-white);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .at-mobile-contact-bar {
+    display: grid;
+  }
+  body {
+    padding-bottom: 70px; /* Space for the bar */
+  }
+}
+
+.at-mobile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.at-mobile-btn--call { background: #2E4D3E; color: white; }
+.at-mobile-btn--quote { background: #FF8C00; color: white; }
+
 
 /* ─────────────────────────────────
    TYPOGRAPHY — GP Heading Overrides
@@ -44,13 +86,19 @@ body.ashfield-travel h3,
 body.ashfield-travel h4 {
   font-family: var(--at-font-heading);
   color: var(--at-navy);
-  line-height: 1.15;
+  line-height: 1.1;
+  text-wrap: balance;
 }
 
-body.ashfield-travel h1 { font-size: 62px; font-weight: 700; }
-body.ashfield-travel h2 { font-size: 42px; font-weight: 700; }
+body.ashfield-travel h1 { font-size: 56px; font-weight: 800; letter-spacing: -1.5px; }
+body.ashfield-travel h2 { font-size: 42px; font-weight: 700; letter-spacing: -0.5px; }
 body.ashfield-travel h3 { font-size: 28px; font-weight: 700; }
-body.ashfield-travel h4 { font-size: 22px; font-weight: 700; }
+body.ashfield-travel h4 { font-size: 22px; font-weight: 600; }
+
+@media (max-width: 768px) {
+  body.ashfield-travel h1 { font-size: 36px; }
+  body.ashfield-travel h2 { font-size: 28px; }
+}
 
 /* ─────────────────────────────────
    1. TOP BAR
@@ -251,15 +299,15 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
 }
 
 .at-btn-primary {
-  background: var(--at-terracotta);
+  background: #FF8C00; /* High contrast orange */
   color: var(--at-white);
-  box-shadow: 0 4px 12px rgba(176,65,31,0.2);
+  box-shadow: 0 4px 14px rgba(255,140,0,0.3);
 }
 
 .at-btn-primary:hover {
-  background: var(--at-terracotta-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(176,65,31,0.25);
+  background: #E67E00;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255,140,0,0.4);
   color: var(--at-white);
 }
 
@@ -481,7 +529,13 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
    SECTION COMMON
    ───────────────────────────────── */
 .at-section {
-  padding: 80px 0;
+  padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+  .at-section {
+    padding: 60px 0;
+  }
 }
 
 .at-section.cream-bg {

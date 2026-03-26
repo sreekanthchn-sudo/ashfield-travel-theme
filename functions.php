@@ -59,6 +59,16 @@ function ashfield_enqueue_assets() {
 		ASHFIELD_VERSION
 	);
 
+	/* Tour Package CSS — for the new professional single tour layout */
+	if ( is_singular( 'tour' ) ) {
+		wp_enqueue_style(
+			'ashfield-tour-package',
+			get_stylesheet_directory_uri() . '/css/tour-package.css',
+			array( 'ashfield-custom' ),
+			ASHFIELD_VERSION
+		);
+	}
+
 	/* Front-end JS (filter pills, mobile menu, scroll effects) */
 	wp_enqueue_script(
 		'ashfield-scripts',

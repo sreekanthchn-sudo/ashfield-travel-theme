@@ -59,11 +59,11 @@
         <div class="mega-menu" style="min-width: 400px;" role="menu">
           <div class="mega-col">
             <h4>How You Travel</h4>
-            <a href="<?php echo esc_url( home_url('/tours/group-tours/') ); ?>" role="menuitem">Group Tours</a>
-            <a href="<?php echo esc_url( home_url('/tours/private-tours/') ); ?>" role="menuitem">Private Tours</a>
-            <a href="<?php echo esc_url( home_url('/tours/tailor-made/') ); ?>" role="menuitem">Tailor-Made Holidays</a>
-            <a href="<?php echo esc_url( home_url('/tours/family-packages/') ); ?>" role="menuitem">Family Packages</a>
-            <a href="<?php echo esc_url( home_url('/tours/honeymoon-escapes/') ); ?>" role="menuitem">Honeymoon Escapes</a>
+            <a href="<?php echo esc_url( home_url('/tour-types/group-tours/') ); ?>" role="menuitem">Group Tours</a>
+            <a href="<?php echo esc_url( home_url('/tour-types/private-tours/') ); ?>" role="menuitem">Private Tours</a>
+            <a href="<?php echo esc_url( home_url('/tour-types/tailor-made/') ); ?>" role="menuitem">Tailor-Made Holidays</a>
+            <a href="<?php echo esc_url( home_url('/tour-types/family-packages/') ); ?>" role="menuitem">Family Packages</a>
+            <a href="<?php echo esc_url( home_url('/tour-types/honeymoons/') ); ?>" role="menuitem">Honeymoon Escapes</a>
           </div>
         </div>
       </div>
