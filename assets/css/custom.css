@@ -203,7 +203,7 @@ body.ashfield-travel .site-header .inside-header {
   }
 
   .at-nav {
-    display: none;
+    display: none !important;
     position: absolute;
     top: 100%;
     left: 0;
@@ -216,7 +216,7 @@ body.ashfield-travel .site-header .inside-header {
   }
 
   body.mobile-menu-open .at-nav {
-    display: flex;
+    display: flex !important;
   }
 
   body.ashfield-travel .site-header .inside-header {
