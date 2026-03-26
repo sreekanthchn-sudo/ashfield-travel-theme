@@ -163,10 +163,30 @@ body.ashfield-travel .site-header {
 }
 
 body.ashfield-travel .site-header .inside-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: auto !important;
+  min-height: 80px;
+  padding: 10px 32px !important;
+}
+
+/* Ensure the nav doesn't collapse or overlap */
+.at-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 80px;
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .at-nav {
+    display: none; /* Hide custom nav on mobile for now - GP menu should take over or we need a mobile specific toggle */
+  }
+  body.ashfield-travel .site-header .inside-header {
+    flex-wrap: wrap;
+    justify-content: center !important;
+    gap: 15px;
+  }
 }
 
 /* Logo */
@@ -2054,7 +2074,12 @@ body.ashfield-homepage .at-sticky-brochure {
 .at-nav-item .arrow { font-size: 8px; opacity: 0.5; transition: transform 0.2s; }
 .at-nav-item:hover .arrow { transform: rotate(180deg); }
 
-.header-right { display: flex; align-items: center; gap: 24px; }
+.header-right { 
+  display: flex; 
+  align-items: center; 
+  gap: 24px; 
+  margin-left: auto;
+}
 .header-phone { display: flex; flex-direction: column; align-items: flex-end; }
 .header-phone .number {
   font-size: 18px; font-weight: 700; color: var(--at-navy);
@@ -2063,6 +2088,18 @@ body.ashfield-homepage .at-sticky-brochure {
 }
 .header-phone .hours { font-size: 11px; color: var(--at-text-light); white-space: nowrap; }
 .header-right .at-btn-primary { white-space: nowrap; }
+
+@media (max-width: 768px) {
+  .header-right {
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .header-phone {
+    align-items: center;
+  }
+}
 
 /* Mega Menu */
 .at-nav-item .mega-menu {
