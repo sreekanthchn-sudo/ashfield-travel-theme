@@ -1995,6 +1995,19 @@ body.ashfield-homepage .at-sticky-brochure {
   white-space: nowrap;
 }
 .at-nav-item:hover { color: var(--at-terracotta); }
+.at-nav-item > a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.at-nav-item > a:hover,
+.at-nav-item:hover > a { color: var(--at-terracotta); }
 .at-nav-item .arrow { font-size: 8px; opacity: 0.5; transition: transform 0.2s; }
 .at-nav-item:hover .arrow { transform: rotate(180deg); }
 

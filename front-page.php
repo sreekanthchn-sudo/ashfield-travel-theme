@@ -26,10 +26,10 @@ get_header('home'); ?>
 </main><!-- #primary -->
 
 <!-- ════════════ STICKY BROCHURE BUTTON ════════════ -->
-<button class="at-sticky-brochure">
+<a href="<?php echo esc_url( home_url('/brochures/') ); ?>" class="at-sticky-brochure" aria-label="<?php esc_attr_e( 'Request a brochure', 'ashfield-travel' ); ?>">
   <?php esc_html_e( 'Request a brochure', 'ashfield-travel' ); ?>
   <span class="arrow-circle" aria-hidden="true">&#10132;</span>
-</button>
+</a>
 
 <!-- ════════════ MOBILE CTA BAR ════════════ -->
 <div class="at-mobile-cta">

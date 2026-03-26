@@ -1,8 +1,9 @@
 <?php
 /**
- * Custom Home Footer
- * Bypasses GeneratePress defaults to allow a fully bespoke footer,
- * while still firing wp_footer() for plugin compatibility.
+ * Global Site Footer (all non-homepage pages)
+ * Applies the bespoke Ashfield Travel footer to all page types.
+ *
+ * @package Ashfield_Travel
  */
 ?>
 <footer class="at-footer">

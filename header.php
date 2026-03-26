@@ -1,8 +1,10 @@
 <?php
 /**
- * Custom Home Header
- * Bypasses GeneratePress defaults to allow a fully bespoke navigation and layout,
- * while still firing wp_head() for plugin compatibility.
+ * Global Site Header (all non-homepage pages)
+ * Uses the same bespoke Ashfield Travel branding as header-home.php
+ * but applies to all page types — inner pages, 404, search results, etc.
+ *
+ * @package Ashfield_Travel
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -76,9 +78,9 @@
         <span class="number">+44 7587 671758</span>
         <span class="hours">Mon-Fri 9am-6pm</span>
       </div>
-      <button class="at-btn-primary">
+      <a href="<?php echo esc_url( home_url('/brochures/') ); ?>" class="at-btn-primary">
         Request a brochure <span class="icon">&#10132;</span>
-      </button>
+      </a>
     </div>
   </div>
 </header>
