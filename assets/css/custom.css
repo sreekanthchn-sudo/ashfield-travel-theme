@@ -178,27 +178,7 @@ body.ashfield-travel .site-header .inside-header {
   gap: 20px;
 }
 
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.menu-toggle .icon-bar {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: var(--at-navy);
-  margin: 5px 0;
-  transition: all 0.3s;
-}
-
-@media (max-width: 1024px) {
-  .menu-toggle {
+  .at-menu-toggle {
     display: block;
   }
 
@@ -1361,6 +1341,25 @@ body.ashfield-travel .site-footer {
   border-color: var(--at-terracotta);
   color: var(--at-terracotta);
   background: rgba(196,87,42,0.1);
+}
+
+/* Mobile Menu Toggle */
+.at-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.at-menu-toggle .icon-bar {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--at-navy);
+  margin: 5px 0;
+  transition: all 0.3s;
 }
 
 .at-footer-col h4 {

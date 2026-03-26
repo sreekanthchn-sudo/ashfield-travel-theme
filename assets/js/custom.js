@@ -91,9 +91,9 @@
      its own but this backs it up)
      ──────────────────────────────────── */
   function initMobileMenu() {
-    var toggle = document.querySelector('.menu-toggle');
-    if (!toggle) return;
-    toggle.addEventListener('click', function () {
+    const menuToggle = document.querySelector('.at-menu-toggle');
+    if (!menuToggle) return;
+    menuToggle.addEventListener('click', function () {
       document.body.classList.toggle('mobile-menu-open');
     });
   }

@@ -30,7 +30,7 @@
       </div>
     </a>
 
-    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+    <button class="at-menu-toggle" aria-controls="primary-menu" aria-expanded="false">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
