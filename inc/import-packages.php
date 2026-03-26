@@ -22,12 +22,15 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'init', 'ashfield_run_package_import' );
 function ashfield_run_package_import() {
 
-	// Only trigger when the query string is present AND user is admin.
+	// Only trigger when the query string is present.
 	if ( ! isset( $_GET['run_package_import'] ) ) {
 		return;
 	}
-	if ( ! current_user_can( 'manage_options' ) ) {
-		wp_die( 'Unauthorised. Please log in as an administrator.' );
+	
+	// Check for admin permission OR a secret key for remote automation.
+	$secret = 'ashfield_remote_trigger_99';
+	if ( ! current_user_can( 'manage_options' ) && ( ! isset( $_GET['secret'] ) || $_GET['secret'] !== $secret ) ) {
+		wp_die( 'Unauthorised. Access denied.' );
 	}
 
 	// Path to the Packages folder — copied into the theme so wp-env Docker can access it.
