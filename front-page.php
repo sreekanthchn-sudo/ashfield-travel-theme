@@ -7,7 +7,7 @@
 
 defined('ABSPATH') || exit;
 
-get_header(); ?>
+get_header('home'); ?>
 
 <main id="primary" class="site-main">
 
@@ -42,4 +42,4 @@ get_header(); ?>
 </div>
 
 <?php
-get_footer();
+get_footer('home');

@@ -281,6 +281,29 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   color: var(--at-white);
 }
 
+.at-btn-outline {
+  background: transparent;
+  color: var(--at-terracotta);
+  border: 2px solid var(--at-terracotta);
+  border-radius: 50px;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--at-font-body);
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.at-btn-outline:hover {
+  background: var(--at-terracotta);
+  color: var(--at-white);
+}
+
 .at-btn-hero {
   padding: 16px 36px;
   font-size: 15px;
@@ -1953,3 +1976,62 @@ body.ashfield-homepage .at-sticky-brochure {
 @media (max-width: 480px) {
   .at-tour-grid--archive { grid-template-columns: 1fr; }
 }
+
+/* ─────────────────────────────────
+   CUSTOM HEADER NAVIGATION CLASSES
+   ───────────────────────────────── */
+.at-nav { display: flex; align-items: center; gap: 0; }
+.at-nav-item {
+  padding: 28px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--at-text-dark);
+  position: relative;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.at-nav-item:hover { color: var(--at-terracotta); }
+.at-nav-item .arrow { font-size: 8px; opacity: 0.5; transition: transform 0.2s; }
+.at-nav-item:hover .arrow { transform: rotate(180deg); }
+
+.header-right { display: flex; align-items: center; gap: 24px; }
+.header-phone { display: flex; flex-direction: column; align-items: flex-end; }
+.header-phone .number {
+  font-size: 18px; font-weight: 700; color: var(--at-navy);
+  letter-spacing: 0.5px;
+}
+.header-phone .hours { font-size: 11px; color: var(--at-text-light); }
+
+/* Mega Menu */
+.at-nav-item .mega-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--at-white);
+  border-radius: 0 0 8px 8px;
+  box-shadow: var(--at-shadow-lg);
+  padding: 32px 36px;
+  min-width: 640px;
+  z-index: 200;
+  border-top: 3px solid var(--at-terracotta);
+}
+.at-nav-item:hover .mega-menu { display: flex; gap: 48px; }
+.mega-col h4 {
+  font-family: var(--at-font-heading);
+  font-size: 18px; font-weight: 700; color: var(--at-navy);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--at-gold-light);
+}
+.mega-col a {
+  display: block; font-size: 14px; color: var(--at-text-body);
+  padding: 6px 0; transition: all 0.2s;
+}
+.mega-col a:hover { color: var(--at-terracotta); padding-left: 4px; }
+.mega-col a.coming { color: #bbb; font-style: italic; }
+.mega-col a.coming::after { content: ' — Coming Soon'; font-size: 11px; }

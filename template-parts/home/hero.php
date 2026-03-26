@@ -40,11 +40,11 @@ $hero_bg   = $hero_img ? $hero_img : $fallback;
     </p>
 
     <div class="at-hero-buttons">
-      <a href="<?php echo esc_url( home_url( '/tours/' ) ); ?>" class="at-btn-hero-primary">
+      <a href="<?php echo esc_url( home_url( '/tours/' ) ); ?>" class="at-btn-primary at-btn-hero">
         <?php esc_html_e( 'Explore Our Tours', 'ashfield-travel' ); ?>
         <span aria-hidden="true">&#10132;</span>
       </a>
-      <a href="<?php echo esc_url( home_url( '/brochures/' ) ); ?>" class="at-btn-hero-secondary">
+      <a href="<?php echo esc_url( home_url( '/brochures/' ) ); ?>" class="at-btn-secondary at-btn-hero">
         <?php esc_html_e( 'Request a Brochure', 'ashfield-travel' ); ?>
       </a>
     </div>
