@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Very Best of India — Group Tour | Ashfield Travel Package 108</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: #222222;
+            line-height: 1.6;
+            background-color: #FFFFFF;
+        }
+
+        /* ============ STICKY NAVIGATION ============ */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background-color: #1B3A5C;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .sticky-nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .sticky-nav a:hover {
+            color: #C8963E;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            background: linear-gradient(rgba(27, 58, 92, 0.75), rgba(27, 58, 92, 0.85)), url('https://images.unsplash.com/photo-1597315625234-4a6ee3c0b65f?w=1400&q=80') center/cover no-repeat;
+            color: #FFFFFF;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-brand {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #C8963E;
+            font-weight: 700;
+        }
+
+        .hero-ref {
+            font-size: 0.8rem;
+            color: #C8963E;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #C8963E;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-duration {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .hero-season {
+            font-size: 0.95rem;
+            color: #E0E0E0;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-destinations {
+            font-size: 1rem;
+            color: #FFFFFF;
+            margin: 1.5rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #C8963E;
+            margin: 1.2rem 0 0.3rem;
+        }
+
+        .hero-price-note {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-note {
+            font-size: 0.85rem;
+            color: #FFD700;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            padding: 0.8rem 2.5rem;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background-color: #B8843B;
+            transform: translateY(-2px);
+        }
+
+        /* ============ SECTIONS ============ */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background-color: #F9F6F1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #1B3A5C;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* ============ OVERVIEW ============ */
+        .overview-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .overview-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #222222;
+            text-align: justify;
+        }
+
+        /* ============ HIGHLIGHTS GRID ============ */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .highlight-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .delhi {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80') center/cover no-repeat;
+        }
+
+        .agra {
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80') center/cover no-repeat;
+        }
+
+        .jaipur {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80') center/cover no-repeat;
+        }
+
+        .cochin {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1604178549917-26d440643117?w=800&q=80') center/cover no-repeat;
+        }
+
+        .munnar {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80') center/cover no-repeat;
+        }
+
+        .backwaters {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1512207736139-afc10e5e764e?w=800&q=80') center/cover no-repeat;
+        }
+
+        .marari {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80') center/cover no-repeat;
+        }
+
+        .kovalam {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80') center/cover no-repeat;
+        }
+
+        .airport {
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=800&q=80') center/cover no-repeat;
+        }
+
+        .highlight-content {
+            padding: 1.5rem;
+            background-color: #FFFFFF;
+        }
+
+        .highlight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .highlight-desc {
+            font-size: 0.95rem;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        /* ============ ITINERARY ============ */
+        .itinerary-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            align-items: start;
+        }
+
+        .itinerary-item:nth-child(even) {
+            grid-template-columns: 1fr 300px;
+        }
+
+        .itinerary-item:nth-child(even) .itinerary-image {
+            order: 2;
+        }
+
+        .itinerary-item:nth-child(even) .itinerary-content {
+            order: 1;
+        }
+
+        .itinerary-image {
+            height: 250px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+        }
+
+        .itinerary-content {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .day-label {
+            display: inline-block;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+        }
+
+        .itinerary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .itinerary-text {
+            font-size: 0.95rem;
+            color: #222222;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .itinerary-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+
+        .meta-item strong {
+            color: #222222;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .itinerary-item,
+            .itinerary-item:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .itinerary-item:nth-child(even) .itinerary-image {
+                order: unset;
+            }
+
+            .itinerary-item:nth-child(even) .itinerary-content {
+                order: unset;
+            }
+        }
+
+        /* ============ ACCOMMODATION TABLE ============ */
+        .accommodation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background-color: #FFFFFF;
+        }
+
+        .accommodation-table th {
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .accommodation-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 0.95rem;
+        }
+
+        .accommodation-table tr:nth-child(even) {
+            background-color: #F9F6F1;
+        }
+
+        .accommodation-notes {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-left: 3px solid #C8963E;
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        /* ============ PRICING CARDS ============ */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background-color: #FFFFFF;
+            border: 2px solid #1B3A5C;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 8px 20px rgba(27, 58, 92, 0.15);
+        }
+
+        .pricing-tier {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .pricing-amount {
+            font-size: 2.5rem;
+            color: #C8963E;
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+
+        .pricing-note {
+            font-size: 0.85rem;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-details {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #222222;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+
+        .pricing-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============ INCLUSIONS ============ */
+        .inclusions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .inclusion-card {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .inclusion-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .inclusion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .inclusion-text {
+            font-size: 0.9rem;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        /* ============ NOT INCLUDED ============ */
+        .not-included {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+            margin-top: 2rem;
+        }
+
+        .not-included h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1B3A5C;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .not-included ul {
+            list-style: none;
+        }
+
+        .not-included li {
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+            color: #222222;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .not-included li:before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* ============ VISA INFORMATION ============ */
+        .visa-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .visa-box {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border: 2px solid #1B3A5C;
+            border-radius: 4px;
+        }
+
+        .visa-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .visa-box p {
+            font-size: 0.9rem;
+            color: #222222;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .visa-box a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .visa-box a:hover {
+            text-decoration: underline;
+        }
+
+        .visa-link {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-left: 3px solid #C8963E;
+        }
+
+        .visa-link a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .visa-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ TTA PROTECTION ============ */
+        .tta-section {
+            background-color: #FFFFFF;
+            border: 2px solid #C8963E;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .tta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+        }
+
+        .tta-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .tta-benefit {
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-radius: 4px;
+        }
+
+        .tta-benefit strong {
+            color: #1B3A5C;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .tta-benefit span {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        .tta-footer {
+            margin-top: 1.5rem;
+            font-weight: 700;
+            color: #1B3A5C;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+        }
+
+        /* ============ FAQs ============ */
+        .faqs-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 3px solid #C8963E;
+        }
+
+        .faq-question {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #222222;
+            line-height: 1.7;
+        }
+
+        /* ============ TESTIMONIAL ============ */
+        .testimonial {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background-color: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .testimonial-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #1B3A5C;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-attr {
+            font-size: 0.95rem;
+            color: #C8963E;
+            font-weight: 600;
+        }
+
+        /* ============ CTA SECTION ============ */
+        .cta-section {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .cta-text {
+            font-size: 1rem;
+            color: #222222;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            background-color: #C8963E;
+            transform: translateY(-2px);
+        }
+
+        .cta-contact {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #E0E0E0;
+            font-size: 0.95rem;
+            color: #6B7280;
+        }
+
+        .cta-contact a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-nav ul {
+                gap: 1rem;
+            }
+
+            .sticky-nav a {
+                font-size: 0.8rem;
+            }
+
+            .pricing-amount {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ STICKY NAVIGATION ============ -->
+<nav class="sticky-nav">
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#itinerary">Itinerary</a></li>
+        <li><a href="#hotels">Hotels</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#included">Included</a></li>
+        <li><a href="#visa">Visa Info</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+    </ul>
+</nav>
+
+<!-- ============ HERO SECTION ============ -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-brand">ASHFIELD TRAVEL</div>
+        <div class="hero-ref">Package Ref: 108</div>
+        <h1>The Very Best of India — Group Tour</h1>
+        <div class="hero-subtitle">Escorted Group Tour (max 26 guests)</div>
+        <div class="hero-duration">11 Days / 10 Nights</div>
+        <div class="hero-season">January (specific departures)</div>
+        <div class="hero-destinations">Jaipur · Agra · Delhi · Cochin · Munnar · Alleppey · Marari Beach · Kovalam</div>
+        <div class="hero-price">From £968 per person</div>
+        <div class="hero-price-note">Luxury 5-star | Twin sharing basis</div>
+        <div class="hero-note">Land-only package — internal flight Delhi to Cochin not included</div>
+        <a href="mailto:info@ashfieldtravel.co.uk" class="hero-cta">ENQUIRE NOW</a>
+    </div>
+</section>
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+    <h2 class="section-title">The Complete Indian Experience</h2>
+    <div class="overview-content">
+        <p>Experience the absolute pinnacle of Indian travel in one extraordinary eleven-day journey. This comprehensive group tour combines the imperial splendour of the Golden Triangle with the serene backwaters and tropical beaches of Kerala, creating an unparalleled exploration of India's cultural, historical, and natural treasures. Travel with fellow adventurers across two perfectly matched segments: five days immersed in North Indian heritage, followed by six days discovering South India's lush landscapes and coastal paradise. From Mughal monuments to spice gardens, from houseboat cruises to pristine beaches, this is India in its complete and most spectacular form.</p>
+    </div>
+</section>
+
+<!-- ============ HIGHLIGHTS ============ -->
+<section id="highlights">
+    <h2 class="section-title">The Very Best of India Highlights</h2>
+    <div class="highlights-grid">
+        <div class="highlight-card">
+            <div class="highlight-image agra">Taj Mahal, Agra</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Taj Mahal, Agra</h3>
+                <p class="highlight-desc">Witness one of the Seven Wonders of the World at sunrise or sunset</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image jaipur">Amber Fort, Jaipur</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Amber Fort, Jaipur</h3>
+                <p class="highlight-desc">Ascend the hilltop fortress blending Hindu and Mughal architecture with panoramic views</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image cochin">Fort Cochin</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Fort Cochin</h3>
+                <p class="highlight-desc">Wander historic streets lined with colonial architecture and watch traditional Chinese fishing nets</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image munnar">Munnar Tea Country</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Munnar Tea Country</h3>
+                <p class="highlight-desc">Explore rolling tea plantations and visit a working spice garden in the misty mountains</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image backwaters">Alleppey Backwaters</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Alleppey Backwaters</h3>
+                <p class="highlight-desc">Cruise on a luxury houseboat through serene palm-fringed lagoons and canals</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image kovalam">Kovalam Beach</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Kovalam Beach</h3>
+                <p class="highlight-desc">Relax on pristine Arabian Sea beaches with gentle waves and golden sand</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ITINERARY ============ -->
+<section id="itinerary">
+    <h2 class="section-title">Your Very Best of India Journey</h2>
+
+    <div style="background-color: #FFFFFF; padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem; border-left: 4px solid #C8963E;">
+        <h3 style="font-family: 'Playfair Display', serif; color: #1B3A5C; margin-bottom: 0.8rem; font-size: 1.2rem;">GOLDEN TRIANGLE LEG (Days 1-5): Jaipur · Agra · Delhi</h3>
+        <p style="font-size: 0.95rem; color: #222222; line-height: 1.7;">Experience India's most iconic monuments and imperial cities before your internal flight to Cochin.</p>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image jaipur">Day 1</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 1</span>
+            <h3 class="itinerary-title">Arrive Jaipur</h3>
+            <p class="itinerary-text">Arrive at Jaipur Airport and transfer to your hotel via luxury AC coach. Afternoon and evening at leisure. Begin your sightseeing with visits to the magnificent Amber Fort, opulent City Palace, astronomical Jantar Mantar, iconic Hawa Mahal (Palace of Winds), and serene Jal Mahal (Water Palace).</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Ramada Wyndham Raja Park, Jaipur</div>
+                <div class="meta-item"><strong>Meals:</strong> Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image jaipur">Day 2</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 2</span>
+            <h3 class="itinerary-title">Full Day Jaipur Sightseeing</h3>
+            <p class="itinerary-text">Discover Jaipur's remaining landmarks: impressive Jaigarh Fort with historic cannons, Nahargarh Fort with panoramic city views, Albert Hall Museum, and Monkey Temple. Explore vibrant bazaars offering local crafts, textiles, and traditional Jaipur prints. Evening at leisure to rest and prepare for your journey.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Ramada Wyndham Raja Park, Jaipur</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image agra">Day 3</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 3</span>
+            <h3 class="itinerary-title">Jaipur to Agra</h3>
+            <p class="itinerary-text">Drive to Agra (240km/5-6 hours) in your AC 35-seater luxury coach. Visit the breathtaking Taj Mahal and the imposing Agra Fort, witnessing the romance and grandeur of Mughal architecture. Experience the perfect blend of love, history, and artistic magnificence. Note: Taj Mahal is closed on Fridays.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Radisson Agra</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image delhi">Day 4</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 4</span>
+            <h3 class="itinerary-title">Agra to Delhi</h3>
+            <p class="itinerary-text">Drive to Delhi (206km/4-5 hours) in your luxury coach. Afternoon and evening sightseeing includes the magnificent Red Fort, Rajghat (Mahatma Gandhi's memorial), iconic India Gate, historic Jama Masjid, and the architectural marvel of Akshardham Temple. A comprehensive journey through centuries of Indian history and heritage.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> The Metropolitan, Delhi</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image airport">Day 5</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 5</span>
+            <h3 class="itinerary-title">Internal Flight: Delhi to Cochin</h3>
+            <p class="itinerary-text">Transfer to Delhi Airport for your internal flight to Cochin (approximately 4 hours). Arrive in Cochin and transfer to your hotel. Evening leisure at Fort Cochin. Optional evening visit to traditional Kathakali dance show (evening classical Indian dance-drama with elaborate costumes and makeup).</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Tower House / Fragrant Nature Kochi</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #FFFFFF; padding: 1.5rem; border-radius: 4px; margin: 2rem 0; border-left: 4px solid #C8963E;">
+        <h3 style="font-family: 'Playfair Display', serif; color: #1B3A5C; margin-bottom: 0.8rem; font-size: 1.2rem;">KERALA LEG (Days 6-11): Cochin · Munnar · Alleppey · Marari · Kovalam</h3>
+        <p style="font-size: 0.95rem; color: #222222; line-height: 1.7;">Discover South India's enchanting landscapes, from hill stations and spice plantations to backwater cruises and tropical beaches.</p>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image cochin">Day 6</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 6</span>
+            <h3 class="itinerary-title">Cochin Sightseeing · Drive to Munnar</h3>
+            <p class="itinerary-text">Morning sightseeing in Cochin: explore the Dutch Palace with its intricate murals, watch iconic Chinese Fishing Nets operating at the waterfront, and visit the historic Paradesi Synagogue. Then drive to Munnar (140km/4 hours), India's premier hill station nestled in the Western Ghats. Arrive and settle into your resort in the misty mountains.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Fragrant Nature Resort, Munnar</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image munnar">Day 7</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 7</span>
+            <h3 class="itinerary-title">Full Day Munnar Sightseeing</h3>
+            <p class="itinerary-text">Explore Munnar's natural and agricultural wonders: visit Mattupetty Dam for stunning valley views, discover Echo Point for its acoustic phenomena, explore Rajamala sanctuary for Nilgiri tahr sightings, and tour a working spice garden to see cardamom, pepper, and cinnamon plantations. Experience the cool mountain air and lush green landscapes at their finest.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Fragrant Nature Resort, Munnar</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image backwaters">Day 8</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 8</span>
+            <h3 class="itinerary-title">Munnar to Alleppey · Houseboat Cruise · Marari Beach</h3>
+            <p class="itinerary-text">Drive to Alleppey (170km/5 hours), Kerala's backwater capital. Board a luxury AC houseboat for a memorable day cruise through serene palm-fringed lagoons, canals, and paddy fields. Experience the tranquility of India's Venice, watching local life unfold along the waterways. Lunch served on the houseboat. Afternoon transfer to Marari Beach and check into your beachfront resort.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Xandari Pearl Resort, Marari</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch (houseboat), Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image kovalam">Day 9</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 9</span>
+            <h3 class="itinerary-title">Marari to Kovalam Beach</h3>
+            <p class="itinerary-text">Drive to Kovalam (160km/4 hours), passing through Trivandrum, Kerala's capital. En route, brief sightseeing includes Trivandrum's historic temples and landmarks. Arrive at Kovalam and check into your beachfront resort. Afternoon and evening free to relax on the golden sandy beaches and experience the Arabian Sea.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Gokulam Grand Turtle Beach Resort, Kovalam</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image kovalam">Day 10</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 10</span>
+            <h3 class="itinerary-title">Full Day Leisure at Kovalam</h3>
+            <p class="itinerary-text">Spend a complete day relaxing at Kovalam Beach. Enjoy swimming, beach walks, sunbathing, and local beach activities. Optional water sports available (parasailing, jet skiing) at additional cost. Unwind after your comprehensive India journey and savour the tropical paradise.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Gokulam Grand Turtle Beach Resort, Kovalam</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image airport">Day 11</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 11</span>
+            <h3 class="itinerary-title">Departure from Trivandrum</h3>
+            <p class="itinerary-text">Transfer to Trivandrum International Airport for your onward journey. Depart with unforgettable memories of India's greatest treasures: Mughal monuments, mountain landscapes, spice gardens, serene backwaters, and pristine beaches. Shared with fellow travellers who became friends.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Departure:</strong> Trivandrum Airport</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ACCOMMODATION ============ -->
+<section id="hotels">
+    <h2 class="section-title">Luxury 5-Star Hotels</h2>
+
+    <h3 style="font-family: 'Playfair Display', serif; color: #1B3A5C; font-size: 1.3rem; margin: 2rem 0 1rem;">Luxury 5-Star Collection (10 Nights)</h3>
+    <table class="accommodation-table">
+        <thead>
+            <tr>
+                <th>Night</th>
+                <th>City</th>
+                <th>Hotel</th>
+                <th>Room Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1-2</td>
+                <td>Jaipur</td>
+                <td>Ramada Wyndham Raja Park</td>
+                <td>Deluxe Room</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Agra</td>
+                <td>Radisson Agra</td>
+                <td>Standard Room</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Delhi</td>
+                <td>The Metropolitan, Delhi</td>
+                <td>Deluxe Room</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Cochin</td>
+                <td>Tower House / Fragrant Nature Kochi</td>
+                <td>Deluxe Room</td>
+            </tr>
+            <tr>
+                <td>6-7</td>
+                <td>Munnar</td>
+                <td>Fragrant Nature Resort, Munnar</td>
+                <td>Tropic Green Room</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Marari</td>
+                <td>Xandari Pearl Resort</td>
+                <td>Green Pearl Room</td>
+            </tr>
+            <tr>
+                <td>9-10</td>
+                <td>Kovalam</td>
+                <td>Gokulam Grand Turtle Beach Resort</td>
+                <td>Arabian Sea View Room</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="accommodation-notes">
+        <strong>Hotel Details:</strong> All hotels are carefully selected 5-star luxury properties offering excellent service, comfort, and strategic locations for sightseeing. Each hotel reflects its regional character. Breakfast is included daily. Twin/double sharing basis.
+    </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h3 class="pricing-tier">Luxury 5-Star</h3>
+            <div class="pricing-amount">£968</div>
+            <p class="pricing-note">per person (twin sharing)</p>
+            <ul class="pricing-details">
+                <li>10 nights in premium 5-star luxury hotels</li>
+                <li>All meals included daily (Breakfast, Lunch & Dinner)</li>
+                <li>AC 35-seater coach (GT), 34-seater coach (Kerala)</li>
+                <li>AC houseboat cruise (Alleppey, full day)</li>
+                <li>Professional English-speaking guides</li>
+                <li>All transport and transfers</li>
+                <li>Based on group of up to 26 people</li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background-color: #F9F6F1; border-radius: 4px;">
+        <p style="font-size: 0.95rem; color: #6B7280; margin-bottom: 0.8rem;"><strong>Season:</strong> January (specific departures)</p>
+        <p style="font-size: 0.95rem; color: #6B7280; margin-bottom: 0.8rem;"><strong>Group Size:</strong> Maximum 26 guests per departure</p>
+        <p style="font-size: 0.95rem; color: #6B7280; margin-bottom: 0.8rem;"><strong>Meal Plan:</strong> APAI (All meals included throughout)</p>
+        <p style="font-size: 0.95rem; color: #DC2626; font-weight: 700;"><strong>Internal Flight (Delhi to Cochin):</strong> NOT included — to be arranged separately</p>
+    </div>
+</section>
+
+<!-- ============ WHAT'S INCLUDED ============ -->
+<section id="included">
+    <h2 class="section-title">What's Included</h2>
+    <div class="inclusions-grid">
+        <div class="inclusion-card">
+            <div class="inclusion-number">1</div>
+            <h3 class="inclusion-title">Complete Experiences</h3>
+            <p class="inclusion-text">Golden Triangle sightseeing (Jaipur, Agra, Delhi monuments) plus Kerala exploration (Cochin, Munnar, backwaters, beaches)</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">2</div>
+            <h3 class="inclusion-title">Luxury Hotels</h3>
+            <p class="inclusion-text">10 nights in premium 5-star hotels with excellent service and strategic locations for maximum enjoyment</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">3</div>
+            <h3 class="inclusion-title">All Meals</h3>
+            <p class="inclusion-text">Breakfast, Lunch & Dinner daily throughout the complete 11-day journey (APAI)</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">4</div>
+            <h3 class="inclusion-title">Luxury Coach Transport</h3>
+            <p class="inclusion-text">AC coaches throughout (35-seater Golden Triangle, 34-seater Kerala), with professional courteous drivers</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">5</div>
+            <h3 class="inclusion-title">Houseboat Cruise</h3>
+            <p class="inclusion-text">Full-day luxury AC houseboat cruise on Alleppey backwaters with lunch included</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">6</div>
+            <h3 class="inclusion-title">English-Speaking Guides</h3>
+            <p class="inclusion-text">Professional guides at every destination providing cultural insights and historical context</p>
+        </div>
+    </div>
+
+    <div class="not-included">
+        <h3>What's Not Included</h3>
+        <ul>
+            <li>Internal flight Delhi to Cochin (must be arranged separately)</li>
+            <li>International flights, visa fees, travel insurance</li>
+            <li>Monument entrance fees (available as add-on package)</li>
+            <li>Personal expenses, tips, porterage, and gratuities</li>
+            <li>Optional activities (Kathakali show, water sports)</li>
+            <li>Single room supplements</li>
+            <li>GST and anything not explicitly mentioned</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============ VISA INFORMATION ============ -->
+<section id="visa">
+    <h2 class="section-title">India Visa Information</h2>
+    <div class="visa-boxes">
+        <div class="visa-box">
+            <h3>Visa Requirements</h3>
+            <p>Most international visitors require a visa to enter India. Citizens of select countries are eligible for e-Visa, which can be obtained online for both entry and exit points.</p>
+        </div>
+        <div class="visa-box">
+            <h3>Tourist Visa (e-Visa)</h3>
+            <p>Valid for 30 or 60 days from the date of issue. Multiple entries available. Easy online application through India's official e-Visa portal.</p>
+        </div>
+        <div class="visa-box">
+            <h3>Processing Time</h3>
+            <p>e-Visa typically approved within 3-4 business days. We recommend applying at least 2 weeks before your departure date.</p>
+        </div>
+    </div>
+    <div class="visa-link">
+        For official visa information and eligibility, visit the <a href="https://indianvisaonline.gov.in/" target="_blank" rel="noopener">India e-Visa Official Portal</a>
+    </div>
+</section>
+
+<!-- ============ TTA PROTECTION ============ -->
+<section id="tta" style="background-color: #F9F6F1; padding: 4rem 2rem;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #1B3A5C; text-align: center; margin-bottom: 2rem;">Your Peace of Mind</h2>
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1.5rem;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1B3A5C; font-size: 1.3rem; margin-bottom: 1rem;">Travel Trust Association (TTA) Protected</h3>
+            <p style="color: #222222; line-height: 1.6; margin-bottom: 1rem;">When you book with Ashfield Travel, your money is protected by the Travel Trust Association (TTA). Every penny you pay is held in a Trust Account, supervised by an independent trustee, until your holiday is complete. This means 100% financial protection for your peace of mind.</p>
+            <p style="color: #222222; line-height: 1.6; margin-bottom: 1rem;">Unlike some financial protection schemes, TTA protection covers 100% of your holiday cost from the moment you pay your deposit. Your funds are held in a ring-fenced trust account that cannot be accessed by any other party.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div style="background: white; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1B3A5C; font-weight: 700; margin-bottom: 0.5rem;">100% Protection</div>
+                <p style="color: #6B7280; font-size: 0.9rem;">Every pound protected in a Trust Account from the moment you book</p>
+            </div>
+            <div style="background: white; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1B3A5C; font-weight: 700; margin-bottom: 0.5rem;">Independent Trustee</div>
+                <p style="color: #6B7280; font-size: 0.9rem;">Your funds supervised by an independent, regulated trustee</p>
+            </div>
+            <div style="background: white; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1B3A5C; font-weight: 700; margin-bottom: 0.5rem;">Price Promise</div>
+                <p style="color: #6B7280; font-size: 0.9rem;">No hidden costs or surprises after you book</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #C8963E; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;">Ashfield Travel — Proud member of the Travel Trust Association</p>
+    </div>
+</section>
+
+<!-- ============ FAQs ============ -->
+<section id="faqs">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faqs-container">
+        <div class="faq-item">
+            <h3 class="faq-question">What's included in this combined package?</h3>
+            <p class="faq-answer">The Very Best of India combines two perfectly matched group tours: the Golden Triangle (Jaipur, Agra, Delhi) for 5 days, plus Kerala (Cochin, Munnar, backwaters, beaches) for 6 days. You get complete North and South India experiences in one journey. The internal flight Delhi-Cochin is NOT included and must be booked separately.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">How do I arrange the internal flight Delhi to Cochin?</h3>
+            <p class="faq-answer">The internal flight is a separate component not included in the package price. Our team can assist with flight recommendations and bookings, but you arrange it independently. The flight is approximately 4 hours. We recommend a mid-morning flight to allow time for hotel checkout and airport transfer.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What's the best time to visit?</h3>
+            <p class="faq-answer">October to March is ideal for North India, offering pleasant temperatures (15-30°C) and clear skies. This same period is perfect for Kerala (25-35°C, dry season). This tour specifically departs in January when weather is optimal throughout both regions. April to September brings intense heat and monsoon rains in Kerala.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">How many people are in the group?</h3>
+            <p class="faq-answer">Maximum 26 guests per departure. This ensures a balanced group experience with personalized attention while maintaining group enjoyment, camaraderie, and convenience. Friendships often develop naturally on these extended journeys.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Are monument entrance fees included?</h3>
+            <p class="faq-answer">No, entrance fees are not included in the base package. However, we offer a convenient add-on covering major monuments (Taj Mahal, Agra Fort, Red Fort, city temples), which you can book when confirming your package. This allows flexibility for optional sites.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What are the coach changes?</h3>
+            <p class="faq-answer">You travel in an AC 35-seater coach for the Golden Triangle leg (Days 1-4), then switch to an AC 34-seater coach for the Kerala leg (Days 5-11). Both are luxury, air-conditioned, and professionally maintained with experienced drivers.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Is the houseboat cruise included?</h3>
+            <p class="faq-answer">Yes. The full-day luxury AC houseboat cruise on Alleppey backwaters (Day 8) is fully included, with lunch served on board. This is one of the highlights of the Kerala leg.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What should I wear?</h3>
+            <p class="faq-answer">January temperatures vary: North India (15-25°C) requires light layers; Kerala (25-35°C) is warm with high humidity. Bring comfortable walking shoes for monuments, light breathable clothes for Kerala, and a light jacket for evening. Modest clothing (shoulders, knees covered) is respectful at religious sites.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">How much walking is involved?</h3>
+            <p class="faq-answer">Moderate to extensive. Monument exploration involves considerable walking with some stairs. The houseboat cruise is relaxed. Beach time is leisurely. Overall fitness level should be moderate. Our guides adjust pace for the group's comfort.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Are there opportunities to meet local people?</h3>
+            <p class="faq-answer">Absolutely. Bazaar visits, spice garden tours, houseboat interactions with local boatmen, and beach communities offer authentic cultural encounters. Your guide facilitates respectful interactions and provides cultural context throughout.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section>
+    <div class="testimonial">
+        <p class="testimonial-text">"An extraordinary journey showcasing India's magnificent diversity. From Mughal monuments to tea plantations, houseboat serenity to beach paradise. The organization was flawless, the hotels excellent, every meal delicious, and our guides exceptionally knowledgeable. We travelled with wonderful people and experienced the very best India truly has to offer. A life-changing adventure."</p>
+        <p class="testimonial-attr">Margaret & Christopher Thompson, Edinburgh</p>
+    </div>
+</section>
+
+<!-- ============ CALL TO ACTION ============ -->
+<section>
+    <div class="cta-section">
+        <h2 class="section-title">Ready for the Complete Indian Experience?</h2>
+        <p class="cta-text">Contact our specialists to secure your place on our January group departure. Join up to 26 fellow travellers for an expertly guided and luxuriously appointed eleven-day exploration of India's greatest treasures: Mughal monuments, mountain landscapes, spice gardens, tranquil backwaters, and pristine beaches. Remember to arrange your separate internal flight Delhi-Cochin.</p>
+        <a href="mailto:info@ashfieldtravel.co.uk" class="cta-button">ENQUIRE NOW</a>
+        <a href="https://ashfieldtravel.co.uk" class="cta-button">VISIT WEBSITE</a>
+        <div class="cta-contact">
+            Questions? <a href="mailto:info@ashfieldtravel.co.uk">Email us</a> or call our travel specialists for personalized assistance with group bookings and internal flight arrangements.
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <p>Package Ref: 108 | The Very Best of India — Group Tour</p>
+    <p style="margin-top: 1rem;">Land-only package (internal flight Delhi-Cochin not included). International flights not included. All information correct at time of publication.</p>
+    <p style="margin-top: 1rem;">For the most current availability, pricing, and package details, please contact <a href="mailto:info@ashfieldtravel.co.uk">info@ashfieldtravel.co.uk</a></p>
+    <p style="margin-top: 1rem; font-size: 0.8rem;">&copy; Ashfield Travel. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

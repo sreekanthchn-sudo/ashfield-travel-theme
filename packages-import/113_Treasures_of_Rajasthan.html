@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasures of Rajasthan | Ashfield Travel Package 113</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: #222222;
+            line-height: 1.6;
+            background-color: #FFFFFF;
+        }
+
+        /* ============ STICKY NAVIGATION ============ */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background-color: #1B3A5C;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .sticky-nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .sticky-nav a:hover {
+            color: #C8963E;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            background: linear-gradient(rgba(27, 58, 92, 0.75), rgba(27, 58, 92, 0.85)), url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1400&q=80') center/cover no-repeat;
+            color: #FFFFFF;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-brand {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #C8963E;
+            font-weight: 700;
+        }
+
+        .hero-ref {
+            font-size: 0.8rem;
+            color: #C8963E;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #C8963E;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-duration {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .hero-season {
+            font-size: 0.95rem;
+            color: #E0E0E0;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-destinations {
+            font-size: 1rem;
+            color: #FFFFFF;
+            margin: 1.5rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #C8963E;
+            margin: 1.2rem 0 0.3rem;
+        }
+
+        .hero-price-note {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-note {
+            font-size: 0.85rem;
+            color: #FFD700;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            padding: 0.8rem 2.5rem;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background-color: #B8843B;
+            transform: translateY(-2px);
+        }
+
+        /* ============ SECTIONS ============ */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background-color: #F9F6F1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #1B3A5C;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* ============ OVERVIEW ============ */
+        .overview-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .overview-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #222222;
+            text-align: justify;
+        }
+
+        /* ============ HIGHLIGHTS GRID ============ */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .highlight-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .jaipur {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80') center/cover no-repeat;
+        }
+
+        .jodhpur {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80') center/cover no-repeat;
+        }
+
+        .jaisalmer {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80') center/cover no-repeat;
+        }
+
+        .desert {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&q=80') center/cover no-repeat;
+        }
+
+        .highlight-content {
+            padding: 1.5rem;
+            background-color: #FFFFFF;
+        }
+
+        .highlight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .highlight-desc {
+            font-size: 0.95rem;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        /* ============ ITINERARY ============ */
+        .itinerary-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            align-items: start;
+        }
+
+        .itinerary-item:nth-child(even) {
+            grid-template-columns: 1fr 300px;
+        }
+
+        .itinerary-item:nth-child(even) .itinerary-image {
+            order: 2;
+        }
+
+        .itinerary-item:nth-child(even) .itinerary-content {
+            order: 1;
+        }
+
+        .itinerary-image {
+            height: 250px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+        }
+
+        .itinerary-content {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .day-label {
+            display: inline-block;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+        }
+
+        .itinerary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .itinerary-text {
+            font-size: 0.95rem;
+            color: #222222;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .itinerary-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+
+        .meta-item strong {
+            color: #222222;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .itinerary-item,
+            .itinerary-item:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .itinerary-item:nth-child(even) .itinerary-image {
+                order: unset;
+            }
+
+            .itinerary-item:nth-child(even) .itinerary-content {
+                order: unset;
+            }
+        }
+
+        /* ============ ACCOMMODATION TABLE ============ */
+        .accommodation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background-color: #FFFFFF;
+        }
+
+        .accommodation-table th {
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .accommodation-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 0.95rem;
+        }
+
+        .accommodation-table tr:nth-child(even) {
+            background-color: #F9F6F1;
+        }
+
+        .accommodation-notes {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-left: 3px solid #C8963E;
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        /* ============ PRICING CARDS ============ */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background-color: #FFFFFF;
+            border: 2px solid #1B3A5C;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 8px 20px rgba(27, 58, 92, 0.15);
+        }
+
+        .pricing-tier {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .pricing-amount {
+            font-size: 2.5rem;
+            color: #C8963E;
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+
+        .pricing-note {
+            font-size: 0.85rem;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-details {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #222222;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+
+        .pricing-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============ INCLUSIONS ============ */
+        .inclusions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .inclusion-card {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .inclusion-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .inclusion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .inclusion-text {
+            font-size: 0.9rem;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        /* ============ NOT INCLUDED ============ */
+        .not-included {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+            margin-top: 2rem;
+        }
+
+        .not-included h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1B3A5C;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .not-included ul {
+            list-style: none;
+        }
+
+        .not-included li {
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+            color: #222222;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .not-included li:before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* ============ VISA INFORMATION ============ */
+        .visa-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .visa-box {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border: 2px solid #1B3A5C;
+            border-radius: 4px;
+        }
+
+        .visa-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .visa-box p {
+            font-size: 0.9rem;
+            color: #222222;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .visa-box a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .visa-box a:hover {
+            text-decoration: underline;
+        }
+
+        .visa-link {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-left: 3px solid #C8963E;
+        }
+
+        .visa-link a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .visa-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ TTA PROTECTION ============ */
+        .tta-section {
+            background-color: #FFFFFF;
+            border: 2px solid #C8963E;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .tta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+        }
+
+        .tta-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .tta-benefit {
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-radius: 4px;
+        }
+
+        .tta-benefit strong {
+            color: #1B3A5C;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .tta-benefit span {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        .tta-footer {
+            margin-top: 1.5rem;
+            font-weight: 700;
+            color: #1B3A5C;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+        }
+
+        /* ============ FAQs ============ */
+        .faqs-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 3px solid #C8963E;
+        }
+
+        .faq-question {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #222222;
+            line-height: 1.7;
+        }
+
+        /* ============ TESTIMONIAL ============ */
+        .testimonial {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background-color: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .testimonial-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #1B3A5C;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-attr {
+            font-size: 0.95rem;
+            color: #C8963E;
+            font-weight: 600;
+        }
+
+        /* ============ CTA SECTION ============ */
+        .cta-section {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .cta-text {
+            font-size: 1rem;
+            color: #222222;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            background-color: #C8963E;
+            transform: translateY(-2px);
+        }
+
+        .cta-contact {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #E0E0E0;
+            font-size: 0.95rem;
+            color: #6B7280;
+        }
+
+        .cta-contact a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-nav ul {
+                gap: 1rem;
+            }
+
+            .sticky-nav a {
+                font-size: 0.8rem;
+            }
+
+            .pricing-amount {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ STICKY NAVIGATION ============ -->
+<nav class="sticky-nav">
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#itinerary">Itinerary</a></li>
+        <li><a href="#hotels">Hotels</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#included">Included</a></li>
+        <li><a href="#visa">Visa Info</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+    </ul>
+</nav>
+
+<!-- ============ HERO SECTION ============ -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-brand">ASHFIELD TRAVEL</div>
+        <div class="hero-ref">Package Ref: 113</div>
+        <h1>Treasures of Rajasthan</h1>
+        <div class="hero-subtitle">Fort and Palace Adventure</div>
+        <div class="hero-duration">6 Days / 5 Nights</div>
+        <div class="hero-season">October to March</div>
+        <div class="hero-destinations">Jaipur · Jodhpur · Jaisalmer</div>
+        <div class="hero-price">Contact us for pricing</div>
+        <div class="hero-price-note">Private vehicle | All meals as specified</div>
+        <div class="hero-note">Land-only package — flights not included</div>
+        <a href="mailto:info@ashfieldtravel.co.uk" class="hero-cta">ENQUIRE NOW</a>
+    </div>
+</section>
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+    <h2 class="section-title">Why Rajasthan?</h2>
+    <div class="overview-content">
+        <p>Rajasthan is India's most enchanting state, a land of majestic forts, ornate palaces, and vibrant culture that transports you back to the reign of warrior kings and emperors. This six-day journey through the Golden Triangle of Rajasthan connects three spectacular cities that embody the romance of the Thar Desert and the architectural splendor of centuries past. From the hilltop fortress of Jodhpur to the golden dunes of Jaisalmer, experience a remarkable blend of history, heritage, and desert adventure designed to create unforgettable memories.</p>
+    </div>
+</section>
+
+<!-- ============ HIGHLIGHTS ============ -->
+<section id="highlights">
+    <h2 class="section-title">Rajasthan Highlights</h2>
+    <div class="highlights-grid">
+        <div class="highlight-card">
+            <div class="highlight-image jaipur">Amber Fort, Jaipur</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Amber Fort, Jaipur</h3>
+                <p class="highlight-desc">Ascend the magnificent hilltop fortress overlooking the Pink City with stunning architecture and panoramic views</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image jodhpur">Mehrangarh Fort, Jodhpur</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Mehrangarh Fort, Jodhpur</h3>
+                <p class="highlight-desc">Explore the mighty fortress rising dramatically from a rocky outcrop, visible from across the Blue City</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image jaisalmer">Jaisalmer Fort</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Jaisalmer Fort</h3>
+                <p class="highlight-desc">Step into the living fort rising from the golden sands, a UNESCO World Heritage Site with intricate carvings</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image desert">Sam Sand Dunes</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Sam Sand Dunes</h3>
+                <p class="highlight-desc">Experience the Thar Desert with camel rides at sunset, folk performances, and authentic desert camp overnight</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image jaipur">Hawa Mahal, Jaipur</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Hawa Mahal, Jaipur</h3>
+                <p class="highlight-desc">Marvel at the iconic Palace of Winds, an architectural masterpiece with 953 intricately carved small windows</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image jaisalmer">Patwon ki Haveli</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Patwon ki Haveli</h3>
+                <p class="highlight-desc">Discover the ornate mansion with exquisite 12th-15th century carvings and intricate architectural details</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ITINERARY ============ -->
+<section id="itinerary">
+    <h2 class="section-title">Your Rajasthan Journey</h2>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image jaipur">Day 1</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 1</span>
+            <h3 class="itinerary-title">Arrive Jaipur</h3>
+            <p class="itinerary-text">Arrive in Jaipur and check in to your hotel. Spend the afternoon exploring the city's iconic landmarks: Albert Hall, Hawa Mahal, Jantar Mantar astronomical site, City Palace, Govind Dev Ji Temple, and vibrant local markets showcasing traditional Rajasthani crafts.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> To be confirmed</div>
+                <div class="meta-item"><strong>Meals:</strong> None</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image jaipur">Day 2</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 2</span>
+            <h3 class="itinerary-title">Jaipur Full Day Exploration</h3>
+            <p class="itinerary-text">Full day dedicated to Jaipur's magnificent forts and temples. Visit the grand Amber Fort with its palatial rooms and intricate artwork, Jaigarh Fort known for its cannons, Nahargarh Fort with breathtaking city views, Jal Mahal reflecting in its lake, and the spiritual Birla Temple with its marble carvings.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Jaipur hotel</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image jodhpur">Day 3</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 3</span>
+            <h3 class="itinerary-title">Drive to Jodhpur</h3>
+            <p class="itinerary-text">Journey by private vehicle to Jodhpur, the "Blue City." Explore the magnificent Mehrangarh Fort, a hilltop fortress visible from across the city with stunning architecture and museum exhibits. Visit the beautiful white marble Jaswant Thada cenotaph, serene Balsamand Lake, and explore Ghanta Ghar market for traditional handicrafts and textiles.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Jodhpur hotel</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image jaisalmer">Day 4</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 4</span>
+            <h3 class="itinerary-title">Drive to Jaisalmer - The Golden City</h3>
+            <p class="itinerary-text">Drive to Jaisalmer, known as the "Golden City" for its stunning sandstone architecture. Explore the Jaisalmer War Memorial, the magnificent living Jaisalmer Fort rising from the desert, and intricate havelis including Patwon ki Haveli, Nathmal ki Haveli, and Salim Singh ki Haveli with their elaborate 12th-15th century carvings. Browse leather goods and traditional crafts in local markets.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Jaisalmer hotel</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image desert">Day 5</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 5</span>
+            <h3 class="itinerary-title">Desert Adventure and Desert Camp</h3>
+            <p class="itinerary-text">Visit the historic Tanot Mata shrine and the war memorial at Longewala. In the afternoon, head to Sam Sand Dunes for an authentic desert experience. Enjoy dune bashing in a 4WD, camel rides at sunset, traditional folk performances, a roaring bonfire, and a delicious Rajasthani meal under the stars. Overnight at a comfortable desert camp.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Desert Camp, Jaisalmer</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="itinerary-item">
+        <div class="itinerary-image jaipur">Day 6</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 6</span>
+            <h3 class="itinerary-title">Departure</h3>
+            <p class="itinerary-text">After breakfast, you will be transferred to Jodhpur Airport or Jaisalmer Airport for your onward journey. Depart with unforgettable memories of Rajasthan's magnificent forts, palaces, and desert landscapes.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Departure:</strong> Jodhpur or Jaisalmer Airport</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ACCOMMODATION ============ -->
+<section id="hotels">
+    <h2 class="section-title">Hotels</h2>
+
+    <h3 style="font-family: 'Playfair Display', serif; color: #1B3A5C; font-size: 1.3rem; margin: 2rem 0 1rem;">Hotel & Accommodation Details</h3>
+    <table class="accommodation-table">
+        <thead>
+            <tr>
+                <th>Night</th>
+                <th>City</th>
+                <th>Hotel</th>
+                <th>Room Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Jaipur</td>
+                <td>To be confirmed</td>
+                <td>Deluxe Room</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jaipur</td>
+                <td>To be confirmed</td>
+                <td>Deluxe Room</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Jodhpur</td>
+                <td>Premium hotel</td>
+                <td>Deluxe Room</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Jaisalmer</td>
+                <td>Premium hotel</td>
+                <td>Deluxe Room</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Jaisalmer</td>
+                <td>Desert Camp</td>
+                <td>Camp Tent Accommodation</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="accommodation-notes">
+        <strong>Accommodation Details:</strong> All hotels are carefully selected premium properties offering comfortable rooms, quality service, and strategic locations for sightseeing. The desert camp experience on Day 5 is authentic and comfortable with traditional camp tents. Breakfast is included daily. Twin or double room sharing basis available.
+    </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h3 class="pricing-tier">Treasures of Rajasthan</h3>
+            <div class="pricing-amount">Contact Us</div>
+            <p class="pricing-note">for detailed pricing</p>
+            <ul class="pricing-details">
+                <li>5 nights in premium selected hotels and desert camp</li>
+                <li>Daily breakfast included</li>
+                <li>Private vehicle throughout the journey</li>
+                <li>Professional driver and sightseeing as per itinerary</li>
+                <li>Desert camp experience with folk performance and bonfire</li>
+                <li>Based on two people sharing</li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem; padding: 1rem; background-color: #F9F6F1; border-radius: 4px;">
+        <p style="font-size: 0.95rem; color: #6B7280;"><strong>Season:</strong> October to March</p>
+        <p style="font-size: 0.95rem; color: #6B7280;"><strong>Basis:</strong> Land-only — international flights not included</p>
+    </div>
+</section>
+
+<!-- ============ WHAT'S INCLUDED ============ -->
+<section id="included">
+    <h2 class="section-title">What's Included</h2>
+    <div class="inclusions-grid">
+        <div class="inclusion-card">
+            <div class="inclusion-number">1</div>
+            <h3 class="inclusion-title">Fort and Palace Exploration</h3>
+            <p class="inclusion-text">Amber Fort, Jaigarh Fort, Nahargarh Fort, Mehrangarh Fort, Jaisalmer Fort, and magnificent haveli visits</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">2</div>
+            <h3 class="inclusion-title">Premium Hotels</h3>
+            <p class="inclusion-text">5 nights in handpicked premium hotels and authentic desert camp experience with included activities</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">3</div>
+            <h3 class="inclusion-title">Daily Breakfast</h3>
+            <p class="inclusion-text">Complimentary breakfast at all hotels, including breakfast at the desert camp</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">4</div>
+            <h3 class="inclusion-title">Private Transport</h3>
+            <p class="inclusion-text">Dedicated private vehicle with professional driver throughout your entire Rajasthan journey</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">5</div>
+            <h3 class="inclusion-title">Desert Adventure</h3>
+            <p class="inclusion-text">Desert camp overnight stay, camel rides at sunset, dune bashing, folk performances, and bonfire dinner</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">6</div>
+            <h3 class="inclusion-title">Local Experiences</h3>
+            <p class="inclusion-text">Market visits, handicraft shopping, temple visits, and authentic cultural immersion experiences</p>
+        </div>
+    </div>
+
+    <div class="not-included">
+        <h3>What's Not Included</h3>
+        <ul>
+            <li>International flights, visa fees, travel insurance</li>
+            <li>Monument entrance fees (available upon request)</li>
+            <li>English-speaking guide services (available as add-on)</li>
+            <li>Meals not mentioned (lunch, dinner except Day 5)</li>
+            <li>Personal expenses, tips, porterage, and gratuities</li>
+            <li>GST and anything not explicitly mentioned</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============ VISA INFORMATION ============ -->
+<section id="visa">
+    <h2 class="section-title">India Visa Information</h2>
+    <div class="visa-boxes">
+        <div class="visa-box">
+            <h3>Visa Requirements</h3>
+            <p>Most international visitors require a visa to enter India. Citizens of select countries are eligible for e-Visa, which can be obtained online through a simple application process.</p>
+        </div>
+        <div class="visa-box">
+            <h3>Tourist e-Visa</h3>
+            <p>Valid for 30 or 60 days from the date of issue. Multiple entry options available. Easy online application through India's official e-Visa portal.</p>
+        </div>
+        <div class="visa-box">
+            <h3>Processing Time</h3>
+            <p>e-Visa typically approved within 3-4 business days. We recommend applying at least 2 weeks before your departure date for peace of mind.</p>
+        </div>
+    </div>
+    <div class="visa-link">
+        For official visa information and eligibility, visit the <a href="https://indianvisaonline.gov.in/" target="_blank" rel="noopener">India e-Visa Official Portal</a>
+    </div>
+</section>
+
+<!-- ============ TTA PROTECTION ============ -->
+<section id="tta" style="background-color: #F9F6F1; padding: 4rem 2rem;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #1B3A5C; text-align: center; margin-bottom: 2rem;">Your Peace of Mind</h2>
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1.5rem;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1B3A5C; font-size: 1.3rem; margin-bottom: 1rem;">Travel Trust Association (TTA) Protected</h3>
+            <p style="color: #222222; line-height: 1.6; margin-bottom: 1rem;">When you book with Ashfield Travel, your money is protected by the Travel Trust Association (TTA). Every penny you pay is held in a Trust Account, supervised by an independent trustee, until your holiday is complete. This means 100% financial protection for your peace of mind.</p>
+            <p style="color: #222222; line-height: 1.6; margin-bottom: 1rem;">Unlike some financial protection schemes, TTA protection covers 100% of your holiday cost from the moment you pay your deposit. Your funds are held in a ring-fenced trust account that cannot be accessed by any other party.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div style="background: white; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1B3A5C; font-weight: 700; margin-bottom: 0.5rem;">100% Protection</div>
+                <p style="color: #6B7280; font-size: 0.9rem;">Every pound protected in a Trust Account from the moment you book</p>
+            </div>
+            <div style="background: white; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1B3A5C; font-weight: 700; margin-bottom: 0.5rem;">Independent Trustee</div>
+                <p style="color: #6B7280; font-size: 0.9rem;">Your funds supervised by an independent, regulated trustee</p>
+            </div>
+            <div style="background: white; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1B3A5C; font-weight: 700; margin-bottom: 0.5rem;">Price Promise</div>
+                <p style="color: #6B7280; font-size: 0.9rem;">No hidden costs or surprises after you book</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #C8963E; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;">Ashfield Travel — Proud member of the Travel Trust Association</p>
+    </div>
+</section>
+
+<!-- ============ FAQs ============ -->
+<section id="faqs">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faqs-container">
+        <div class="faq-item">
+            <h3 class="faq-question">What is the best time to visit Rajasthan?</h3>
+            <p class="faq-answer">October to March is ideal, offering pleasant temperatures (15-28°C) and clear skies perfect for sightseeing and desert exploration. Avoid April-September when temperatures exceed 40°C and monsoon rains can affect travel.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">How hot is the Rajasthan desert?</h3>
+            <p class="faq-answer">During the recommended October-March season, daytime temperatures range from 15-25°C, while evenings can be cool (8-15°C). The desert camp provides blankets and warm clothing for comfort. Summer months (April-September) can exceed 40°C, making that season unsuitable for travel.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What should I wear in Rajasthan?</h3>
+            <p class="faq-answer">Pack light, breathable clothing for warm days and a warm jacket or shawl for cool evenings and nights in the desert. Comfortable walking shoes are essential for fort and temple exploration. Modest clothing (shoulders and knees covered) is respectful at religious sites. A hat and sunscreen are recommended.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Is the desert camp comfortable?</h3>
+            <p class="faq-answer">Yes, our desert camp offers authentic yet comfortable accommodation with traditional tents, quality bedding, and proper facilities. While it's a unique experience under the stars, standards ensure your comfort and safety. It's an unforgettable highlight of the journey.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Can I ride a camel?</h3>
+            <p class="faq-answer">Yes, camel rides at sunset in Sam Sand Dunes are a magical highlight of Day 5. We take all safety precautions, and our experienced guides ensure a memorable experience. The rides are suitable for most fitness levels.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Are monument entrance fees included?</h3>
+            <p class="faq-answer">Monument entrance fees are not included in the base package but can be arranged as an add-on. Please contact us for current fee details and we can arrange them as part of your booking.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What are the travel distances?</h3>
+            <p class="faq-answer">Jaipur to Jodhpur: approximately 350km (6-7 hours). Jodhpur to Jaisalmer: approximately 280km (5-6 hours). All travel is by private vehicle with rest breaks included for your comfort and safety.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Can a guide be added?</h3>
+            <p class="faq-answer">Yes, English-speaking local guides are available as an add-on service. We recommend guides for fort visits and temple sites to enhance cultural insights and historical understanding of these magnificent monuments.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section>
+    <div class="testimonial">
+        <p class="testimonial-text">"Rajasthan exceeded all expectations. The forts were breathtaking, the desert experience was magical, and the hotels were delightful. Our driver was professional and kind. The entire journey felt like stepping into history. Absolutely unforgettable."</p>
+        <p class="testimonial-attr">James & Eleanor Hughes, Edinburgh</p>
+    </div>
+</section>
+
+<!-- ============ CALL TO ACTION ============ -->
+<section>
+    <div class="cta-section">
+        <h2 class="section-title">Ready to Explore Rajasthan's Treasures?</h2>
+        <p class="cta-text">Contact our specialists to customize this itinerary, add monument entrance fees, arrange local guides, or include any additional services. We're here to make your Rajasthan adventure truly exceptional and perfectly tailored to your preferences.</p>
+        <a href="mailto:info@ashfieldtravel.co.uk" class="cta-button">ENQUIRE NOW</a>
+        <a href="https://ashfieldtravel.co.uk" class="cta-button">VISIT WEBSITE</a>
+        <div class="cta-contact">
+            Questions? <a href="mailto:info@ashfieldtravel.co.uk">Email us</a> or call our travel specialists for personalized assistance.
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <p>Package Ref: 113 | Treasures of Rajasthan</p>
+    <p style="margin-top: 1rem;">Land-only package. International flights not included. All information correct at time of publication.</p>
+    <p style="margin-top: 1rem;">For the most current availability, pricing, and package details, please contact <a href="mailto:info@ashfieldtravel.co.uk">info@ashfieldtravel.co.uk</a></p>
+    <p style="margin-top: 1rem; font-size: 0.8rem;">&copy; Ashfield Travel. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

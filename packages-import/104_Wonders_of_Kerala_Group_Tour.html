@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonders of Kerala — Group Tour | Ashfield Travel Package 104</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: #222222;
+            line-height: 1.6;
+            background-color: #FFFFFF;
+        }
+
+        /* ============ STICKY NAVIGATION ============ */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background-color: #1B3A5C;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .sticky-nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .sticky-nav a:hover {
+            color: #C8963E;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            background: linear-gradient(rgba(27, 58, 92, 0.75), rgba(27, 58, 92, 0.85)), url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1400&q=80') center/cover no-repeat;
+            color: #FFFFFF;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-brand {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #C8963E;
+            font-weight: 700;
+        }
+
+        .hero-ref {
+            font-size: 0.8rem;
+            color: #C8963E;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #C8963E;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-duration {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .hero-season {
+            font-size: 0.95rem;
+            color: #E0E0E0;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-destinations {
+            font-size: 1rem;
+            color: #FFFFFF;
+            margin: 1.5rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #C8963E;
+            margin: 1.2rem 0 0.3rem;
+        }
+
+        .hero-price-note {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-note {
+            font-size: 0.85rem;
+            color: #FFD700;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            padding: 0.8rem 2.5rem;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background-color: #B8843B;
+            transform: translateY(-2px);
+        }
+
+        /* ============ SECTIONS ============ */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background-color: #F9F6F1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #1B3A5C;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* ============ OVERVIEW ============ */
+        .overview-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .overview-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #222222;
+            text-align: justify;
+        }
+
+        /* ============ HIGHLIGHTS GRID ============ */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .highlight-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .cochin {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800&q=80') center/cover no-repeat;
+        }
+
+        .munnar {
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1625046561030-05046aa23532?w=800&q=80') center/cover no-repeat;
+        }
+
+        .thekkady {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80') center/cover no-repeat;
+        }
+
+        .kumarakom {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80') center/cover no-repeat;
+        }
+
+        .houseboat {
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80') center/cover no-repeat;
+        }
+
+        .varkala {
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=800&q=80') center/cover no-repeat;
+        }
+
+        .kovalam {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1590766940554-634f3a3bab2c?w=800&q=80') center/cover no-repeat;
+        }
+
+        .highlight-content {
+            padding: 1.5rem;
+            background-color: #FFFFFF;
+        }
+
+        .highlight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .highlight-desc {
+            font-size: 0.95rem;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        /* ============ ITINERARY ============ */
+        .itinerary-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            align-items: start;
+        }
+
+        .itinerary-item:nth-child(even) {
+            grid-template-columns: 1fr 300px;
+        }
+
+        .itinerary-item:nth-child(even) .itinerary-image {
+            order: 2;
+        }
+
+        .itinerary-item:nth-child(even) .itinerary-content {
+            order: 1;
+        }
+
+        .itinerary-image {
+            height: 250px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+        }
+
+        .itinerary-content {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .day-label {
+            display: inline-block;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+        }
+
+        .itinerary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .itinerary-text {
+            font-size: 0.95rem;
+            color: #222222;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .itinerary-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+
+        .meta-item strong {
+            color: #222222;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .itinerary-item,
+            .itinerary-item:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .itinerary-item:nth-child(even) .itinerary-image {
+                order: unset;
+            }
+
+            .itinerary-item:nth-child(even) .itinerary-content {
+                order: unset;
+            }
+        }
+
+        /* ============ ACCOMMODATION TABLE ============ */
+        .accommodation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background-color: #FFFFFF;
+        }
+
+        .accommodation-table th {
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .accommodation-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 0.95rem;
+        }
+
+        .accommodation-table tr:nth-child(even) {
+            background-color: #F9F6F1;
+        }
+
+        .accommodation-notes {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-left: 3px solid #C8963E;
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        /* ============ PRICING CARDS ============ */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background-color: #FFFFFF;
+            border: 2px solid #1B3A5C;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 8px 20px rgba(27, 58, 92, 0.15);
+        }
+
+        .pricing-tier {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .pricing-amount {
+            font-size: 2.5rem;
+            color: #C8963E;
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+
+        .pricing-note {
+            font-size: 0.85rem;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-details {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #222222;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+
+        .pricing-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============ INCLUSIONS ============ */
+        .inclusions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .inclusion-card {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .inclusion-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #C8963E;
+            color: #FFFFFF;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .inclusion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .inclusion-text {
+            font-size: 0.9rem;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        /* ============ NOT INCLUDED ============ */
+        .not-included {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+            margin-top: 2rem;
+        }
+
+        .not-included h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1B3A5C;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .not-included ul {
+            list-style: none;
+        }
+
+        .not-included li {
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+            color: #222222;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .not-included li:before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* ============ VISA INFORMATION ============ */
+        .visa-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .visa-box {
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border: 2px solid #1B3A5C;
+            border-radius: 4px;
+        }
+
+        .visa-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .visa-box p {
+            font-size: 0.9rem;
+            color: #222222;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .visa-box a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .visa-box a:hover {
+            text-decoration: underline;
+        }
+
+        .visa-link {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-left: 3px solid #C8963E;
+        }
+
+        .visa-link a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .visa-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ TTA PROTECTION ============ */
+        .tta-section {
+            background-color: #FFFFFF;
+            border: 2px solid #C8963E;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .tta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #1B3A5C;
+            margin-bottom: 1rem;
+        }
+
+        .tta-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .tta-benefit {
+            padding: 1rem;
+            background-color: #F9F6F1;
+            border-radius: 4px;
+        }
+
+        .tta-benefit strong {
+            color: #1B3A5C;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .tta-benefit span {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        .tta-footer {
+            margin-top: 1.5rem;
+            font-weight: 700;
+            color: #1B3A5C;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+        }
+
+        /* ============ FAQs ============ */
+        .faqs-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 3px solid #C8963E;
+        }
+
+        .faq-question {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1B3A5C;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #222222;
+            line-height: 1.7;
+        }
+
+        /* ============ TESTIMONIAL ============ */
+        .testimonial {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background-color: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .testimonial-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #1B3A5C;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-attr {
+            font-size: 0.95rem;
+            color: #C8963E;
+            font-weight: 600;
+        }
+
+        /* ============ CTA SECTION ============ */
+        .cta-section {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .cta-text {
+            font-size: 1rem;
+            color: #222222;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            background-color: #C8963E;
+            transform: translateY(-2px);
+        }
+
+        .cta-contact {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #E0E0E0;
+            font-size: 0.95rem;
+            color: #6B7280;
+        }
+
+        .cta-contact a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background-color: #1B3A5C;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: #C8963E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-nav ul {
+                gap: 1rem;
+            }
+
+            .sticky-nav a {
+                font-size: 0.8rem;
+            }
+
+            .pricing-amount {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ STICKY NAVIGATION ============ -->
+<nav class="sticky-nav">
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#itinerary">Itinerary</a></li>
+        <li><a href="#hotels">Hotels</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#included">Included</a></li>
+        <li><a href="#visa">Visa Info</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+    </ul>
+</nav>
+
+<!-- ============ HERO SECTION ============ -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-brand">ASHFIELD TRAVEL</div>
+        <div class="hero-ref">Package Ref: 104</div>
+        <h1>Wonders of Kerala — Group Tour</h1>
+        <div class="hero-subtitle">Escorted Group Tour</div>
+        <div class="hero-duration">11 Days / 10 Nights</div>
+        <div class="hero-season">January Departures</div>
+        <div class="hero-destinations">Cochin · Munnar · Thekkady · Kumarakom · Alleppey · Varkala · Kovalam</div>
+        <div class="hero-price">From £772 per person</div>
+        <div class="hero-price-note">Premium 4-star | Luxury 5-star from Contact us for pricing</div>
+        <div class="hero-note">Land-only package — flights not included</div>
+        <a href="mailto:info@ashfieldtravel.co.uk" class="hero-cta">ENQUIRE NOW</a>
+    </div>
+</section>
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+    <h2 class="section-title">Why Kerala Group Tours?</h2>
+    <div class="overview-content">
+        <p>Wonders of Kerala is an extended 11-day escorted group tour designed for discerning travellers who want to experience the full spectrum of Kerala's natural and cultural treasures. With a maximum of 26 guests, this immersive journey offers the perfect balance: the camaraderie of group travel combined with flexibility and the expertise of professional guides. From the historic colonial charm of Cochin to the misty tea gardens of Munnar, the wildlife-rich sanctuary of Thekkady, the serene backwaters of Alleppey with an overnight houseboat stay, the dramatic cliffs of Varkala, and the golden beaches of Kovalam, this adventure showcases every dimension of God's Own Country.</p>
+        <p>Our escorted groups benefit from an experienced tour leader, AC luxury coach transport, comprehensive meal plans (MAP and APAI), and carefully selected 4-star premium hotels. Every element is arranged—sightseeing, transfers, meals, entrance fees—so you arrive and immerse yourself in Kerala's wonders. Whether witnessing a sunrise game drive at Periyar, learning about spice plantations, watching traditional Kathakali performances, or drifting through palm-fringed backwaters on a private luxury houseboat, Wonders of Kerala transforms you into a confident explorer with new friends and unforgettable memories.</p>
+    </div>
+</section>
+
+<!-- ============ HIGHLIGHTS ============ -->
+<section id="highlights">
+    <h2 class="section-title">Tour Highlights</h2>
+    <div class="highlights-grid">
+        <div class="highlight-card">
+            <div class="highlight-image cochin">Fort Cochin & Colonial Heritage</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Fort Cochin</h3>
+                <p class="highlight-desc">Discover colonial heritage, iconic Chinese fishing nets, historic churches, and the charm of Kerala's most evocative historic quarter.</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image munnar">Munnar Tea Country</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Munnar Tea Plantations</h3>
+                <p class="highlight-desc">Wander through emerald tea plantations at 1,600 metres, visit spice gardens, and experience the cool mountain air of this verdant hill station.</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image thekkady">Periyar Wildlife Sanctuary</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Periyar Tiger Reserve</h3>
+                <p class="highlight-desc">Embark on an early-morning boat ride on Lake Periyar to spot tigers, elephants, and exotic wildlife in their natural habitat.</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image houseboat">Alleppey Houseboat Cruise</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Overnight Houseboat Experience</h3>
+                <p class="highlight-desc">Cruise palm-fringed backwaters on a private AC luxury houseboat with overnight stay and all meals prepared by a private chef.</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image varkala">Varkala Cliffs</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Varkala Red Cliffs</h3>
+                <p class="highlight-desc">Relax on the dramatic palm-covered red cliffs overlooking the Arabian Sea at this unique beach destination.</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-image kovalam">Kovalam Beach</div>
+            <div class="highlight-content">
+                <h3 class="highlight-title">Kovalam Beach Resort</h3>
+                <p class="highlight-desc">Unwind on Kerala's most famous international beach with two full days of leisure and resort activities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ITINERARY ============ -->
+<section id="itinerary">
+    <h2 class="section-title">Your Day-by-Day Journey</h2>
+
+    <!-- DAY 1 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image cochin">Arrival in Cochin</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 1</span>
+            <h3 class="itinerary-title">Arrive in Cochin & Explore Fort Cochin</h3>
+            <p class="itinerary-text">Welcome to Kerala! Arrive at Cochin Airport and transfer to your hotel in Fort Cochin. Settle into your accommodation and embark on a leisurely exploration of this charming historic quarter. Wander the colonial streets, discover the iconic Chinese Fishing Nets, visit local spice markets, and absorb the UNESCO World Heritage ambiance. Gather with your group for a traditional welcome dinner.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Old Court House, Cochin</div>
+                <div class="meta-item"><strong>Meals:</strong> Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image cochin">Cochin Heritage & Drive to Munnar</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 2</span>
+            <h3 class="itinerary-title">Cochin Sightseeing & Drive to Munnar</h3>
+            <p class="itinerary-text">After breakfast, your guide leads a comprehensive sightseeing tour of Cochin's heritage sites. Visit the Dutch Palace (Mattancherry Palace) with its ancient murals, the centuries-old Jewish Synagogue surrounded by spice markets, St Francis Church, and more. Enjoy lunch before boarding your AC luxury coach for the scenic drive to Munnar (140 km, approximately 4 hours). Wind through plantation-covered hills and arrive at this cool hill station for an evening at leisure.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Edan Woods Resort, Munnar</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+                <div class="meta-item"><strong>Distance:</strong> 140 km / 4 hrs</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image munnar">Munnar Tea Plantations & Spice Gardens</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 3</span>
+            <h3 class="itinerary-title">Munnar Sightseeing</h3>
+            <p class="itinerary-text">Spend a full day exploring Munnar's breathtaking landscapes with your English-speaking guide. Visit the picturesque Mattupetty Dam, experience panoramic vistas from Echo Point, climb to Rajamala—home to the endangered Nilgiri Tahr—and tour a working spice garden to learn about cardamom, pepper, ginger, and nutmeg cultivation at 1,600 metres. Lunch at a local restaurant provides authentic flavours. Return to your resort as the misty evening settles around the mountains.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Edan Woods Resort, Munnar</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image thekkady">Thekkady Wildlife & Martial Arts</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 4</span>
+            <h3 class="itinerary-title">Drive to Thekkady & Periyar Sanctuary</h3>
+            <p class="itinerary-text">After breakfast, board your coach for the drive to Thekkady (110 km, approximately 4 hours), home to the legendary Periyar Wildlife Sanctuary. Check into your resort and explore the sanctuary with your guide. In the evening, witness an authentic Kalaripayettu martial arts performance—an ancient Kerala fighting system—in a traditional setting, offering insight into local culture and history.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> WGH Portico, Thekkady</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Dinner</div>
+                <div class="meta-item"><strong>Distance:</strong> 110 km / 4 hrs</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image thekkady">Periyar Boat Ride & Spice Plantations</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 5</span>
+            <h3 class="itinerary-title">Periyar Game Viewing & Spice Plantation Tour</h3>
+            <p class="itinerary-text">Wake early for a 6:30 AM game-viewing boat ride on Lake Periyar—a thrilling chance to spot tigers, elephants, gaur, sambar, and exotic birdlife. After breakfast, enjoy lunch at a local restaurant. In the afternoon, tour a working spice plantation to learn about cardamom, pepper, ginger, nutmeg, and other Kerala spices. In the evening, witness a mesmerizing traditional Kathakali performance, a classical Kerala art form with elaborate costumes and storytelling.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> WGH Portico, Thekkady</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image kumarakom">Kumarakom Lake & Bird Sanctuary</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 6</span>
+            <h3 class="itinerary-title">Drive to Kumarakom & Bird Sanctuary</h3>
+            <p class="itinerary-text">After breakfast, drive to Kumarakom (150 km, approximately 4 hours), a serene destination on the banks of Vembanad Lake, Kerala's largest freshwater lake. Check into your lakeside resort and spend the afternoon exploring the Kumarakom Bird Sanctuary with your guide. Over 200 species of migratory and resident birds inhabit this paradise—Siberian cranes, herons, egrets, kingfishers. Spot them from viewing platforms as golden light dances across the water. Group meals foster camaraderie.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Lake Song or Whispering, Kumarakom</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+                <div class="meta-item"><strong>Distance:</strong> 150 km / 4 hrs</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image houseboat">Alleppey Luxury Houseboat Cruise</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 7</span>
+            <h3 class="itinerary-title">Alleppey Overnight Houseboat Experience</h3>
+            <p class="itinerary-text">Transfer to Alleppey, the gateway to Kerala's famous backwaters. Board your private AC luxury houseboat for an unforgettable overnight cruise through the intricate network of lagoons, lakes, and canals. Drift past coconut palms, spice plantations, and traditional fishing villages. All meals—breakfast, lunch, and dinner—are prepared aboard by a private chef using fresh, authentic Kerala cuisine. Sleep gently to the rhythm of the backwaters, sharing this magical experience with your group.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Luxury House Boat, Alleppey</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner (all on board)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 8 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image varkala">Varkala Beach & Red Cliffs</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 8</span>
+            <h3 class="itinerary-title">Disembark Houseboat & Drive to Varkala</h3>
+            <p class="itinerary-text">After breakfast and disembark from your houseboat, drive to Varkala (140 km, approximately 4 hours), a unique beach destination famous for its dramatic palm-covered red cliffs rising above the Arabian Sea. Check into your clifftop resort and spend the afternoon exploring Varkala Beach, discovering Papanasam Beach, and visiting the sacred Janardanaswamy Temple perched above the shoreline. Relax and watch the sunset paint the sky.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Elixir Cliff Resort, Varkala</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+                <div class="meta-item"><strong>Distance:</strong> 140 km / 4 hrs</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 9 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image kovalam">Trivandrum Heritage & Kovalam Beach</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 9</span>
+            <h3 class="itinerary-title">Drive to Kovalam & Trivandrum Heritage Tour</h3>
+            <p class="itinerary-text">After breakfast, drive to Kovalam (60 km, approximately 1.5 hours). En route, stop in Trivandrum for a guided heritage sightseeing tour. Visit the magnificent Padmanabhaswamy Temple—one of the world's richest temples—with its iconic gopuram, the historic Napier Museum with eclectic art collections, and the Government Art Gallery. Enjoy lunch at a local restaurant. Arrive at Kovalam in the late afternoon and check into your beachfront resort. Spend the rest of the day at leisure on the iconic crescent beach.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Uday Samudra Beach & Leisure Resort, Kovalam</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+                <div class="meta-item"><strong>Distance:</strong> 60 km / 1.5 hrs</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 10 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image kovalam">Kovalam Leisure Day</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 10</span>
+            <h3 class="itinerary-title">Full Day Leisure at Kovalam</h3>
+            <p class="itinerary-text">Enjoy a full day at your beachfront resort. Relax on Kovalam Beach, swim in the Arabian Sea, participate in water sports, enjoy spa treatments, or simply unwind with a good book. Your resort offers excellent facilities and multiple dining options. Gather with your group for a farewell dinner in the evening, reflecting on the incredible journey through Kerala's wonders.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Hotel:</strong> Uday Samudra Beach & Leisure Resort, Kovalam</div>
+                <div class="meta-item"><strong>Meals:</strong> Breakfast, Lunch, Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 11 -->
+    <div class="itinerary-item">
+        <div class="itinerary-image kovalam">Departure from Trivandrum</div>
+        <div class="itinerary-content">
+            <span class="day-label">DAY 11</span>
+            <h3 class="itinerary-title">Transfer to Trivandrum Airport & Departure</h3>
+            <p class="itinerary-text">After breakfast, transfer to Trivandrum International Airport for your onward flight. As you depart, carry with you the memories of mist-covered mountains, pristine backwaters, wildlife encounters, dramatic cliffs, golden beaches, and the friendships forged with your group. The wonders of Kerala will stay with you long after your return home.</p>
+            <div class="itinerary-meta">
+                <div class="meta-item"><strong>Meals:</strong> Breakfast</div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ============ ACCOMMODATION ============ -->
+<section id="hotels">
+    <h2 class="section-title">Your Handpicked Hotels</h2>
+    <p style="text-align: center; margin-bottom: 2rem; color: #6B7280; font-size: 0.95rem;">All hotels listed are carefully selected 4-star premium properties offering comfort, authentic Kerala hospitality, and excellent group facilities.</p>
+
+    <table class="accommodation-table">
+        <thead>
+            <tr>
+                <th>Night</th>
+                <th>Location</th>
+                <th>Hotel</th>
+                <th>Room Type</th>
+                <th>Meal Plan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Cochin</td>
+                <td>Old Court House</td>
+                <td>Deluxe Room</td>
+                <td>MAP</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Munnar</td>
+                <td>Edan Woods Resort</td>
+                <td>Garden Room</td>
+                <td>MAP</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Munnar</td>
+                <td>Edan Woods Resort</td>
+                <td>Garden Room</td>
+                <td>APAI</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Thekkady</td>
+                <td>WGH Portico</td>
+                <td>Club Room</td>
+                <td>MAP</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Thekkady</td>
+                <td>WGH Portico</td>
+                <td>Club Room</td>
+                <td>APAI</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Kumarakom</td>
+                <td>Lake Song / Whispering</td>
+                <td>Deluxe Room</td>
+                <td>APAI</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Alleppey</td>
+                <td>Luxury House Boat</td>
+                <td>Spice Routes Suite</td>
+                <td>APAI</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Varkala</td>
+                <td>Elixir Cliff Resort</td>
+                <td>Deluxe Room</td>
+                <td>APAI</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Kovalam</td>
+                <td>Uday Samudra Beach & Leisure Resort</td>
+                <td>Atrium Room</td>
+                <td>APAI</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Kovalam</td>
+                <td>Uday Samudra Beach & Leisure Resort</td>
+                <td>Atrium Room</td>
+                <td>APAI</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="accommodation-notes">
+        <strong>Meal Plan Information:</strong><br>
+        MAP = Breakfast and Dinner | APAI = Breakfast, Lunch, and Dinner<br><br>
+        <strong>Note:</strong> Hotels listed are indicative and subject to availability at the time of booking. We guarantee properties of equivalent 4-star category and comfort. Luxury 5-star upgrades are available; contact us for pricing and availability.
+    </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+    <h2 class="section-title">Package Pricing</h2>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h3 class="pricing-tier">Premium (4-Star)</h3>
+            <div class="pricing-amount">£772</div>
+            <p class="pricing-note">per person</p>
+            <div class="pricing-details">
+                <strong>Includes:</strong><br>
+                • 10 nights in carefully selected 4-star hotels<br>
+                • 1 night on luxury AC houseboat with private chef<br>
+                • Full breakfast daily<br>
+                • Lunch and dinner (MAP/APAI as per schedule)<br>
+                • AC luxury 34-seater coach transport<br>
+                • Professional tour leader & English-speaking guides<br>
+                • Periyar early-morning boat ride (6:30 AM)<br>
+                • Spice plantation & garden tours<br>
+                • Kathakali & Kalaripayettu performances<br>
+                • Kumarakom Bird Sanctuary access<br>
+                • Trivandrum sightseeing & entrance fees<br>
+                • All monument and park entrance fees
+            </div>
+        </div>
+        <div class="pricing-card">
+            <h3 class="pricing-tier">Luxury (5-Star)</h3>
+            <div class="pricing-amount">Contact us</div>
+            <p class="pricing-note">for pricing</p>
+            <div class="pricing-details">
+                <strong>Includes:</strong><br>
+                • 10 nights in premium 5-star properties<br>
+                • 1 night on luxury AC houseboat with private chef<br>
+                • Full breakfast daily<br>
+                • Lunch and dinner (MAP/APAI as per schedule)<br>
+                • AC luxury 34-seater coach transport<br>
+                • Professional tour leader & English-speaking guides<br>
+                • Periyar early-morning boat ride (6:30 AM)<br>
+                • Spice plantation & garden tours<br>
+                • Kathakali & Kalaripayettu performances<br>
+                • Kumarakom Bird Sanctuary access<br>
+                • Trivandrum sightseeing & entrance fees<br>
+                • All monument and park entrance fees
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #FFFFFF; padding: 1.5rem; border-radius: 4px; margin-top: 2rem; border-left: 3px solid #C8963E;">
+        <strong style="color: #1B3A5C;">Pricing Notes:</strong><br>
+        <span style="font-size: 0.9rem; color: #6B7280; display: block; margin-top: 0.5rem;">
+            • Prices are per person, based on twin/double occupancy<br>
+            • Season: January departures (specific dates upon request)<br>
+            • Minimum group size: 15 guests | Maximum: 26 guests<br>
+            • Single supplement available on request<br>
+            • Land-only package—international flights not included<br>
+            • Prices valid for 2026 travel
+        </span>
+    </div>
+</section>
+
+<!-- ============ INCLUSIONS & EXCLUSIONS ============ -->
+<section id="included">
+    <h2 class="section-title">What's Included in Your Journey</h2>
+
+    <div class="inclusions-grid">
+        <div class="inclusion-card">
+            <div class="inclusion-number">1</div>
+            <h4 class="inclusion-title">Unforgettable Experiences</h4>
+            <p class="inclusion-text">Cochin sightseeing, Munnar plantations, Periyar boat ride, spice plantation tour, Kathakali performance, Kalaripayettu martial arts, Kumarakom Bird Sanctuary, overnight houseboat, Varkala cliffs, Trivandrum heritage, Kovalam leisure.</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">2</div>
+            <h4 class="inclusion-title">Carefully Selected Hotels</h4>
+            <p class="inclusion-text">10 nights in premium 4-star hotels plus 1 night on a luxury AC houseboat with private chef, all offering group-friendly facilities and authentic Kerala hospitality.</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">3</div>
+            <h4 class="inclusion-title">Comprehensive Meals</h4>
+            <p class="inclusion-text">Daily breakfast, most lunches and dinners at hotels (MAP and APAI as per schedule), plus all meals prepared on board the houseboat by a private chef.</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">4</div>
+            <h4 class="inclusion-title">Luxury Coach Transport</h4>
+            <p class="inclusion-text">AC 34-seater luxury coach with professional driver for all group transfers and sightseeing throughout your 11-day journey.</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">5</div>
+            <h4 class="inclusion-title">Expert Local Guides</h4>
+            <p class="inclusion-text">English-speaking guides for comprehensive sightseeing in Cochin, Munnar, Thekkady, Kumarakom, Varkala, and Trivandrum heritage tours.</p>
+        </div>
+        <div class="inclusion-card">
+            <div class="inclusion-number">6</div>
+            <h4 class="inclusion-title">Entrance Fees & Activities</h4>
+            <p class="inclusion-text">Monument entrance fees for Cochin, forest park fees for Munnar, Periyar boat ride, Kumarakom Bird Sanctuary, Trivandrum monuments, and all activities as per itinerary.</p>
+        </div>
+    </div>
+
+    <div class="not-included">
+        <h3>Not Included in Your Package</h3>
+        <ul>
+            <li>International flights and airfare</li>
+            <li>Visa fees for India (e-visa or otherwise)</li>
+            <li>Travel insurance (highly recommended)</li>
+            <li>Personal expenses such as laundry, telephone calls, and minibar charges</li>
+            <li>Tips and gratuities for guides, drivers, and hotel staff</li>
+            <li>Porterage at hotels and airports</li>
+            <li>Goods and Services Tax (GST) where applicable</li>
+            <li>Any costs arising from natural calamities or force majeure events</li>
+            <li>Anything not specifically mentioned under inclusions</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============ VISA INFORMATION ============ -->
+<section id="visa" style="background-color: #F9F6F1;">
+    <h2 class="section-title">Indian Visa Information</h2>
+
+    <div class="visa-boxes">
+        <div class="visa-box">
+            <h3>Who Does This Apply To?</h3>
+            <p>British passport holders can apply for an Indian e-Visa online, which is the most convenient option for UK citizens travelling to India for tourism purposes. The e-Visa is a digital visa issued electronically and does not require a physical stamp in your passport.</p>
+        </div>
+        <div class="visa-box">
+            <h3>How to Apply</h3>
+            <p>Visit <a href="https://indianvisaonline.gov.in/evisa/tvoa.html" target="_blank">indianvisaonline.gov.in/evisa/tvoa.html</a> to apply for your Indian e-Visa. Apply no earlier than 30 days before your arrival date; we recommend applying at least 28 days in advance. Ensure your passport is valid for at least 6 months from your travel date and has at least 2 blank pages.</p>
+        </div>
+        <div class="visa-box">
+            <h3>Indian Reference Contact</h3>
+            <p>When applying for your e-Visa, you may be asked for an Indian reference contact. If needed, please contact us and we can assist with providing the necessary details for your application.</p>
+        </div>
+        <div class="visa-box">
+            <h3>Need Help with Your Visa?</h3>
+            <p>While the online e-Visa process is straightforward, professional visa assistance is available through <a href="https://www.thetravelvisacompany.co.uk" target="_blank">The Travel Visa Company</a>. Please note that third-party visa fees apply if you choose this service. We recommend applying yourself first, as it is usually quicker and more cost-effective.</p>
+        </div>
+    </div>
+
+    <div class="visa-link">
+        <strong>UK Foreign Office Travel Advice:</strong><br>
+        For the latest travel advice and safety information, visit <a href="https://www.gov.uk/foreign-travel-advice" target="_blank">www.gov.uk/foreign-travel-advice</a>
+    </div>
+</section>
+
+<!-- ============ TTA PROTECTION ============ -->
+<section style="background-color: #FFFFFF;">
+    <div class="tta-section">
+        <h3 class="tta-title">Your Peace of Mind: Travel Trust Association Protection</h3>
+        <p style="color: #6B7280; margin-bottom: 1.5rem;">Ashfield Travel is a proud member of the Travel Trust Association, providing you with absolute peace of mind when booking your Kerala group tour.</p>
+
+        <div class="tta-benefits">
+            <div class="tta-benefit">
+                <strong>100% Financial Protection</strong>
+                <span>Your money is fully protected against operator failure and insolvency.</span>
+            </div>
+            <div class="tta-benefit">
+                <strong>Trust Account Supervision</strong>
+                <span>All customer funds are held in a dedicated Trust Account supervised by an independent trustee.</span>
+            </div>
+            <div class="tta-benefit">
+                <strong>Price Promise</strong>
+                <span>Transparent pricing with no hidden charges or last-minute surcharges.</span>
+            </div>
+        </div>
+
+        <p class="tta-footer">Ashfield Travel — Proud Member of the Travel Trust Association</p>
+    </div>
+</section>
+
+<!-- ============ FAQs ============ -->
+<section id="faqs" style="background-color: #F9F6F1;">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faqs-container">
+        <div class="faq-item">
+            <h4 class="faq-question">What is the group size for this tour?</h4>
+            <div class="faq-answer">Wonders of Kerala is limited to a maximum of 26 guests, ensuring a personalised experience while enjoying the benefits of group travel. The minimum group size is 15 guests. This carefully calibrated size allows you to meet fellow travellers and benefit from group facilities while maintaining an intimate, manageable atmosphere.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">What is included in the overnight houseboat experience?</h4>
+            <div class="faq-answer">Your private AC luxury houseboat includes overnight accommodation with all meals (breakfast, lunch, and dinner) prepared aboard by a private chef using fresh, authentic Kerala cuisine. You'll cruise through the intricate network of backwater lagoons, lakes, and canals, passing coconut palms, spice plantations, and traditional fishing villages. This is truly the highlight of many Kerala tours.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">Can I see tigers at Periyar?</h4>
+            <div class="faq-answer">Periyar is a tiger reserve, and tiger sightings are possible but not guaranteed. However, the early-morning boat ride (6:30 AM) offers excellent opportunities to see elephants, gaur, sambar, spotted deer, wild boar, and a remarkable variety of birdlife. Sightings depend on wildlife movement patterns and seasonal factors. Whether or not you see tigers, the boat ride through pristine lake scenery is unforgettable.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">Can you accommodate dietary requirements?</h4>
+            <div class="faq-answer">Yes, we can accommodate most dietary requirements including vegetarian, vegan, gluten-free, and other restrictions. Please inform us at the time of booking so we can notify the hotels and coordinate with the tour leader. Indian cuisine naturally includes excellent vegetarian options, and our hotel partners are experienced in catering to diverse dietary needs.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">Are there single rooms available, and what is the single supplement?</h4>
+            <div class="faq-answer">While the package is based on twin/double occupancy, single rooms are available at a supplement. Please contact us for current single supplement pricing. Availability of single rooms is limited, so we recommend booking early if you require one. The houseboat accommodation is shared as designed.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">What is the coach like, and how comfortable are the journeys?</h4>
+            <div class="faq-answer">Your group travels in an AC luxury 34-seater coach with a professional driver. The coach is fitted with comfortable seating, air conditioning, and amenities to ensure pleasant journeys. While some journeys span 4 hours (such as Cochin to Munnar), the scenic routes, regular rest stops, and the coach's comfort make these drives enjoyable rather than taxing.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">What should I pack for a Kerala group tour?</h4>
+            <div class="faq-answer">Pack lightweight, breathable clothing suitable for a tropical climate. Include comfortable walking shoes, sandals, a light rain jacket, sunscreen, sunglasses, and a hat. For temple visits, carry a shawl or lightweight scarf to cover shoulders and knees. Swimming attire is essential for beach days. In Munnar, where temperatures are cooler, bring a light cardigan for evenings.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">What is the best time to travel with Wonders of Kerala?</h4>
+            <div class="faq-answer">Wonders of Kerala operates in January, when the weather is cool, dry, and perfect for sightseeing. This is the peak tourist season, and the climate is ideal for outdoor activities and exploration. Specific departure dates are available upon request. The Southwest Monsoon (June-September) is avoided, as heavy rainfall can disrupt travel plans.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">Are flights included in the package price?</h4>
+            <div class="faq-answer">No, this is a land-only package and international flights are not included. You'll arrive at Cochin Airport on Day 1 and depart from Trivandrum Airport on Day 11. We recommend booking your flights separately and arranging your own travel insurance. We can provide guidance on flight recommendations and arrange airport transfers as part of your package.</div>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">What happens if I need to cancel or make changes?</h4>
+            <div class="faq-answer">We understand that circumstances change. Please contact us to discuss cancellation and amendment policies, which vary depending on how far in advance you cancel. Travel insurance is highly recommended to protect yourself against unforeseen circumstances. Our team will work with you to find the best solution.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section style="background-color: #FFFFFF;">
+    <div class="testimonial">
+        <p class="testimonial-text">"Wonders of Kerala exceeded our expectations. The 11-day duration gave us time to truly experience the diversity of Kerala—from tea plantations to wildlife to the backwaters. The overnight houseboat was the absolute highlight. Our tour leader was knowledgeable and attentive, the hotels were comfortable, and the meals were consistently excellent. We made wonderful new friends and experienced Kerala in comfort and style. Highly recommended!"</p>
+        <p class="testimonial-attr">— Ashfield Travel Group Tour Guest</p>
+    </div>
+</section>
+
+<!-- ============ CALL TO ACTION ============ -->
+<section id="cta" style="background-color: #F9F6F1;">
+    <div class="cta-section">
+        <h2 class="section-title">Ready to Experience the Wonders of Kerala?</h2>
+        <p class="cta-text">For more information about our Wonders of Kerala group tour, specific January departure dates, bespoke group bookings, or to secure your place on this extraordinary 11-day journey, please get in touch. Our travel specialists are here to help craft your perfect Kerala experience.</p>
+        <a href="mailto:info@ashfieldtravel.co.uk" class="cta-button">ENQUIRE NOW</a>
+        <div class="cta-contact">
+            <strong>Ashfield Travel</strong><br>
+            <a href="https://www.ashfieldtravel.co.uk" target="_blank">www.ashfieldtravel.co.uk</a><br>
+            <a href="mailto:info@ashfieldtravel.co.uk">info@ashfieldtravel.co.uk</a><br><br>
+            Package Ref: 104
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <p>&copy; 2026 Ashfield Travel. All rights reserved.</p>
+    <p><a href="#">TTA Protected</a> | Travel Trust Association Member | Package Ref: 104</p>
+    <p style="margin-top: 1rem; font-size: 0.8rem; color: #BDBDBD;">This package has been created for Ashfield Travel. All content is original and designed specifically for this tour operator.</p>
+</footer>
+
+</body>
+</html>

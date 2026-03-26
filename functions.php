@@ -20,6 +20,7 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
  * INCLUDES
  * ────────────────────────────────────────────── */
 require_once get_stylesheet_directory() . '/inc/cpt-tours.php';
+require_once get_stylesheet_directory() . '/inc/import-packages.php';
 
 /* ──────────────────────────────────────────────
  * 1. ENQUEUE PARENT + CHILD STYLES & GOOGLE FONTS
