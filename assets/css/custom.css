@@ -237,7 +237,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: var(--at-terracotta);
   color: var(--at-white);
   border: none;
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 13px 28px;
   font-size: 14px;
   font-weight: 600;
@@ -262,7 +262,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: transparent;
   color: var(--at-white);
   border: 2px solid rgba(255,255,255,0.6);
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 14px 36px;
   font-size: 15px;
   font-weight: 500;
@@ -285,7 +285,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: transparent;
   color: var(--at-terracotta);
   border: 2px solid var(--at-terracotta);
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 13px 28px;
   font-size: 14px;
   font-weight: 600;
@@ -363,7 +363,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: var(--at-terracotta);
   color: var(--at-white);
   padding: 8px 20px;
-  border-radius: 50px;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -467,7 +467,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
 
 .at-filter-pill {
   padding: 8px 20px;
-  border-radius: 50px;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -608,7 +608,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: var(--at-gold);
   color: var(--at-white);
   padding: 5px 14px;
-  border-radius: 50px;
+  border-radius: 6px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -1158,7 +1158,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   flex: 1;
   padding: 16px 24px;
   border: 1.5px solid rgba(255,255,255,0.2);
-  border-radius: 50px;
+  border-radius: 6px;
   background: rgba(255,255,255,0.08);
   color: var(--at-white);
   font-size: 15px;
@@ -1179,7 +1179,7 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: var(--at-terracotta);
   color: var(--at-white);
   border: none;
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 16px 32px;
   font-size: 14px;
   font-weight: 600;
@@ -1306,7 +1306,7 @@ body.ashfield-travel .site-footer {
   background: var(--at-terracotta);
   color: var(--at-white);
   border: none;
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 16px 28px;
   font-size: 14px;
   font-weight: 600;
@@ -1351,7 +1351,7 @@ body.ashfield-travel .site-footer {
 .at-mobile-cta .btn-mobile {
   flex: 1;
   padding: 14px;
-  border-radius: 50px;
+  border-radius: 6px;
   border: none;
   font-size: 14px;
   font-weight: 600;
@@ -1851,7 +1851,7 @@ body.ashfield-homepage .at-sticky-brochure {
   font-size: 13px;
   font-weight: 500;
   padding: 8px 16px;
-  border-radius: 50px;
+  border-radius: 6px;
 }
 
 /* Booking card */
@@ -1895,7 +1895,7 @@ body.ashfield-homepage .at-sticky-brochure {
   width: 100%;
   background: var(--terracotta);
   color: var(--white);
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 16px;
   font-size: 15px;
   font-weight: 600;
@@ -1910,7 +1910,7 @@ body.ashfield-homepage .at-sticky-brochure {
   width: 100%;
   border: 2px solid var(--navy);
   color: var(--navy);
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 13px;
   font-size: 14px;
   font-weight: 600;
