@@ -29,6 +29,12 @@
       </div>
     </a>
 
+    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
     <nav class="at-nav" role="navigation" aria-label="Main navigation">
       <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/') ); ?>">Home</a></div>
       <div class="at-nav-item has-dropdown">

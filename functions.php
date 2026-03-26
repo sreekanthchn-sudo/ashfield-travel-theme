@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ASHFIELD_VERSION', '1.0.1' );
+define( 'ASHFIELD_VERSION', '1.0.2' );
 
 /* Disable WordPress emoji — prevents giant emoji images in top bar */
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
