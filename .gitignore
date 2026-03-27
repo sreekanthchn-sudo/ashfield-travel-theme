@@ -25,3 +25,13 @@ uploads/
 .env
 *.env
 wp-config.php
+
+# Dev/deploy tooling — not needed on production
+deploy.sh
+setup-server.sh
+.env.example
+.wp-env.json
+README.md
+
+# Import data — only needed for one-time WP import
+packages-import/

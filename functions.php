@@ -64,7 +64,7 @@ function ashfield_enqueue_assets() {
 	if ( is_singular( 'tour' ) ) {
 		wp_enqueue_style(
 			'ashfield-tour-package',
-			get_stylesheet_directory_uri() . '/css/tour-package.css',
+			get_stylesheet_directory_uri() . '/assets/css/tour-package.css',
 			array( 'ashfield-custom' ),
 			ASHFIELD_VERSION
 		);
