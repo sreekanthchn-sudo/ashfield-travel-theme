@@ -31,7 +31,7 @@ $static_tours = [
 		'dates'      => __( 'Sep 2026 – Mar 2027',         'ashfield-travel' ),
 		'duration'   => __( '8 days',                      'ashfield-travel' ),
 		'price'      => '£1,295',
-		'url'        => home_url( '/tours/essential-kerala-couples-escape/' ),
+		'url'        => home_url( '/tours/essential-kerala/' ),
 		'img'        => 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&q=80',
 		'img_alt'    => __( 'Kerala backwaters houseboat', 'ashfield-travel' ),
 		'badges'     => [ 
