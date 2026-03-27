@@ -19,7 +19,7 @@ $tour_query = new WP_Query( [
 // ── Static fallback data ───────────────────────────────────────────────────────
 $static_tours = [
 	[
-		'title'      => __( 'Splendours of Kerala',   'ashfield-travel' ),
+		'title'      => __( 'Essential Kerala — Couples Escape', 'ashfield-travel' ),
 		'location'   => __( 'India',                  'ashfield-travel' ),
 		'favourite'  => __( 'Customer Favourite',     'ashfield-travel' ),
 		'highlights' => [
@@ -29,9 +29,9 @@ $static_tours = [
 		],
 		'save'       => __( 'Save up to £200 per person',  'ashfield-travel' ),
 		'dates'      => __( 'Sep 2026 – Mar 2027',         'ashfield-travel' ),
-		'duration'   => __( '14 days',                     'ashfield-travel' ),
+		'duration'   => __( '8 days',                      'ashfield-travel' ),
 		'price'      => '£1,295',
-		'url'        => home_url( '/tours/splendours-of-kerala/' ),
+		'url'        => home_url( '/tours/essential-kerala-couples-escape/' ),
 		'img'        => 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&q=80',
 		'img_alt'    => __( 'Kerala backwaters houseboat', 'ashfield-travel' ),
 		'badges'     => [ 
@@ -40,7 +40,7 @@ $static_tours = [
 		],
 	],
 	[
-		'title'      => __( 'Golden Triangle Classic', 'ashfield-travel' ),
+		'title'      => __( 'Essential Golden Triangle — Couples', 'ashfield-travel' ),
 		'location'   => __( 'India',                   'ashfield-travel' ),
 		'favourite'  => __( 'Customer Favourite',      'ashfield-travel' ),
 		'highlights' => [
@@ -52,7 +52,7 @@ $static_tours = [
 		'dates'      => __( 'Oct 2026 – Mar 2027',        'ashfield-travel' ),
 		'duration'   => __( '5 days',                     'ashfield-travel' ),
 		'price'      => '£895',
-		'url'        => home_url( '/tours/golden-triangle-classic/' ),
+		'url'        => home_url( '/tours/essential-golden-triangle-couples/' ),
 		'img'        => 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&q=80',
 		'img_alt'    => __( 'Taj Mahal at sunrise', 'ashfield-travel' ),
 		'badges'     => [ 
@@ -73,7 +73,7 @@ $static_tours = [
 		'dates'      => __( 'Year round',                 'ashfield-travel' ),
 		'duration'   => __( '7 days',                     'ashfield-travel' ),
 		'price'      => '£1,095',
-		'url'        => home_url( '/tours/dubai-family-discovery/' ),
+		'url'        => home_url( '/tours/essential-goa/' ),
 		'img'        => 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80',
 		'img_alt'    => __( 'Dubai skyline from the water', 'ashfield-travel' ),
 		'badges'     => [ 
@@ -94,7 +94,7 @@ $static_tours = [
 		'dates'      => __( 'Apr 2026 – Oct 2026',      'ashfield-travel' ),
 		'duration'   => __( '10 days',                  'ashfield-travel' ),
 		'price'      => '£1,495',
-		'url'        => home_url( '/tours/kashmir-paradise/' ),
+		'url'        => home_url( '/tours/essential-kashmir/' ),
 		'img'        => 'https://images.unsplash.com/photo-1597074866923-dc0589150a37?w=500&q=80',
 		'img_alt'    => __( 'Dal Lake at sunset, Srinagar', 'ashfield-travel' ),
 		'badges'     => [ 
