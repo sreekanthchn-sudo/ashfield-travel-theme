@@ -79,18 +79,26 @@ get_header();
             echo do_shortcode('[contact-form-7 id="contact-form" title="Contact form 1"]');
           } else {
             // Fallback: HTML form that uses WordPress's mail function
-            if (isset($_POST['at_contact_submit'])) {
+            if ( isset( $_POST['at_contact_submit'] )
+              && isset( $_POST['at_nonce'] )
+              && wp_verify_nonce( $_POST['at_nonce'], 'at_contact_nonce' )
+            ) {
               $name    = sanitize_text_field($_POST['at_name'] ?? '');
               $email   = sanitize_email($_POST['at_email'] ?? '');
               $phone   = sanitize_text_field($_POST['at_phone'] ?? '');
               $dest    = sanitize_text_field($_POST['at_destination'] ?? '');
               $message = sanitize_textarea_field($_POST['at_message'] ?? '');
-              $to      = 'info@ashfieldtravel.co.uk';
-              $subject = "New Enquiry from $name — Ashfield Travel";
-              $body    = "Name: $name\nEmail: $email\nPhone: $phone\nDestination: $dest\n\nMessage:\n$message";
-              $headers = ["Reply-To: $email", "From: Ashfield Travel Website <noreply@ashfieldtravel.co.uk>"];
-              wp_mail($to, $subject, $body, $headers);
-              echo '<div style="background:#e8f5e9;padding:20px;border-radius:10px;color:#2e7d32;font-weight:600;margin-bottom:20px;">✅ Thank you! We\'ll be in touch shortly.</div>';
+
+              if ( ! is_email( $email ) ) {
+                echo '<div style="background:#fbe9e7;padding:20px;border-radius:10px;color:#c62828;font-weight:600;margin-bottom:20px;">Please enter a valid email address.</div>';
+              } else {
+                $to      = 'info@ashfieldtravel.co.uk';
+                $subject = "New Enquiry from $name — Ashfield Travel";
+                $body    = "Name: $name\nEmail: $email\nPhone: $phone\nDestination: $dest\n\nMessage:\n$message";
+                $headers = ["Reply-To: $email", "From: Ashfield Travel Website <noreply@ashfieldtravel.co.uk>"];
+                wp_mail($to, $subject, $body, $headers);
+                echo '<div style="background:#e8f5e9;padding:20px;border-radius:10px;color:#2e7d32;font-weight:600;margin-bottom:20px;">Thank you! We\'ll be in touch shortly.</div>';
+              }
             }
             ?>
             <form method="post" style="display: flex; flex-direction: column; gap: 18px;">

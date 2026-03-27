@@ -20,7 +20,14 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
  * INCLUDES
  * ────────────────────────────────────────────── */
 require_once get_stylesheet_directory() . '/inc/cpt-tours.php';
-require_once get_stylesheet_directory() . '/inc/import-packages.php';
+
+/*
+ * Import script removed from production.
+ * To run a one-time import, temporarily uncomment the line below,
+ * log in as admin, visit ?run_package_import=1, then re-comment it.
+ *
+ * require_once get_stylesheet_directory() . '/inc/import-packages.php';
+ */
 
 /* ──────────────────────────────────────────────
  * 1. ENQUEUE PARENT + CHILD STYLES & GOOGLE FONTS

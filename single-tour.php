@@ -125,7 +125,7 @@ $hero_img = has_post_thumbnail()
         <section id="highlights" style="margin-bottom: 60px;">
           <h2 class="section-title">Tour Highlights</h2>
           <div class="highlights-grid">
-            <?php echo $highlights_html; ?>
+            <?php echo wp_kses_post( $highlights_html ); ?>
           </div>
         </section>
         <?php endif; ?>
@@ -138,7 +138,7 @@ $hero_img = has_post_thumbnail()
             <?php 
               $itinerary_raw = get_post_meta(get_the_ID(), '_at_itinerary_html', true);
               if ($itinerary_raw) {
-                echo $itinerary_raw;
+                echo wp_kses_post( $itinerary_raw );
               }
             ?>
           </div>
@@ -151,7 +151,7 @@ $hero_img = has_post_thumbnail()
           <?php 
             $accom_html = get_post_meta(get_the_ID(), '_at_accommodation_html', true);
             if ($accom_html) {
-              echo $accom_html;
+              echo wp_kses_post( $accom_html );
             } else {
               echo '<p>' . esc_html($accommodation) . '</p>';
             }
@@ -227,7 +227,7 @@ $hero_img = has_post_thumbnail()
         <section id="visa" style="margin-bottom: 60px; background-color: #F9F6F1; padding: 3rem 2rem;">
           <h2 class="section-title">Indian Visa Information</h2>
           <div class="visa-boxes">
-            <?php echo $visa_html; ?>
+            <?php echo wp_kses_post( $visa_html ); ?>
           </div>
         </section>
         <?php endif; ?>
@@ -240,7 +240,7 @@ $hero_img = has_post_thumbnail()
         <section id="faqs" style="margin-bottom: 60px; background-color: #F9F6F1; padding: 3rem 2rem;">
           <h2 class="section-title">Frequently Asked Questions</h2>
           <div class="faqs-container">
-            <?php echo $faqs_html; ?>
+            <?php echo wp_kses_post( $faqs_html ); ?>
           </div>
         </section>
         <?php endif; ?>
