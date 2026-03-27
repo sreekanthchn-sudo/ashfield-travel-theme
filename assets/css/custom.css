@@ -178,13 +178,25 @@ body.ashfield-travel .site-header .inside-header {
   gap: 20px;
 }
 
+/* Hamburger: hidden on desktop */
+button.at-menu-toggle,
 .at-menu-toggle {
   display: none;
+  background: none;
+  border: none;
+  padding: 10px 8px;
+  cursor: pointer;
+  z-index: 1002;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 1024px) {
+  button.at-menu-toggle,
   .at-menu-toggle {
-    display: block;
+    display: flex !important;
   }
 
   .at-nav {
