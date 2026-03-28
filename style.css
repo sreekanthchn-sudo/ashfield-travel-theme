@@ -48,3 +48,164 @@
   --at-font-heading:     'Cormorant Garamond', Georgia, serif;
   --at-font-body:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   TOUR GRID LAYOUT — Featured Tours Homepage
+   ═══════════════════════════════════════════════════════════════ */
+.at-tour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.at-tour-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--at-white);
+  box-shadow: var(--at-shadow-sm);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.at-tour-card:hover {
+  box-shadow: var(--at-shadow-md);
+  transform: translateY(-2px);
+}
+
+.at-tour-card-img {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, var(--at-cream-dark), var(--at-cream));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.at-tour-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.at-tour-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.at-tour-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  align-items: center;
+}
+
+.at-tour-ref {
+  color: var(--at-gold);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.at-tour-location {
+  color: var(--at-text-body);
+  font-size: 0.9rem;
+}
+
+.at-tour-card-title {
+  margin: 0;
+  font-family: var(--at-font-heading);
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--at-navy);
+}
+
+.at-tour-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.at-tour-card-title a:hover {
+  color: var(--at-terracotta);
+}
+
+.at-tour-info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--at-border);
+}
+
+.at-tour-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.at-tour-info-item .icon {
+  color: var(--at-terracotta);
+  font-weight: 700;
+  min-width: 20px;
+}
+
+.at-tour-info-item .label {
+  color: var(--at-text-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.at-tour-info-item .value {
+  color: var(--at-text-dark);
+  font-weight: 600;
+}
+
+.at-btn-find-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--at-terracotta);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.at-btn-find-more:hover {
+  background-color: var(--at-terracotta-dark);
+  color: white;
+}
+
+.arrow-circle {
+  display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .at-tour-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .at-tour-card-img {
+    height: 220px;
+  }
+}

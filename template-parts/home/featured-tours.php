@@ -131,9 +131,21 @@ $static_tours = [
         ?>
         <article class="at-tour-card">
           <div class="at-tour-card-img">
-            <?php if ( has_post_thumbnail() ) : ?>
-              <?php the_post_thumbnail( 'medium', [ 'loading' => 'lazy' ] ); ?>
-            <?php endif; ?>
+            <?php
+              $featured_img = get_post_meta( get_the_ID(), '_at_featured_image', true );
+              if ( has_post_thumbnail() ) :
+                the_post_thumbnail( 'medium', [ 'loading' => 'lazy' ] );
+              elseif ( $featured_img ) :
+                ?>
+                <img src="<?php echo esc_url( $featured_img ); ?>"
+                     alt="<?php the_title_attribute(); ?>"
+                     loading="lazy"
+                     width="500"
+                     height="280"
+                     style="object-fit: cover; width: 100%; height: 100%;">
+                <?php
+              endif;
+            ?>
           </div>
           <div class="at-tour-card-body">
             <div class="at-tour-card-meta">
