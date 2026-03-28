@@ -57,7 +57,26 @@ body.ashfield-travel .grid-container {
     display: grid;
   }
   body {
-    padding-bottom: 70px; /* Space for the bar */
+    padding-bottom: 80px; /* Space for the bar */
+  }
+}
+
+@media (max-width: 480px) {
+  .at-mobile-contact-bar {
+    padding: 10px;
+    gap: 10px;
+  }
+  .at-mobile-btn {
+    padding: 14px 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+  .at-mobile-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .at-sticky-brochure {
+    display: none;
   }
 }
 
@@ -115,6 +134,7 @@ body.ashfield-travel h4 { font-size: 22px; font-weight: 600; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .at-top-bar-left {
@@ -133,6 +153,35 @@ body.ashfield-travel h4 { font-size: 22px; font-weight: 600; }
   display: flex;
   gap: 20px;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .at-top-bar {
+    padding: 6px 0;
+    font-size: 12px;
+  }
+
+  .at-top-bar .grid-container {
+    gap: 16px;
+  }
+
+  .at-top-bar-left {
+    gap: 16px;
+  }
+
+  .at-top-bar-right {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .at-top-bar-left span {
+    display: none;
+  }
+
+  .at-top-bar-left span:first-child {
+    display: flex;
+  }
 }
 
 .at-top-bar a {
@@ -364,6 +413,24 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   cursor: pointer;
   gap: 12px;
   text-decoration: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .at-btn {
+    padding: 12px 28px;
+    font-size: 14px;
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .at-btn {
+    padding: 14px 24px;
+    font-size: 13px;
+  }
 }
 
 .at-btn-primary {
@@ -501,6 +568,61 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+  .at-hero-badge {
+    font-size: 12px;
+    padding: 6px 16px;
+    margin-bottom: 16px;
+  }
+
+  .at-hero-tagline {
+    font-size: 42px;
+    margin-bottom: 16px;
+  }
+
+  .at-hero-sub {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .at-hero-buttons {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .at-hero {
+    height: 65vh;
+    min-height: 400px;
+  }
+
+  .at-hero-badge {
+    font-size: 11px;
+    padding: 5px 12px;
+    margin-bottom: 12px;
+  }
+
+  .at-hero-tagline {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .at-hero-sub {
+    font-size: 14px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .at-hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .at-hero-buttons .at-btn {
+    width: 100%;
+  }
+}
+
 /* ─────────────────────────────────
    4. TRUST BAR
    ───────────────────────────────── */
@@ -554,13 +676,18 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: var(--at-cream);
   padding: 16px 0;
   border-bottom: 1px solid var(--at-border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .at-filter-bar .grid-container {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  padding-left: 32px;
+  padding-right: 32px;
+  min-width: min-content;
 }
 
 .at-filter-label {
@@ -568,6 +695,8 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   font-weight: 600;
   color: var(--at-text-dark);
   margin-right: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .at-filter-pill {
@@ -580,6 +709,9 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   border: 1.5px solid var(--at-border);
   background: var(--at-white);
   color: var(--at-text-body);
+  white-space: nowrap;
+  flex-shrink: 0;
+  touch-action: manipulation;
 }
 
 .at-filter-pill:hover {
@@ -591,6 +723,27 @@ body.ashfield-travel .main-navigation .main-nav ul ul li a:hover {
   background: var(--at-terracotta);
   color: var(--at-white);
   border-color: var(--at-terracotta);
+}
+
+@media (max-width: 768px) {
+  .at-filter-bar {
+    padding: 12px 0;
+  }
+
+  .at-filter-bar .grid-container {
+    gap: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .at-filter-label {
+    display: none;
+  }
+
+  .at-filter-pill {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
 }
 
 /* ─────────────────────────────────

@@ -201,11 +201,77 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .at-tour-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
   }
 
+  .at-tour-card {
+    border-radius: 6px;
+  }
+
   .at-tour-card-img {
-    height: 220px;
+    height: 200px;
+  }
+
+  .at-tour-card-body {
+    padding: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .at-tour-card-title {
+    font-size: 1.1rem;
+  }
+
+  .at-tour-info-row {
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .at-btn-find-more {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .at-tour-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .at-tour-card-img {
+    height: 240px;
+  }
+
+  .at-tour-card-body {
+    padding: 1rem;
+  }
+
+  .at-tour-card-meta {
+    font-size: 0.8rem;
+    gap: 0.4rem;
+  }
+
+  .at-tour-ref {
+    font-size: 0.65rem;
+  }
+
+  .at-tour-card-title {
+    font-size: 1rem;
+  }
+
+  .at-tour-info-row {
+    font-size: 0.8rem;
+  }
+
+  .at-tour-info-item .value {
+    font-size: 0.95rem;
+  }
+
+  .at-btn-find-more {
+    width: 100%;
+    gap: 0.5rem;
   }
 }
