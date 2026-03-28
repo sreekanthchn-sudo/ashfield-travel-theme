@@ -105,6 +105,7 @@ function ashfield_register_tour_meta() {
 		'_at_itinerary_html' => [ 'desc' => 'Custom Itinerary HTML',      'type' => 'string' ],
 		'_at_accommodation_html' => [ 'desc' => 'Custom Accom HTML',      'type' => 'string' ],
 		'_at_price_luxury'   => [ 'desc' => 'Luxury Tier Price',          'type' => 'string' ],
+		'_at_featured_image' => [ 'desc' => 'Featured Image URL',         'type' => 'string' ],
 	];
 
 	foreach ( $fields as $key => $args ) {
@@ -118,7 +119,62 @@ function ashfield_register_tour_meta() {
 }
 
 /* ──────────────────────────────────────────────
- * 5. FLUSH REWRITE RULES on activation
+ * 5. CUSTOM META BOX — Featured Image
+ * ────────────────────────────────────────────── */
+add_action( 'add_meta_boxes', 'ashfield_tour_meta_boxes' );
+function ashfield_tour_meta_boxes() {
+	add_meta_box(
+		'ashfield_tour_featured_image',
+		'Featured Image URL',
+		'ashfield_tour_featured_image_callback',
+		'tour',
+		'normal',
+		'high'
+	);
+}
+
+function ashfield_tour_featured_image_callback( $post ) {
+	$image_url = get_post_meta( $post->ID, '_at_featured_image', true );
+	wp_nonce_field( 'ashfield_tour_featured_image_nonce', 'ashfield_tour_nonce' );
+	?>
+	<p style="margin-bottom: 10px;">
+		<label for="_at_featured_image" style="display: block; margin-bottom: 8px; font-weight: 600;">Image URL (Unsplash, CDN, or server):</label>
+		<input
+			type="url"
+			id="_at_featured_image"
+			name="_at_featured_image"
+			value="<?php echo esc_url( $image_url ); ?>"
+			style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-family: monospace; font-size: 13px;"
+			placeholder="https://images.unsplash.com/..."
+		/>
+	</p>
+	<?php if ( $image_url ) : ?>
+		<div style="margin-top: 15px; padding: 10px; background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px;">
+			<p style="margin: 0 0 10px 0; font-size: 13px; color: #666;">Preview:</p>
+			<img src="<?php echo esc_url( $image_url ); ?>" alt="Featured image preview" style="max-width: 100%; height: auto; max-height: 300px; border-radius: 4px;">
+		</div>
+	<?php endif; ?>
+	<?php
+}
+
+add_action( 'save_post_tour', 'ashfield_tour_save_featured_image' );
+function ashfield_tour_save_featured_image( $post_id ) {
+	if ( ! isset( $_POST['ashfield_tour_nonce'] ) || ! wp_verify_nonce( $_POST['ashfield_tour_nonce'], 'ashfield_tour_featured_image_nonce' ) ) {
+		return;
+	}
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+	if ( isset( $_POST['_at_featured_image'] ) ) {
+		update_post_meta( $post_id, '_at_featured_image', esc_url_raw( $_POST['_at_featured_image'] ) );
+	}
+}
+
+/* ──────────────────────────────────────────────
+ * 6. FLUSH REWRITE RULES on activation
  *    Run once by visiting Settings → Permalinks
  *    after activating the theme, or programmatically:
  * ────────────────────────────────────────────── */
