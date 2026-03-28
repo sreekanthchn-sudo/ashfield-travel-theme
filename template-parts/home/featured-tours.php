@@ -11,7 +11,7 @@
 // ── Dynamic: query 'tour' CPT with featured meta ──────────────────────────────
 $tour_query = new WP_Query( [
 	'post_type'      => 'tour',
-	'posts_per_page' => 4,
+	'posts_per_page' => 16,
 	'meta_query'     => [ [ 'key' => '_at_featured', 'value' => '1' ] ],
 	'no_found_rows'  => true,
 ] );
@@ -122,6 +122,7 @@ $static_tours = [
       // ── Dynamic CPT output ────────────────────────────────────────────────
       while ( $tour_query->have_posts() ) :
         $tour_query->the_post();
+        $ref      = get_post_meta( get_the_ID(), '_at_ref',      true );
         $price    = get_post_meta( get_the_ID(), '_at_price',    true );
         $dates    = get_post_meta( get_the_ID(), '_at_dates',    true );
         $duration = get_post_meta( get_the_ID(), '_at_duration', true );
@@ -136,6 +137,9 @@ $static_tours = [
           </div>
           <div class="at-tour-card-body">
             <div class="at-tour-card-meta">
+              <?php if ( $ref ) : ?>
+                <span class="at-tour-ref" style="color:var(--at-gold); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; margin-right:0.5rem;">Ref: <?php echo esc_html( $ref ); ?></span>
+              <?php endif; ?>
               <?php if ( $location ) : ?>
                 <span class="at-tour-location">&#128205; <?php echo esc_html( $location ); ?></span>
               <?php endif; ?>
