@@ -132,7 +132,8 @@ $static_tours = [
         <article class="at-tour-card">
           <div class="at-tour-card-img">
             <?php
-              $featured_img = get_post_meta( get_the_ID(), '_at_featured_image', true );
+              $featured_img = get_post_meta( get_the_ID(), '_at_featured_image', true )
+                           ?: get_post_meta( get_the_ID(), '_at_hero', true );
               if ( has_post_thumbnail() ) :
                 the_post_thumbnail( 'medium', [ 'loading' => 'lazy' ] );
               elseif ( $featured_img ) :

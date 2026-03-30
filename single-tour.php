@@ -33,9 +33,10 @@ $atol          = get_post_meta( get_the_ID(), '_at_atol',         true );
 $dest_terms = get_the_terms( get_the_ID(), 'tour_destination' );
 $type_terms = get_the_terms( get_the_ID(), 'tour_type' );
 
+$_hero_meta = get_post_meta( get_the_ID(), '_at_hero', true );
 $hero_img = has_post_thumbnail()
     ? get_the_post_thumbnail_url( get_the_ID(), 'full' )
-    : 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1920&q=85';
+    : ( $_hero_meta ?: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1920&q=85' );
 ?>
 
 <div class="at-tour-page">

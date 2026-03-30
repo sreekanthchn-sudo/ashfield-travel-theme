@@ -244,9 +244,19 @@ $tour_types   = get_terms( [ 'taxonomy' => 'tour_type',        'hide_empty' => t
               <article class="at-tour-card <?php echo $featured ? 'at-tour-card--featured' : ''; ?>">
 
                 <div class="at-tour-card-img">
-                  <?php if ( has_post_thumbnail() ) : ?>
+                  <?php
+                  $_card_img = get_post_meta( get_the_ID(), '_at_featured_image', true )
+                            ?: get_post_meta( get_the_ID(), '_at_hero', true );
+                  if ( has_post_thumbnail() ) : ?>
                     <a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
                       <?php the_post_thumbnail( 'medium_large', [ 'loading' => 'lazy' ] ); ?>
+                    </a>
+                  <?php elseif ( $_card_img ) : ?>
+                    <a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
+                      <img src="<?php echo esc_url( $_card_img ); ?>"
+                           alt="<?php the_title_attribute(); ?>"
+                           loading="lazy" width="500" height="280"
+                           style="object-fit:cover;width:100%;height:100%;">
                     </a>
                   <?php endif; ?>
 

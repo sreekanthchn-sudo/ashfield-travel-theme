@@ -85,7 +85,7 @@ function ashfield_run_package_import() {
 			'location'    => 'Kerala, India',
 			'destinations'=> [ 'India', 'Kerala' ],
 			'types'       => [ 'Group' ],
-			'hero'        => 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1920&q=85',
+			'hero'        => 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=1920&q=85',
 			'file'        => '104_Wonders_of_Kerala_Group_Tour.html',
 		],
 		'105' => [
@@ -140,7 +140,7 @@ function ashfield_run_package_import() {
 			'location'    => 'India',
 			'destinations'=> [ 'India' ],
 			'types'       => [ 'Couples' ],
-			'hero'        => 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1920&q=85',
+			'hero'        => 'https://images.unsplash.com/photo-1597315625234-4a6ee3c0b65f?w=1920&q=85',
 			'file'        => '109_Grand_India_Explorer_Couples.html',
 		],
 		'110' => [
@@ -151,7 +151,7 @@ function ashfield_run_package_import() {
 			'location'    => 'India',
 			'destinations'=> [ 'India' ],
 			'types'       => [ 'Family' ],
-			'hero'        => 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1920&q=85',
+			'hero'        => 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1920&q=85',
 			'file'        => '110_Grand_India_Explorer_Family.html',
 		],
 		'111' => [
@@ -221,6 +221,36 @@ function ashfield_run_package_import() {
 			'file'        => '116_India_Wellness_Health_Checkup.html',
 		],
 	];
+
+	// ── Image-only update: ?run_package_import=1&update_images=1 ─────────────
+	// Re-saves hero/card images for already-imported tours without re-creating them.
+	if ( isset( $_GET['update_images'] ) ) {
+		$img_log = [];
+		foreach ( $packages as $ref => $pkg ) {
+			$existing = get_posts( [
+				'post_type'      => 'tour',
+				'meta_key'       => '_at_ref',
+				'meta_value'     => $ref,
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+			] );
+			if ( empty( $existing ) ) {
+				$img_log[] = "⚠️  NOT FOUND — Ref {$ref}: {$pkg['title']}";
+				continue;
+			}
+			$post_id = $existing[0];
+			update_post_meta( $post_id, '_at_hero',           $pkg['hero'] );
+			update_post_meta( $post_id, '_at_featured_image', $pkg['hero'] );
+			$img_log[] = "✅  UPDATED images — Ref {$ref}: {$pkg['title']}";
+		}
+		echo '<!DOCTYPE html><html><head><title>Image Update</title>';
+		echo '<style>body{font-family:sans-serif;max-width:800px;margin:40px auto;padding:20px;}pre{background:#f4f4f4;padding:20px;border-radius:6px;}</style>';
+		echo '</head><body><h1>Ashfield Travel — Image Update</h1>';
+		echo '<pre>' . implode( "\n", array_map( 'esc_html', $img_log ) ) . '</pre>';
+		echo '<p><a href="' . esc_url( home_url( '/' ) ) . '">← Back to site</a></p>';
+		echo '</body></html>';
+		exit;
+	}
 
 	// ── Run the import ────────────────────────────────────────────────────────
 	$log     = [];
@@ -304,6 +334,8 @@ function ashfield_run_package_import() {
 		update_post_meta( $post_id, '_at_accommodation',     '4-Star Hotels & Resorts' );
 		update_post_meta( $post_id, '_at_meals',             'Breakfast daily' );
 		update_post_meta( $post_id, '_at_atol',              '1' );
+		update_post_meta( $post_id, '_at_hero',              $pkg['hero'] );
+		update_post_meta( $post_id, '_at_featured_image',    $pkg['hero'] );
 
 		// Price: strip "From " and " per person" wording if present.
 		$clean_price = preg_replace( '/From\s+/i', '', $price );
