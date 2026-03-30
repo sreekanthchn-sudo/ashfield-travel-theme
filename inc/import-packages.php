@@ -118,7 +118,7 @@ function ashfield_run_package_import() {
 			'location'    => 'India',
 			'destinations'=> [ 'India', 'Golden Triangle' ],
 			'types'       => [ 'Group' ],
-			'hero'        => 'https://images.unsplash.com/photo-1557590312-00b1e07a72d4?w=1920&q=85',
+			'hero'        => 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1920&q=85',
 			'file'        => '107_Golden_Triangle_Group_Tour.html',
 		],
 		'108' => [
@@ -162,7 +162,7 @@ function ashfield_run_package_import() {
 			'location'    => 'Kashmir, India',
 			'destinations'=> [ 'India', 'Kashmir' ],
 			'types'       => [ 'Couples', 'Family' ],
-			'hero'        => 'https://images.unsplash.com/photo-1566837945700-30057527ade0?w=1920&q=85',
+			'hero'        => 'https://images.unsplash.com/photo-1597074866923-dc0589150a2b?w=1920&q=85',
 			'file'        => '111_Essential_Kashmir.html',
 		],
 		'112' => [
@@ -184,7 +184,7 @@ function ashfield_run_package_import() {
 			'location'    => 'Rajasthan, India',
 			'destinations'=> [ 'India', 'Rajasthan' ],
 			'types'       => [ 'Group', 'Couples', 'Family' ],
-			'hero'        => 'https://images.unsplash.com/photo-1548013146-72479768bada?w=1920&q=85',
+			'hero'        => 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1920&q=85',
 			'file'        => '113_Treasures_of_Rajasthan.html',
 		],
 		'114' => [
@@ -206,7 +206,7 @@ function ashfield_run_package_import() {
 			'location'    => 'Kerala, India',
 			'destinations'=> [ 'India', 'Kerala' ],
 			'types'       => [ 'Wellness' ],
-			'hero'        => 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1920&q=85',
+			'hero'        => 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=85',
 			'file'        => '115_Kerala_Ayurveda_Yoga_Retreat.html',
 		],
 		'116' => [
