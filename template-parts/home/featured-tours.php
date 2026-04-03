@@ -73,7 +73,7 @@ $static_tours = [
 		'dates'      => __( 'Year round',                 'ashfield-travel' ),
 		'duration'   => __( '7 days',                     'ashfield-travel' ),
 		'price'      => '£1,095',
-		'url'        => home_url( '/tours/essential-goa/' ),
+		'url'        => home_url( '/tours/?destination=dubai' ),
 		'img'        => 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80',
 		'img_alt'    => __( 'Dubai skyline from the water', 'ashfield-travel' ),
 		'badges'     => [ 
@@ -126,7 +126,7 @@ $static_tours = [
         $price    = get_post_meta( get_the_ID(), '_at_price',    true );
         $dates    = get_post_meta( get_the_ID(), '_at_dates',    true );
         $duration = get_post_meta( get_the_ID(), '_at_duration', true );
-        $save     = get_post_meta( get_the_ID(), '_at_save',     true );
+        $save     = get_post_meta( get_the_ID(), '_at_save_banner', true );
         $location = get_post_meta( get_the_ID(), '_at_location', true );
         ?>
         <article class="at-tour-card">

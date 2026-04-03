@@ -47,6 +47,15 @@
   /* Typography */
   --at-font-heading:     'Cormorant Garamond', Georgia, serif;
   --at-font-body:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Backward-compatible aliases used in legacy custom.css blocks */
+  --navy:                var(--at-navy);
+  --white:               var(--at-white);
+  --font-heading:        var(--at-font-heading);
+  --green:               var(--at-forest-green);
+  --border:              var(--at-border);
+  --cream:               var(--at-cream);
+  --text:                var(--at-text-body);
 }
 
 /* ═══════════════════════════════════════════════════════════════

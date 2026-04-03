@@ -28,6 +28,9 @@ $meals         = get_post_meta( get_the_ID(), '_at_meals',        true );
 $accommodation = get_post_meta( get_the_ID(), '_at_accommodation',true );
 $flight_info   = get_post_meta( get_the_ID(), '_at_flight_info',  true );
 $atol          = get_post_meta( get_the_ID(), '_at_atol',         true );
+$highlights_html = get_post_meta( get_the_ID(), '_at_highlights_html', true );
+$visa_html       = get_post_meta( get_the_ID(), '_at_visa_html', true );
+$faqs_html       = get_post_meta( get_the_ID(), '_at_faqs_html', true );
 
 /* ── Taxonomies ───────────────────────────────────────────────────────────── */
 $dest_terms = get_the_terms( get_the_ID(), 'tour_destination' );
@@ -41,11 +44,8 @@ $hero_img = has_post_thumbnail()
 
 <div class="at-tour-page">
 
-<!-- TOUR OFFER BAR -->
-<div class="at-tour-offer-bar">
-  <div class="grid-container">
-    <span>SPECIAL OFFER: Save £200 per couple on 2026 Kerala departures — Limited time only!</span>
-  </div>
+<div class="grid-container" style="padding-top: 15px; padding-bottom: 15px; font-size: 13px;">
+  <?php if ( function_exists('ashfield_generate_breadcrumbs') ) echo ashfield_generate_breadcrumbs(); ?>
 </div>
 
 <!-- ════ TOUR HERO ════ -->
@@ -93,13 +93,13 @@ $hero_img = has_post_thumbnail()
   <div class="grid-container">
     <ul>
       <li><a href="#overview">Overview</a></li>
-      <li><a href="#highlights">Highlights</a></li>
+      <?php if ( $highlights_html ) : ?><li><a href="#highlights">Highlights</a></li><?php endif; ?>
       <li><a href="#itinerary">Itinerary</a></li>
       <li><a href="#accommodation">Hotels</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#includes">Included</a></li>
-      <li><a href="#visa">Visa Info</a></li>
-      <li><a href="#faqs">FAQs</a></li>
+      <?php if ( $visa_html ) : ?><li><a href="#visa">Visa Info</a></li><?php endif; ?>
+      <?php if ( $faqs_html ) : ?><li><a href="#faqs">FAQs</a></li><?php endif; ?>
     </ul>
   </div>
 </nav>
@@ -119,10 +119,7 @@ $hero_img = has_post_thumbnail()
         </section>
 
         <!-- Highlights Section -->
-        <?php 
-          $highlights_html = get_post_meta(get_the_ID(), '_at_highlights_html', true);
-          if ($highlights_html) :
-        ?>
+        <?php if ( $highlights_html ) : ?>
         <section id="highlights" style="margin-bottom: 60px;">
           <h2 class="section-title">Tour Highlights</h2>
           <div class="highlights-grid">
@@ -221,10 +218,7 @@ $hero_img = has_post_thumbnail()
         </section>
 
         <!-- Visa Info Section -->
-        <?php 
-          $visa_html = get_post_meta(get_the_ID(), '_at_visa_html', true);
-          if ($visa_html) :
-        ?>
+        <?php if ( $visa_html ) : ?>
         <section id="visa" style="margin-bottom: 60px; background-color: #F9F6F1; padding: 3rem 2rem;">
           <h2 class="section-title">Indian Visa Information</h2>
           <div class="visa-boxes">
@@ -234,10 +228,7 @@ $hero_img = has_post_thumbnail()
         <?php endif; ?>
 
         <!-- FAQs Section -->
-        <?php 
-          $faqs_html = get_post_meta(get_the_ID(), '_at_faqs_html', true);
-          if ($faqs_html) :
-        ?>
+        <?php if ( $faqs_html ) : ?>
         <section id="faqs" style="margin-bottom: 60px; background-color: #F9F6F1; padding: 3rem 2rem;">
           <h2 class="section-title">Frequently Asked Questions</h2>
           <div class="faqs-container">
@@ -318,11 +309,19 @@ $hero_img = has_post_thumbnail()
 
 <section id="enquire" class="at-section at-section--navy" style="text-align: center; padding: 100px 0;">
   <div class="grid-container">
-    <h2 class="at-section-title" style="color: var(--at-white); margin-bottom: 20px;">Book Your Kerala Escape</h2>
+    <h2 class="at-section-title" style="color: var(--at-white); margin-bottom: 20px;">
+      <?php
+      printf(
+        /* translators: %s: tour title */
+        esc_html__( 'Book Your %s', 'ashfield-travel' ),
+        esc_html( get_the_title() )
+      );
+      ?>
+    </h2>
     <p style="color: rgba(255,255,255,0.7); font-size: 20px; max-width: 700px; margin: 0 auto 40px;">Contact our expert team to customize this itinerary or secure your dates.</p>
     <a href="mailto:info@ashfieldtravel.co.uk" class="at-btn-primary" style="padding: 20px 60px; font-size: 18px;">Send Enquiry</a>
   </div>
 </section>
 
-<?php get_footer(); ?>
 </div> <!-- .at-tour-page -->
+<?php get_footer(); ?>

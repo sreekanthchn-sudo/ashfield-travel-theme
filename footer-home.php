@@ -5,6 +5,18 @@
  * while still firing wp_footer() for plugin compatibility.
  */
 ?>
+<?php
+$tour_archive = get_post_type_archive_link( 'tour' ) ? get_post_type_archive_link( 'tour' ) : home_url( '/tours/' );
+$dest_kerala  = ashfield_tax_link_or_archive( 'tour_destination', 'kerala', $tour_archive );
+$dest_golden  = ashfield_tax_link_or_archive( 'tour_destination', 'golden-triangle', $tour_archive );
+$dest_kashmir = ashfield_tax_link_or_archive( 'tour_destination', 'kashmir', $tour_archive );
+$dest_rajasthan = ashfield_tax_link_or_archive( 'tour_destination', 'rajasthan', $tour_archive );
+$dest_dubai   = ashfield_tax_link_or_archive( 'tour_destination', 'dubai', $tour_archive );
+$dest_goa     = ashfield_tax_link_or_archive( 'tour_destination', 'goa', $tour_archive );
+$type_group   = ashfield_tax_link_or_archive( 'tour_type', 'group', $tour_archive );
+$type_private = ashfield_tax_link_or_archive( 'tour_type', 'private', $tour_archive );
+$type_family  = ashfield_tax_link_or_archive( 'tour_type', 'family', $tour_archive );
+?>
 <footer class="at-footer">
   <div class="grid-container">
     <div class="at-footer-grid">
@@ -20,29 +32,74 @@
       </div>
       <div class="at-footer-col">
         <h4>Destinations</h4>
-        <a href="<?php echo esc_url( home_url('/destinations/kerala/') ); ?>">Kerala</a>
-        <a href="<?php echo esc_url( home_url('/destinations/golden-triangle/') ); ?>">Golden Triangle</a>
-        <a href="<?php echo esc_url( home_url('/destinations/kashmir/') ); ?>">Kashmir</a>
-        <a href="<?php echo esc_url( home_url('/destinations/rajasthan/') ); ?>">Rajasthan</a>
-        <a href="<?php echo esc_url( home_url('/destinations/dubai/') ); ?>">Dubai</a>
-        <a href="<?php echo esc_url( home_url('/destinations/goa/') ); ?>">Goa</a>
+        <?php
+        if ( has_nav_menu( 'ashfield-footer-destinations' ) ) {
+          wp_nav_menu(
+            [
+              'theme_location' => 'ashfield-footer-destinations',
+              'container'      => false,
+              'items_wrap'     => '%3$s',
+              'depth'          => 1,
+              'walker'         => new Ashfield_Footer_Menu_Walker(),
+              'fallback_cb'    => false,
+            ]
+          );
+        } else {
+        ?>
+          <a href="<?php echo esc_url( $dest_kerala ); ?>">Kerala</a>
+          <a href="<?php echo esc_url( $dest_golden ); ?>">Golden Triangle</a>
+          <a href="<?php echo esc_url( $dest_kashmir ); ?>">Kashmir</a>
+          <a href="<?php echo esc_url( $dest_rajasthan ); ?>">Rajasthan</a>
+          <a href="<?php echo esc_url( $dest_dubai ); ?>">Dubai</a>
+          <a href="<?php echo esc_url( $dest_goa ); ?>">Goa</a>
+        <?php } ?>
       </div>
       <div class="at-footer-col">
         <h4>Tour Types</h4>
-        <a href="<?php echo esc_url( home_url('/tour-types/group-tours/') ); ?>">Group Tours</a>
-        <a href="<?php echo esc_url( home_url('/tour-types/private-tours/') ); ?>">Private Tours</a>
-        <a href="<?php echo esc_url( home_url('/tour-types/tailor-made/') ); ?>">Tailor-Made</a>
-        <a href="<?php echo esc_url( home_url('/tour-types/family-packages/') ); ?>">Family Packages</a>
-        <a href="<?php echo esc_url( home_url('/tour-types/honeymoons/') ); ?>">Honeymoons</a>
+        <?php
+        if ( has_nav_menu( 'ashfield-footer-tour-types' ) ) {
+          wp_nav_menu(
+            [
+              'theme_location' => 'ashfield-footer-tour-types',
+              'container'      => false,
+              'items_wrap'     => '%3$s',
+              'depth'          => 1,
+              'walker'         => new Ashfield_Footer_Menu_Walker(),
+              'fallback_cb'    => false,
+            ]
+          );
+        } else {
+        ?>
+          <a href="<?php echo esc_url( $type_group ); ?>">Group Tours</a>
+          <a href="<?php echo esc_url( $type_private ); ?>">Private Tours</a>
+          <a href="<?php echo esc_url( $tour_archive ); ?>">Tailor-Made</a>
+          <a href="<?php echo esc_url( $type_family ); ?>">Family Packages</a>
+          <a href="<?php echo esc_url( $tour_archive ); ?>">Honeymoons</a>
+        <?php } ?>
       </div>
       <div class="at-footer-col">
         <h4>Company</h4>
-        <a href="<?php echo esc_url( home_url('/about-us/') ); ?>">About Us</a>
-        <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>">Contact Us</a>
-        <a href="<?php echo esc_url( home_url('/brochures/') ); ?>">Brochures</a>
-        <a href="<?php echo esc_url( home_url('/blog/') ); ?>">Blog</a>
-        <a href="<?php echo esc_url( home_url('/terms-and-conditions/') ); ?>">Terms &amp; Conditions</a>
-        <a href="<?php echo esc_url( home_url('/privacy-policy/') ); ?>">Privacy Policy</a>
+        <?php
+        if ( has_nav_menu( 'ashfield-footer-company' ) ) {
+          wp_nav_menu(
+            [
+              'theme_location' => 'ashfield-footer-company',
+              'container'      => false,
+              'items_wrap'     => '%3$s',
+              'depth'          => 1,
+              'walker'         => new Ashfield_Footer_Menu_Walker(),
+              'fallback_cb'    => false,
+            ]
+          );
+        } else {
+        ?>
+          <a href="<?php echo esc_url( home_url('/about-us/') ); ?>">About Us</a>
+          <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>">Contact Us</a>
+          <a href="<?php echo esc_url( home_url('/brochures/') ); ?>">Brochures</a>
+          <a href="<?php echo esc_url( home_url('/blog/') ); ?>">Blog</a>
+          <a href="<?php echo esc_url( home_url('/terms-and-conditions/') ); ?>">Terms &amp; Conditions</a>
+          <a href="<?php echo esc_url( home_url('/privacy-policy/') ); ?>">Privacy Policy</a>
+        <?php } ?>
       </div>
     </div>
     <div class="at-footer-bottom">

@@ -344,8 +344,10 @@ function ashfield_run_package_import() {
 
 		if ( $clean_price && stripos( $clean_price, 'Contact' ) === false ) {
 			update_post_meta( $post_id, '_at_price', 'From ' . $clean_price );
+			update_post_meta( $post_id, '_at_price_raw', (int) preg_replace( '/[^\d]/', '', $clean_price ) );
 		} else {
 			update_post_meta( $post_id, '_at_price', 'Contact Us' );
+			delete_post_meta( $post_id, '_at_price_raw' );
 		}
 
 		if ( $luxury_price ) {

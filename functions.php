@@ -20,6 +20,8 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
  * INCLUDES
  * ────────────────────────────────────────────── */
 require_once get_stylesheet_directory() . '/inc/cpt-tours.php';
+require_once get_stylesheet_directory() . '/inc/url-custom-rewrites.php';
+require_once get_stylesheet_directory() . '/inc/url-structure-helpers.php';
 
 /*
  * Import script removed from production.
@@ -171,6 +173,179 @@ function ashfield_body_classes( $classes ) {
 }
 
 /* ──────────────────────────────────────────────
+ * 4c. NAV MENUS — editable links from WP admin
+ * ────────────────────────────────────────────── */
+add_action( 'after_setup_theme', 'ashfield_register_nav_menus' );
+function ashfield_register_nav_menus() {
+	register_nav_menus(
+		[
+			'ashfield-header-links'      => __( 'Header Links', 'ashfield-travel' ),
+			'ashfield-footer-destinations' => __( 'Footer Destinations', 'ashfield-travel' ),
+			'ashfield-footer-tour-types' => __( 'Footer Tour Types', 'ashfield-travel' ),
+			'ashfield-footer-company'    => __( 'Footer Company', 'ashfield-travel' ),
+		]
+	);
+}
+
+/**
+ * Minimal walker for header links preserving existing CSS hooks.
+ */
+class Ashfield_Header_Menu_Walker extends Walker_Nav_Menu {
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$classes = empty( $item->classes ) ? [] : (array) $item->classes;
+		$class   = 'at-nav-item';
+		if ( in_array( 'current-menu-item', $classes, true ) || in_array( 'current_page_item', $classes, true ) ) {
+			$class .= ' current-menu-item';
+		}
+		$output .= '<div class="' . esc_attr( $class ) . '">';
+		$output .= '<a href="' . esc_url( $item->url ) . '">' . esc_html( $item->title ) . '</a>';
+		$output .= '</div>';
+	}
+}
+
+/**
+ * Minimal walker for footer columns (anchor-only output).
+ */
+class Ashfield_Footer_Menu_Walker extends Walker_Nav_Menu {
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$output .= '<a href="' . esc_url( $item->url ) . '">' . esc_html( $item->title ) . '</a>';
+	}
+}
+
+/* ──────────────────────────────────────────────
+ * 4b. LINK HELPERS — avoid hardcoded slug drift
+ * ────────────────────────────────────────────── */
+function ashfield_tax_link_or_archive( $taxonomy, $slug, $fallback_archive = '' ) {
+	$term = get_term_by( 'slug', $slug, $taxonomy );
+	if ( $term && ! is_wp_error( $term ) ) {
+		$link = get_term_link( $term );
+		if ( ! is_wp_error( $link ) ) {
+			return $link;
+		}
+	}
+	return $fallback_archive ? $fallback_archive : home_url( '/' );
+}
+
+function ashfield_page_link_or_fallback( $path, $fallback = '' ) {
+	$page = get_page_by_path( ltrim( (string) $path, '/' ) );
+	if ( $page ) {
+		return get_permalink( $page );
+	}
+	return $fallback ? $fallback : home_url( '/' );
+}
+
+/**
+ * Build destination groups for mega menu from tour_destination taxonomy.
+ * Uses parent/child hierarchy when available and falls back safely.
+ *
+ * @return array<int,array<string,mixed>>
+ */
+function ashfield_get_destination_menu_groups() {
+	$groups = [];
+	$terms  = get_terms(
+		[
+			'taxonomy'   => 'tour_destination',
+			'hide_empty' => true,
+		]
+	);
+
+	if ( is_wp_error( $terms ) || empty( $terms ) ) {
+		return $groups;
+	}
+
+	$by_parent = [];
+	foreach ( $terms as $term ) {
+		$by_parent[ (int) $term->parent ][] = $term;
+	}
+
+	$top_level = isset( $by_parent[0] ) ? $by_parent[0] : [];
+	usort(
+		$top_level,
+		static function ( $a, $b ) {
+			return strcasecmp( $a->name, $b->name );
+		}
+	);
+
+	foreach ( $top_level as $parent_term ) {
+		$children = isset( $by_parent[ (int) $parent_term->term_id ] ) ? $by_parent[ (int) $parent_term->term_id ] : [];
+		usort(
+			$children,
+			static function ( $a, $b ) {
+				return strcasecmp( $a->name, $b->name );
+			}
+		);
+
+		$items = [];
+		if ( ! empty( $children ) ) {
+			foreach ( $children as $child ) {
+				$link = get_term_link( $child );
+				if ( ! is_wp_error( $link ) ) {
+					$items[] = [
+						'label' => $child->name,
+						'url'   => $link,
+					];
+				}
+			}
+		} else {
+			$link = get_term_link( $parent_term );
+			if ( ! is_wp_error( $link ) ) {
+				$items[] = [
+					'label' => $parent_term->name,
+					'url'   => $link,
+				];
+			}
+		}
+
+		if ( ! empty( $items ) ) {
+			$groups[] = [
+				'title' => $parent_term->name,
+				'items' => $items,
+			];
+		}
+	}
+
+	return $groups;
+}
+
+/**
+ * Build tour type menu items from tour_type taxonomy.
+ *
+ * @return array<int,array<string,string>>
+ */
+function ashfield_get_tour_type_menu_items() {
+	$items = [];
+	$terms = get_terms(
+		[
+			'taxonomy'   => 'tour_type',
+			'hide_empty' => true,
+		]
+	);
+
+	if ( is_wp_error( $terms ) || empty( $terms ) ) {
+		return $items;
+	}
+
+	usort(
+		$terms,
+		static function ( $a, $b ) {
+			return strcasecmp( $a->name, $b->name );
+		}
+	);
+
+	foreach ( $terms as $term ) {
+		$link = get_term_link( $term );
+		if ( ! is_wp_error( $link ) ) {
+			$items[] = [
+				'label' => $term->name,
+				'url'   => $link,
+			];
+		}
+	}
+
+	return $items;
+}
+
+/* ──────────────────────────────────────────────
  * 5. REGISTER WIDGET AREAS (Footer columns, etc.)
  * ────────────────────────────────────────────── */
 add_action( 'widgets_init', 'ashfield_widgets' );
@@ -207,6 +382,47 @@ function ashfield_widgets() {
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
+}
+
+/* ──────────────────────────────────────────────
+ * 5b. BROCHURE FORM FALLBACK HANDLER
+ *    Handles newsletter form when WPForms is not active
+ * ────────────────────────────────────────────── */
+add_action( 'admin_post_nopriv_at_brochure_request', 'ashfield_handle_brochure_request' );
+add_action( 'admin_post_at_brochure_request', 'ashfield_handle_brochure_request' );
+function ashfield_handle_brochure_request() {
+	$redirect_url = wp_get_referer() ? wp_get_referer() : home_url( '/' );
+
+	if (
+		! isset( $_POST['at_brochure_nonce'] ) ||
+		! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['at_brochure_nonce'] ) ), 'at_brochure_request' )
+	) {
+		wp_safe_redirect( add_query_arg( 'brochure_status', 'invalid_nonce', $redirect_url ) );
+		exit;
+	}
+
+	$email = isset( $_POST['at_email'] ) ? sanitize_email( wp_unslash( $_POST['at_email'] ) ) : '';
+	if ( ! is_email( $email ) ) {
+		wp_safe_redirect( add_query_arg( 'brochure_status', 'invalid_email', $redirect_url ) );
+		exit;
+	}
+
+	$subject = __( 'New brochure request', 'ashfield-travel' );
+	$message = sprintf(
+		/* translators: %s: email address */
+		__( "A brochure request was submitted.\n\nEmail: %s", 'ashfield-travel' ),
+		$email
+	);
+
+	$sent = wp_mail(
+		'info@ashfieldtravel.co.uk',
+		$subject,
+		$message,
+		[ 'Reply-To: ' . $email ]
+	);
+
+	wp_safe_redirect( add_query_arg( 'brochure_status', $sent ? 'success' : 'error', $redirect_url ) );
+	exit;
 }
 
 /* ──────────────────────────────────────────────

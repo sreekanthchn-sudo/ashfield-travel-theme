@@ -2492,20 +2492,6 @@ body.ashfield-homepage .at-sticky-brochure {
   .at-tour-nav a { padding: 16px 12px; font-size: 12px; }
 }
 
-/* Tour Top Offer Bar */
-.at-tour-offer-bar,
-.at-tour-body .at-tour-offer-bar {
-  background: var(--at-forest-green) !important;
-  color: var(--at-white) !important;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  position: relative;
-  z-index: 100;
-}
-
 /* Tour Hero Adjustments */
 .at-tour-hero .at-tour-price-card {
   background: rgba(255,255,255,0.98);

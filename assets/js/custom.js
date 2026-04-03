@@ -42,7 +42,7 @@
      ──────────────────────────────────── */
   function initStickyBrochure() {
     var btn    = document.querySelector('.at-sticky-brochure');
-    var footer = document.querySelector('.site-footer');
+    var footer = document.querySelector('.at-footer, .site-footer');
     if (!btn || !footer) return;
 
     window.addEventListener('scroll', function () {

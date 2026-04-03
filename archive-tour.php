@@ -63,6 +63,37 @@ $tour_query = new WP_Query( $query_args );
 /* ── Taxonomy terms for sidebar filters ──────────────────────────────────── */
 $destinations = get_terms( [ 'taxonomy' => 'tour_destination', 'hide_empty' => true ] );
 $tour_types   = get_terms( [ 'taxonomy' => 'tour_type',        'hide_empty' => true ] );
+
+/**
+ * Resolve a tour's top-level destination label for archive grouping.
+ *
+ * @param int $post_id Tour post ID.
+ * @return string Group label.
+ */
+function ashfield_get_tour_destination_group_label( $post_id ) {
+	$terms = get_the_terms( $post_id, 'tour_destination' );
+	if ( empty( $terms ) || is_wp_error( $terms ) ) {
+		return __( 'Other Destinations', 'ashfield-travel' );
+	}
+
+	foreach ( $terms as $term ) {
+		if ( $term->parent > 0 ) {
+			$parent = get_term( $term->parent, 'tour_destination' );
+			if ( $parent && ! is_wp_error( $parent ) ) {
+				return $parent->name;
+			}
+		}
+	}
+
+	usort(
+		$terms,
+		static function ( $a, $b ) {
+			return strcasecmp( $a->name, $b->name );
+		}
+	);
+
+	return $terms[0]->name;
+}
 ?>
 
 <!-- Archive header -->
@@ -228,102 +259,116 @@ $tour_types   = get_terms( [ 'taxonomy' => 'tour_type',        'hide_empty' => t
       <main class="at-archive-main" id="main">
 
         <?php if ( $tour_query->have_posts() ) : ?>
+          <?php
+          $grouped_posts = [];
+          while ( $tour_query->have_posts() ) {
+            $tour_query->the_post();
+            $group_label = ashfield_get_tour_destination_group_label( get_the_ID() );
+            if ( ! isset( $grouped_posts[ $group_label ] ) ) {
+              $grouped_posts[ $group_label ] = [];
+            }
+            $grouped_posts[ $group_label ][] = get_the_ID();
+          }
+          wp_reset_postdata();
+          ksort( $grouped_posts, SORT_NATURAL | SORT_FLAG_CASE );
+          ?>
 
-          <div class="at-tour-grid at-tour-grid--archive">
-            <?php while ( $tour_query->have_posts() ) :
-              $tour_query->the_post();
-              $price     = get_post_meta( get_the_ID(), '_at_price',       true );
-              $dates     = get_post_meta( get_the_ID(), '_at_dates',       true );
-              $duration  = get_post_meta( get_the_ID(), '_at_duration',    true );
-              $save      = get_post_meta( get_the_ID(), '_at_save_banner', true );
-              $location  = get_post_meta( get_the_ID(), '_at_location',    true );
-              $badge1    = get_post_meta( get_the_ID(), '_at_badge_1',     true );
-              $badge2    = get_post_meta( get_the_ID(), '_at_badge_2',     true );
-              $featured  = get_post_meta( get_the_ID(), '_at_featured',    true );
-              ?>
-              <article class="at-tour-card <?php echo $featured ? 'at-tour-card--featured' : ''; ?>">
+          <?php foreach ( $grouped_posts as $group_label => $tour_ids ) : ?>
+            <section class="at-archive-group" style="margin-bottom:40px;">
+              <h2 class="at-archive-group-title" style="font-size:30px;margin:0 0 18px;"><?php echo esc_html( $group_label ); ?></h2>
+              <div class="at-tour-grid at-tour-grid--archive">
+                <?php foreach ( $tour_ids as $tour_id ) :
+                  $price     = get_post_meta( $tour_id, '_at_price',       true );
+                  $dates     = get_post_meta( $tour_id, '_at_dates',       true );
+                  $duration  = get_post_meta( $tour_id, '_at_duration',    true );
+                  $save      = get_post_meta( $tour_id, '_at_save_banner', true );
+                  $location  = get_post_meta( $tour_id, '_at_location',    true );
+                  $badge1    = get_post_meta( $tour_id, '_at_badge_1',     true );
+                  $badge2    = get_post_meta( $tour_id, '_at_badge_2',     true );
+                  $featured  = get_post_meta( $tour_id, '_at_featured',    true );
+                  ?>
+                  <article class="at-tour-card <?php echo $featured ? 'at-tour-card--featured' : ''; ?>">
+                    <div class="at-tour-card-img">
+                      <?php
+                      $_card_img = get_post_meta( $tour_id, '_at_featured_image', true )
+                                ?: get_post_meta( $tour_id, '_at_hero', true );
+                      if ( has_post_thumbnail( $tour_id ) ) : ?>
+                        <a href="<?php echo esc_url( get_permalink( $tour_id ) ); ?>" tabindex="-1" aria-hidden="true">
+                          <?php echo get_the_post_thumbnail( $tour_id, 'medium_large', [ 'loading' => 'lazy' ] ); ?>
+                        </a>
+                      <?php elseif ( $_card_img ) : ?>
+                        <a href="<?php echo esc_url( get_permalink( $tour_id ) ); ?>" tabindex="-1" aria-hidden="true">
+                          <img src="<?php echo esc_url( $_card_img ); ?>"
+                               alt="<?php echo esc_attr( get_the_title( $tour_id ) ); ?>"
+                               loading="lazy" width="500" height="280"
+                               style="object-fit:cover;width:100%;height:100%;">
+                        </a>
+                      <?php endif; ?>
 
-                <div class="at-tour-card-img">
-                  <?php
-                  $_card_img = get_post_meta( get_the_ID(), '_at_featured_image', true )
-                            ?: get_post_meta( get_the_ID(), '_at_hero', true );
-                  if ( has_post_thumbnail() ) : ?>
-                    <a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
-                      <?php the_post_thumbnail( 'medium_large', [ 'loading' => 'lazy' ] ); ?>
-                    </a>
-                  <?php elseif ( $_card_img ) : ?>
-                    <a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
-                      <img src="<?php echo esc_url( $_card_img ); ?>"
-                           alt="<?php the_title_attribute(); ?>"
-                           loading="lazy" width="500" height="280"
-                           style="object-fit:cover;width:100%;height:100%;">
-                    </a>
-                  <?php endif; ?>
-
-                  <?php if ( $badge1 || $badge2 ) : ?>
-                    <div class="at-tour-card-badges" aria-hidden="true">
-                      <?php if ( $badge1 ) echo '<span class="at-tour-badge">' . esc_html( $badge1 ) . '</span>'; ?>
-                      <?php if ( $badge2 ) echo '<span class="at-tour-badge">' . esc_html( $badge2 ) . '</span>'; ?>
+                      <?php if ( $badge1 || $badge2 ) : ?>
+                        <div class="at-tour-card-badges" aria-hidden="true">
+                          <?php if ( $badge1 ) echo '<span class="at-tour-badge">' . esc_html( $badge1 ) . '</span>'; ?>
+                          <?php if ( $badge2 ) echo '<span class="at-tour-badge">' . esc_html( $badge2 ) . '</span>'; ?>
+                        </div>
+                      <?php endif; ?>
                     </div>
-                  <?php endif; ?>
-                </div>
 
-                <div class="at-tour-card-body">
-                  <div class="at-tour-card-meta">
-                    <?php if ( $location ) : ?>
-                      <span class="at-tour-location"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> <?php echo esc_html( $location ); ?></span>
-                    <?php endif; ?>
-                    <?php if ( $featured ) : ?>
-                      <span class="at-tour-favourite"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M12 1.7L14.5 9H22L15.9 13.4L18.4 20.7L12 16.3L5.6 20.7L8.1 13.4L2 9H9.5L12 1.7Z"/></svg> <?php esc_html_e( 'Customer Favourite', 'ashfield-travel' ); ?></span>
-                    <?php endif; ?>
-                  </div>
-
-                  <h2 class="at-tour-card-title">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                  </h2>
-
-                  <p class="at-tour-card-excerpt">
-                    <?php echo wp_trim_words( get_the_excerpt(), 18 ); ?>
-                  </p>
-
-                  <?php if ( $save ) : ?>
-                    <div class="at-tour-save-banner"><?php echo esc_html( $save ); ?></div>
-                  <?php endif; ?>
-
-                  <div class="at-tour-info-row">
-                    <?php if ( $dates ) : ?>
-                      <div class="at-tour-info-item">
-                        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
-                        <div class="label"><?php esc_html_e( 'Dates', 'ashfield-travel' ); ?></div>
-                        <div class="value"><?php echo esc_html( $dates ); ?></div>
+                    <div class="at-tour-card-body">
+                      <div class="at-tour-card-meta">
+                        <?php if ( $location ) : ?>
+                          <span class="at-tour-location"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> <?php echo esc_html( $location ); ?></span>
+                        <?php endif; ?>
+                        <?php if ( $featured ) : ?>
+                          <span class="at-tour-favourite"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M12 1.7L14.5 9H22L15.9 13.4L18.4 20.7L12 16.3L5.6 20.7L8.1 13.4L2 9H9.5L12 1.7Z"/></svg> <?php esc_html_e( 'Customer Favourite', 'ashfield-travel' ); ?></span>
+                        <?php endif; ?>
                       </div>
-                    <?php endif; ?>
-                    <?php if ( $duration ) : ?>
-                      <div class="at-tour-info-item">
-                        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
-                        <div class="label"><?php esc_html_e( 'Duration', 'ashfield-travel' ); ?></div>
-                        <div class="value"><?php echo esc_html( $duration ); ?></div>
-                      </div>
-                    <?php endif; ?>
-                    <?php if ( $price ) : ?>
-                      <div class="at-tour-info-item">
-                        <div class="icon" aria-hidden="true">£</div>
-                        <div class="label"><?php esc_html_e( 'From', 'ashfield-travel' ); ?></div>
-                        <div class="value at-price-value"><?php echo esc_html( $price ); ?></div>
-                      </div>
-                    <?php endif; ?>
-                  </div>
 
-                  <a href="<?php the_permalink(); ?>" class="at-btn-find-more">
-                    <?php esc_html_e( 'Find out more', 'ashfield-travel' ); ?>
-                    <span class="arrow-circle" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-                  </a>
-                </div>
+                      <h3 class="at-tour-card-title">
+                        <a href="<?php echo esc_url( get_permalink( $tour_id ) ); ?>"><?php echo esc_html( get_the_title( $tour_id ) ); ?></a>
+                      </h3>
 
-              </article>
-            <?php endwhile;
-            wp_reset_postdata(); ?>
-          </div>
+                      <p class="at-tour-card-excerpt">
+                        <?php echo esc_html( wp_trim_words( get_post_field( 'post_excerpt', $tour_id ), 18 ) ); ?>
+                      </p>
+
+                      <?php if ( $save ) : ?>
+                        <div class="at-tour-save-banner"><?php echo esc_html( $save ); ?></div>
+                      <?php endif; ?>
+
+                      <div class="at-tour-info-row">
+                        <?php if ( $dates ) : ?>
+                          <div class="at-tour-info-item">
+                            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+                            <div class="label"><?php esc_html_e( 'Dates', 'ashfield-travel' ); ?></div>
+                            <div class="value"><?php echo esc_html( $dates ); ?></div>
+                          </div>
+                        <?php endif; ?>
+                        <?php if ( $duration ) : ?>
+                          <div class="at-tour-info-item">
+                            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                            <div class="label"><?php esc_html_e( 'Duration', 'ashfield-travel' ); ?></div>
+                            <div class="value"><?php echo esc_html( $duration ); ?></div>
+                          </div>
+                        <?php endif; ?>
+                        <?php if ( $price ) : ?>
+                          <div class="at-tour-info-item">
+                            <div class="icon" aria-hidden="true">£</div>
+                            <div class="label"><?php esc_html_e( 'From', 'ashfield-travel' ); ?></div>
+                            <div class="value at-price-value"><?php echo esc_html( $price ); ?></div>
+                          </div>
+                        <?php endif; ?>
+                      </div>
+
+                      <a href="<?php echo esc_url( get_permalink( $tour_id ) ); ?>" class="at-btn-find-more">
+                        <?php esc_html_e( 'Find out more', 'ashfield-travel' ); ?>
+                        <span class="arrow-circle" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                      </a>
+                    </div>
+                  </article>
+                <?php endforeach; ?>
+              </div>
+            </section>
+          <?php endforeach; ?>
 
           <!-- Pagination -->
           <nav class="at-pagination" aria-label="<?php esc_attr_e( 'Tours pages', 'ashfield-travel' ); ?>">

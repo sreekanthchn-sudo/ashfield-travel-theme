@@ -30,8 +30,8 @@ function ashfield_register_tour_cpt() {
 	register_post_type( 'tour', [
 		'labels'             => $labels,
 		'public'             => true,
-		'has_archive'        => true,           // → /tours/
-		'rewrite'            => [ 'slug' => 'tours', 'with_front' => false ],
+		'has_archive'        => false,           // Managed by custom routing
+		'rewrite'            => false,
 		'supports'           => [ 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes' ],
 		'menu_icon'          => 'dashicons-airplane',
 		'menu_position'      => 5,
@@ -75,7 +75,7 @@ function ashfield_register_tour_type_tax() {
 		'hierarchical'      => false,
 		'public'            => true,
 		'show_in_rest'      => true,
-		'rewrite'           => [ 'slug' => 'tour-types' ],
+		'rewrite'           => [ 'slug' => 'our-tours' ],
 		'show_admin_column' => true,
 	] );
 }
@@ -87,6 +87,7 @@ add_action( 'init', 'ashfield_register_tour_meta' );
 function ashfield_register_tour_meta() {
 	$fields = [
 		'_at_price'          => [ 'desc' => 'Price from (e.g. £1,295)',  'type' => 'string' ],
+		'_at_price_raw'      => [ 'desc' => 'Numeric price for sorting (e.g. 1295)', 'type' => 'number' ],
 		'_at_subtitle'       => [ 'desc' => 'Tour subtitle (e.g. Couples Escape)', 'type' => 'string' ],
 		'_at_ref'            => [ 'desc' => 'Package Reference (e.g. 101)', 'type' => 'string' ],
 		'_at_season'         => [ 'desc' => 'Best Season (e.g. Oct to Mar)', 'type' => 'string' ],
@@ -104,6 +105,11 @@ function ashfield_register_tour_meta() {
 		'_at_badge_2'        => [ 'desc' => 'Second icon badge emoji',   'type' => 'string' ],
 		'_at_itinerary_html' => [ 'desc' => 'Custom Itinerary HTML',      'type' => 'string' ],
 		'_at_accommodation_html' => [ 'desc' => 'Custom Accom HTML',      'type' => 'string' ],
+		'_at_highlights_html' => [ 'desc' => 'Custom Highlights HTML',    'type' => 'string' ],
+		'_at_visa_html'      => [ 'desc' => 'Custom Visa HTML',           'type' => 'string' ],
+		'_at_faqs_html'      => [ 'desc' => 'Custom FAQs HTML',           'type' => 'string' ],
+		'_at_testimonial_text'   => [ 'desc' => 'Testimonial quote text', 'type' => 'string' ],
+		'_at_testimonial_author' => [ 'desc' => 'Testimonial author',     'type' => 'string' ],
 		'_at_price_luxury'   => [ 'desc' => 'Luxury Tier Price',          'type' => 'string' ],
 		'_at_featured_image' => [ 'desc' => 'Featured Image URL',         'type' => 'string' ],
 	];
@@ -116,6 +122,71 @@ function ashfield_register_tour_meta() {
 			'show_in_rest' => true,
 		] );
 	}
+}
+
+/**
+ * Convert a formatted price string (e.g. "From £1,295") to integer 1295.
+ *
+ * @param string $price_text Price text.
+ * @return int Numeric value or 0 if not parseable.
+ */
+function ashfield_extract_numeric_price( $price_text ) {
+	if ( ! is_string( $price_text ) || '' === trim( $price_text ) ) {
+		return 0;
+	}
+	if ( preg_match( '/(\d[\d,]*)/', $price_text, $matches ) ) {
+		return (int) str_replace( ',', '', $matches[1] );
+	}
+	return 0;
+}
+
+/**
+ * Keep _at_price_raw synced so archive sorting by price works.
+ *
+ * @param int $post_id Tour post ID.
+ */
+function ashfield_sync_tour_price_raw( $post_id ) {
+	$price_text = (string) get_post_meta( $post_id, '_at_price', true );
+	$price_raw  = ashfield_extract_numeric_price( $price_text );
+	if ( $price_raw > 0 ) {
+		update_post_meta( $post_id, '_at_price_raw', $price_raw );
+	} else {
+		delete_post_meta( $post_id, '_at_price_raw' );
+	}
+}
+
+add_action( 'save_post_tour', 'ashfield_sync_tour_price_raw_on_save', 20 );
+function ashfield_sync_tour_price_raw_on_save( $post_id ) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+	ashfield_sync_tour_price_raw( $post_id );
+}
+
+/**
+ * One-time backfill for existing tours missing _at_price_raw.
+ */
+add_action( 'admin_init', 'ashfield_backfill_tour_price_raw_meta' );
+function ashfield_backfill_tour_price_raw_meta() {
+	if ( get_option( 'ashfield_price_raw_backfilled' ) ) {
+		return;
+	}
+
+	$tour_ids = get_posts( [
+		'post_type'      => 'tour',
+		'post_status'    => 'any',
+		'posts_per_page' => -1,
+		'fields'         => 'ids',
+	] );
+
+	foreach ( $tour_ids as $tour_id ) {
+		ashfield_sync_tour_price_raw( (int) $tour_id );
+	}
+
+	update_option( 'ashfield_price_raw_backfilled', 1, false );
 }
 
 /* ──────────────────────────────────────────────

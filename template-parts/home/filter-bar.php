@@ -6,15 +6,16 @@
  * @package Ashfield_Travel
  */
 
+$tour_archive = get_post_type_archive_link( 'tour' ) ? get_post_type_archive_link( 'tour' ) : home_url( '/tours/' );
 $filter_items = [
-	[ 'label' => __( 'All Tours',          'ashfield-travel' ), 'url' => home_url( '/tours/' ),              'active' => true  ],
-	[ 'label' => __( 'India Tours',         'ashfield-travel' ), 'url' => home_url( '/destinations/india/' ), 'active' => false ],
-	[ 'label' => __( 'Dubai',               'ashfield-travel' ), 'url' => home_url( '/destinations/dubai/' ), 'active' => false ],
-	[ 'label' => __( 'Group Tours',         'ashfield-travel' ), 'url' => home_url( '/tour-types/group/' ),   'active' => false ],
-	[ 'label' => __( 'Private Tours',       'ashfield-travel' ), 'url' => home_url( '/tour-types/private/' ), 'active' => false ],
-	[ 'label' => __( 'Family Packages',     'ashfield-travel' ), 'url' => home_url( '/tour-types/family/' ),  'active' => false ],
-	[ 'label' => __( 'Destination Guides',  'ashfield-travel' ), 'url' => home_url( '/blog/' ),               'active' => false ],
-	[ 'label' => __( 'Brochures',           'ashfield-travel' ), 'url' => home_url( '/brochures/' ),          'active' => false ],
+	[ 'label' => __( 'All Tours', 'ashfield-travel' ), 'url' => $tour_archive, 'active' => true ],
+	[ 'label' => __( 'India Tours', 'ashfield-travel' ), 'url' => add_query_arg( 'destination', 'india', $tour_archive ), 'active' => false ],
+	[ 'label' => __( 'Dubai', 'ashfield-travel' ), 'url' => add_query_arg( 'destination', 'dubai', $tour_archive ), 'active' => false ],
+	[ 'label' => __( 'Group Tours', 'ashfield-travel' ), 'url' => add_query_arg( 'tour_type', 'group', $tour_archive ), 'active' => false ],
+	[ 'label' => __( 'Private Tours', 'ashfield-travel' ), 'url' => add_query_arg( 'tour_type', 'private', $tour_archive ), 'active' => false ],
+	[ 'label' => __( 'Family Packages', 'ashfield-travel' ), 'url' => add_query_arg( 'tour_type', 'family', $tour_archive ), 'active' => false ],
+	[ 'label' => __( 'Destination Guides', 'ashfield-travel' ), 'url' => ashfield_page_link_or_fallback( 'blog', home_url( '/blog/' ) ), 'active' => false ],
+	[ 'label' => __( 'Brochures', 'ashfield-travel' ), 'url' => ashfield_page_link_or_fallback( 'brochures', home_url( '/brochures/' ) ), 'active' => false ],
 ];
 ?>
 

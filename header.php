@@ -17,6 +17,20 @@
 <?php wp_body_open(); ?>
 
 <?php get_template_part('template-parts/top-bar'); ?>
+<?php
+$tour_archive = get_post_type_archive_link( 'tour' ) ? get_post_type_archive_link( 'tour' ) : home_url( '/tours/' );
+$dest_kerala  = ashfield_tax_link_or_archive( 'tour_destination', 'kerala', $tour_archive );
+$dest_golden  = ashfield_tax_link_or_archive( 'tour_destination', 'golden-triangle', $tour_archive );
+$dest_kashmir = ashfield_tax_link_or_archive( 'tour_destination', 'kashmir', $tour_archive );
+$dest_rajasthan = ashfield_tax_link_or_archive( 'tour_destination', 'rajasthan', $tour_archive );
+$dest_goa     = ashfield_tax_link_or_archive( 'tour_destination', 'goa', $tour_archive );
+$dest_dubai   = ashfield_tax_link_or_archive( 'tour_destination', 'dubai', $tour_archive );
+$type_group   = ashfield_tax_link_or_archive( 'tour_type', 'group', $tour_archive );
+$type_private = ashfield_tax_link_or_archive( 'tour_type', 'private', $tour_archive );
+$type_family  = ashfield_tax_link_or_archive( 'tour_type', 'family', $tour_archive );
+$destination_groups = ashfield_get_destination_menu_groups();
+$tour_type_items    = ashfield_get_tour_type_menu_items();
+?>
 
 <header class="site-header">
   <div class="inside-header grid-container">
@@ -41,39 +55,48 @@
       <div class="at-nav-item has-dropdown">
         <a href="<?php echo esc_url( home_url('/destinations/') ); ?>" aria-haspopup="true">Destinations <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
         <div class="mega-menu" role="menu">
-          <div class="mega-col">
-            <h4>India</h4>
-            <a href="<?php echo esc_url( home_url('/destinations/kerala/') ); ?>" role="menuitem">Kerala</a>
-            <a href="<?php echo esc_url( home_url('/destinations/golden-triangle/') ); ?>" role="menuitem">Golden Triangle</a>
-            <a href="<?php echo esc_url( home_url('/destinations/kashmir/') ); ?>" role="menuitem">Kashmir</a>
-            <a href="<?php echo esc_url( home_url('/destinations/rajasthan/') ); ?>" role="menuitem">Rajasthan</a>
-            <a href="<?php echo esc_url( home_url('/destinations/goa/') ); ?>" role="menuitem">Goa</a>
-          </div>
-          <div class="mega-col">
-            <h4>Middle East</h4>
-            <a href="<?php echo esc_url( home_url('/destinations/dubai/') ); ?>" role="menuitem">Dubai</a>
-          </div>
-          <div class="mega-col">
-            <h4>Coming Soon</h4>
-            <a href="#" class="coming" role="menuitem">Turkey</a>
-            <a href="#" class="coming" role="menuitem">Albania</a>
-          </div>
+          <?php if ( ! empty( $destination_groups ) ) : ?>
+            <?php foreach ( $destination_groups as $group ) : ?>
+              <div class="mega-col">
+                <h4><?php echo esc_html( $group['title'] ); ?></h4>
+                <?php foreach ( $group['items'] as $item ) : ?>
+                  <a href="<?php echo esc_url( $item['url'] ); ?>" role="menuitem"><?php echo esc_html( $item['label'] ); ?></a>
+                <?php endforeach; ?>
+              </div>
+            <?php endforeach; ?>
+          <?php else : ?>
+            <div class="mega-col">
+              <h4>Destinations</h4>
+              <a href="<?php echo esc_url( $dest_kerala ); ?>" role="menuitem">Kerala</a>
+              <a href="<?php echo esc_url( $dest_golden ); ?>" role="menuitem">Golden Triangle</a>
+              <a href="<?php echo esc_url( $dest_kashmir ); ?>" role="menuitem">Kashmir</a>
+              <a href="<?php echo esc_url( $dest_rajasthan ); ?>" role="menuitem">Rajasthan</a>
+              <a href="<?php echo esc_url( $dest_goa ); ?>" role="menuitem">Goa</a>
+              <a href="<?php echo esc_url( $dest_dubai ); ?>" role="menuitem">Dubai</a>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
+
       <div class="at-nav-item has-dropdown">
-        <a href="<?php echo esc_url( home_url('/tours/') ); ?>" aria-haspopup="true">Tour Types <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+        <a href="<?php echo esc_url( home_url('/our-tours/') ); ?>" aria-haspopup="true">Our Tours <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
         <div class="mega-menu" style="min-width: 400px;" role="menu">
           <div class="mega-col">
             <h4>How You Travel</h4>
-            <a href="<?php echo esc_url( home_url('/tour-types/group-tours/') ); ?>" role="menuitem">Group Tours</a>
-            <a href="<?php echo esc_url( home_url('/tour-types/private-tours/') ); ?>" role="menuitem">Private Tours</a>
-            <a href="<?php echo esc_url( home_url('/tour-types/tailor-made/') ); ?>" role="menuitem">Tailor-Made Holidays</a>
-            <a href="<?php echo esc_url( home_url('/tour-types/family-packages/') ); ?>" role="menuitem">Family Packages</a>
-            <a href="<?php echo esc_url( home_url('/tour-types/honeymoons/') ); ?>" role="menuitem">Honeymoon Escapes</a>
+            <?php if ( ! empty( $tour_type_items ) ) : ?>
+              <?php foreach ( $tour_type_items as $item ) : ?>
+                <a href="<?php echo esc_url( $item['url'] ); ?>" role="menuitem"><?php echo esc_html( $item['label'] ); ?></a>
+              <?php endforeach; ?>
+            <?php else : ?>
+              <a href="<?php echo esc_url( $type_group ); ?>" role="menuitem">Group Tours</a>
+              <a href="<?php echo esc_url( $type_private ); ?>" role="menuitem">Private Tours</a>
+              <a href="<?php echo esc_url( $type_family ); ?>" role="menuitem">Family Packages</a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
-      <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/about-us/') ); ?>">About Us</a></div>
+
+      <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/why-choose-us/') ); ?>">Why Choose Us</a></div>
       <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/offers/') ); ?>">Offers</a></div>
       <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/brochures/') ); ?>">Brochures</a></div>
       <div class="at-nav-item"><a href="<?php echo esc_url( home_url('/contact-us/') ); ?>">Contact Us</a></div>
