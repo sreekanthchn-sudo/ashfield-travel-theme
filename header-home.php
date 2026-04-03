@@ -50,23 +50,21 @@ $tour_type_items    = ashfield_get_tour_type_menu_items();
       <div class="at-nav-item has-dropdown">
         <a href="<?php echo esc_url( home_url('/destinations/') ); ?>" aria-haspopup="true">Destinations <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
         <div class="mega-menu" role="menu">
-          <?php if ( ! empty( $destination_groups ) ) : ?>
-            <?php foreach ( $destination_groups as $group ) : ?>
-              <div class="mega-col">
-                <h4><?php echo esc_html( $group['title'] ); ?></h4>
-                <?php foreach ( $group['items'] as $item ) : ?>
-                  <a href="<?php echo esc_url( $item['url'] ); ?>" role="menuitem"><?php echo esc_html( $item['label'] ); ?></a>
-                <?php endforeach; ?>
-              </div>
-            <?php endforeach; ?>
-          <?php else : ?>
-            <div class="mega-col">
-              <h4>Destinations</h4>
-              <a href="<?php echo esc_url( $dest_kerala ); ?>" role="menuitem">Kerala</a>
-              <a href="<?php echo esc_url( $dest_golden ); ?>" role="menuitem">Golden Triangle</a>
-              <a href="<?php echo esc_url( $dest_rajasthan ); ?>" role="menuitem">Rajasthan</a>
-            </div>
-          <?php endif; ?>
+          <div class="mega-col">
+            <h4>India Destinations</h4>
+            <a href="<?php echo esc_url( home_url('/destinations/india/kerala/') ); ?>" role="menuitem">Kerala</a>
+            <a href="<?php echo esc_url( home_url('/destinations/india/north-india/') ); ?>" role="menuitem">North India</a>
+            <a href="<?php echo esc_url( home_url('/destinations/india/central-india/') ); ?>" role="menuitem">Central India</a>
+            <a href="<?php echo esc_url( home_url('/destinations/india/multi-region/') ); ?>" role="menuitem">Multi-Region</a>
+          </div>
+          <div class="mega-col">
+            <h4>Global Destinations</h4>
+            <a href="<?php echo esc_url( home_url('/destinations/dubai/') ); ?>" role="menuitem">Dubai</a>
+            <a href="<?php echo esc_url( home_url('/destinations/thailand/') ); ?>" role="menuitem">Thailand</a>
+            <a href="<?php echo esc_url( home_url('/destinations/turkey/') ); ?>" role="menuitem">Turkey</a>
+            <a href="<?php echo esc_url( home_url('/destinations/bali/') ); ?>" role="menuitem">Bali</a>
+            <a href="<?php echo esc_url( home_url('/destinations/albania/') ); ?>" role="menuitem">Albania</a>
+          </div>
         </div>
       </div>
 
@@ -74,16 +72,14 @@ $tour_type_items    = ashfield_get_tour_type_menu_items();
         <a href="<?php echo esc_url( home_url('/our-tours/') ); ?>" aria-haspopup="true">Our Tours <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
         <div class="mega-menu" style="min-width: 400px;" role="menu">
           <div class="mega-col">
-            <h4>How You Travel</h4>
-            <?php if ( ! empty( $tour_type_items ) ) : ?>
-              <?php foreach ( $tour_type_items as $item ) : ?>
-                <a href="<?php echo esc_url( $item['url'] ); ?>" role="menuitem"><?php echo esc_html( $item['label'] ); ?></a>
-              <?php endforeach; ?>
-            <?php else : ?>
-              <a href="<?php echo esc_url( $type_group ); ?>" role="menuitem">Group Tours</a>
-              <a href="<?php echo esc_url( $type_private ); ?>" role="menuitem">Private Tours</a>
-              <a href="<?php echo esc_url( $type_family ); ?>" role="menuitem">Family Holidays</a>
-            <?php endif; ?>
+            <h4>Tour Types</h4>
+            <a href="<?php echo esc_url( home_url('/our-tours/classic-group/') ); ?>" role="menuitem">Classic Group</a>
+            <a href="<?php echo esc_url( home_url('/our-tours/solo/') ); ?>" role="menuitem">Solo</a>
+            <a href="<?php echo esc_url( home_url('/our-tours/private-custom/') ); ?>" role="menuitem">Private Custom</a>
+            <a href="<?php echo esc_url( home_url('/our-tours/transfers/') ); ?>" role="menuitem">Transfers</a>
+            <a href="<?php echo esc_url( home_url('/our-tours/wellness/') ); ?>" role="menuitem">Wellness</a>
+            <a href="<?php echo esc_url( home_url('/our-tours/medical/') ); ?>" role="menuitem">Medical</a>
+            <a href="<?php echo esc_url( home_url('/our-tours/family-reunion/') ); ?>" role="menuitem">Family Reunion</a>
           </div>
         </div>
       </div>
