@@ -217,14 +217,16 @@ body.ashfield-travel .site-header .inside-header {
   justify-content: space-between !important;
   height: auto !important;
   min-height: 80px;
+  max-width: 1500px !important;
   padding: 10px 32px !important;
+  gap: 20px;
 }
 
 /* Ensure the nav doesn't collapse or overlap */
 .at-nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
 }
 
 /* Hamburger: hidden on desktop */
@@ -2265,7 +2267,7 @@ body.ashfield-homepage .at-sticky-brochure {
    ───────────────────────────────── */
 .at-nav { display: flex; align-items: center; gap: 0; }
 .at-nav-item {
-  padding: 28px 12px;
+  padding: 28px 10px;
   font-size: 15px;
   font-weight: 500;
   color: var(--at-text-dark);
